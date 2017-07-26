@@ -1,0 +1,8 @@
+{
+  "presets": ["es2015", "stage-0"],
+  "plugins": [["transform-runtime", { "helpers": false, "polyfill": false }], "transform-react-jsx", "transform-flow-strip-types"],
+  "env": {
+    "development": { "plugins": [] },
+    "test": { "plugins": ["transform-es2015-modules-commonjs"] }
+  }
+}

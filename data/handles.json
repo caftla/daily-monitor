@@ -1,0 +1,5120 @@
+{"rows": [
+    {
+        "handle_url": "http://52.28.240.8/ae/360-vr",
+        "handle_name": "360-vr",
+        "country_code": "AE",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://W1.BUZ2MOBILE.COM/ae/360-vr",
+        "handle_name": "360-vr",
+        "country_code": "AE",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/360-vr",
+        "handle_name": "360-vr",
+        "country_code": "AE",
+        "icount": 142226
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/app-lock",
+        "handle_name": "app-lock",
+        "country_code": "AE",
+        "icount": 284130
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "app-lock",
+        "country_code": "AE",
+        "icount": 27183
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/app-lock-ar",
+        "handle_name": "app-lock-ar",
+        "country_code": "AE",
+        "icount": 52
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "app-lock-ar",
+        "country_code": "AE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.trendme.co/ae/beauty-tm",
+        "handle_name": "beauty-tm",
+        "country_code": "AE",
+        "icount": 217
+    },
+    {
+        "handle_url": "http://52.28.240.8/ae/bollywood-mix",
+        "handle_name": "bollywood-mix",
+        "country_code": "AE",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://W1.BUZ2MOBILE.COM/ae/bollywood-mix",
+        "handle_name": "bollywood-mix",
+        "country_code": "AE",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/bollywood-mix",
+        "handle_name": "bollywood-mix",
+        "country_code": "AE",
+        "icount": 7975
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "bollywood-mix",
+        "country_code": "AE",
+        "icount": 44
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/bollywood-mix-ar",
+        "handle_name": "bollywood-mix-ar",
+        "country_code": "AE",
+        "icount": 18
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/cooking-2-impress",
+        "handle_name": "cooking-2-impress",
+        "country_code": "AE",
+        "icount": 585
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/cookingvideo",
+        "handle_name": "cookingvideo",
+        "country_code": "AE",
+        "icount": 212
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "AE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/crazy-birds-2",
+        "handle_name": "crazy-birds-2",
+        "country_code": "AE",
+        "icount": 70539
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/dancing-video",
+        "handle_name": "dancing-video",
+        "country_code": "AE",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/delicious-recipes",
+        "handle_name": "delicious-recipes",
+        "country_code": "AE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/download-collection1",
+        "handle_name": "download-collection1",
+        "country_code": "AE",
+        "icount": 27785
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "download-collection1",
+        "country_code": "AE",
+        "icount": 78
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/download-movie-tgm",
+        "handle_name": "download-movie-tgm",
+        "country_code": "AE",
+        "icount": 107
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/flamilingo-career-rsh-edia",
+        "handle_name": "flamilingo-career-rsh-edia",
+        "country_code": "AE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/flamilingo-salary",
+        "handle_name": "flamilingo-salary",
+        "country_code": "AE",
+        "icount": 28981
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/flappy-bird",
+        "handle_name": "flappy-bird",
+        "country_code": "AE",
+        "icount": 7266
+    },
+    {
+        "handle_url": "http://n.gamezones.biz/tracking",
+        "handle_name": "flappy-bird",
+        "country_code": "AE",
+        "icount": 108
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/flappy-sheep",
+        "handle_name": "flappy-sheep",
+        "country_code": "AE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/fruit-cut-ninja",
+        "handle_name": "fruit-cut-ninja",
+        "country_code": "AE",
+        "icount": 389765
+    },
+    {
+        "handle_url": "http://n.gamezones.biz/tracking",
+        "handle_name": "fruit-cut-ninja",
+        "country_code": "AE",
+        "icount": 19847
+    },
+    {
+        "handle_url": "http://n.gamezones.biz/ae/fruit-cut-ninja-ar",
+        "handle_name": "fruit-cut-ninja-ar",
+        "country_code": "AE",
+        "icount": 45
+    },
+    {
+        "handle_url": "http://n.gamezones.biz/tracking",
+        "handle_name": "fruit-cut-ninja-ar",
+        "country_code": "AE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/jumping-thief",
+        "handle_name": "jumping-thief",
+        "country_code": "AE",
+        "icount": 79
+    },
+    {
+        "handle_url": "http://n.trendme.co/ae/kids-activities-tm",
+        "handle_name": "kids-activities-tm",
+        "country_code": "AE",
+        "icount": 13
+    },
+    {
+        "handle_url": "http://n.trendme.co/ae/kids-activities-tm-ar",
+        "handle_name": "kids-activities-tm-ar",
+        "country_code": "AE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/parking-training",
+        "handle_name": "parking-training",
+        "country_code": "AE",
+        "icount": 149
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/phone-memory",
+        "handle_name": "phone-memory",
+        "country_code": "AE",
+        "icount": 649
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/plants-vs-monsters",
+        "handle_name": "plants-vs-monsters",
+        "country_code": "AE",
+        "icount": 233
+    },
+    {
+        "handle_url": "http://n.trendme.co/ae/protection-tm-ar",
+        "handle_name": "protection-tm-ar",
+        "country_code": "AE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/racing-monster-gz",
+        "handle_name": "racing-monster-gz",
+        "country_code": "AE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.gamezones.biz/ae/racing-monster-gz",
+        "handle_name": "racing-monster-gz",
+        "country_code": "AE",
+        "icount": 368
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/ramadan-2-purple",
+        "handle_name": "ramadan-2-purple",
+        "country_code": "AE",
+        "icount": 81810
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "ramadan-2-purple",
+        "country_code": "AE",
+        "icount": 2696
+    },
+    {
+        "handle_url": "http://n.trendme.co/ae/rich-tm",
+        "handle_name": "rich-tm",
+        "country_code": "AE",
+        "icount": 255
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/river-adventure",
+        "handle_name": "river-adventure",
+        "country_code": "AE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://52.28.240.8/ae/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "AE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://W1.BUZ2MOBILE.COM/ae/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "AE",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "AE",
+        "icount": 111886
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "speed-test",
+        "country_code": "AE",
+        "icount": 7355
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/speed-test-ar",
+        "handle_name": "speed-test-ar",
+        "country_code": "AE",
+        "icount": 670
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "speed-test-ar",
+        "country_code": "AE",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/super-dario",
+        "handle_name": "super-dario",
+        "country_code": "AE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/swap-face",
+        "handle_name": "swap-face",
+        "country_code": "AE",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/ae/top-games",
+        "handle_name": "top-games",
+        "country_code": "AE",
+        "icount": 9423
+    },
+    {
+        "handle_url": "http://n.gamezones.biz/ae/unlimited-games-gz",
+        "handle_name": "unlimited-games-gz",
+        "country_code": "AE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/ae/vid-ar-vf",
+        "handle_name": "vid-ar-vf",
+        "country_code": "AE",
+        "icount": 15
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ae/video-link-search",
+        "handle_name": "video-link-search",
+        "country_code": "AE",
+        "icount": 427
+    },
+    {
+        "handle_url": "http://n.trendme.co/ae/weight-tm",
+        "handle_name": "weight-tm",
+        "country_code": "AE",
+        "icount": 4861
+    },
+    {
+        "handle_url": "http://m.appspool.net/au/anti-virus-avg",
+        "handle_name": "anti-virus-avg",
+        "country_code": "AU",
+        "icount": 38272
+    },
+    {
+        "handle_url": "http://m.videoflux.tv/au/baby-vf",
+        "handle_name": "baby-vf",
+        "country_code": "AU",
+        "icount": 1441
+    },
+    {
+        "handle_url": "http://m.appspool.net/au/crazy-bird-appspool",
+        "handle_name": "crazy-bird-appspool",
+        "country_code": "AU",
+        "icount": 21574
+    },
+    {
+        "handle_url": "http://m.appspool.net/au/flappy-bird-appspool",
+        "handle_name": "flappy-bird-appspool",
+        "country_code": "AU",
+        "icount": 21416
+    },
+    {
+        "handle_url": "http://m.appspool.nethttp://m.appspool.net/au/flappy-bird-appspool",
+        "handle_name": "flappy-bird-appspool",
+        "country_code": "AU",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://m.appspool.net/au/phone-memory",
+        "handle_name": "phone-memory",
+        "country_code": "AU",
+        "icount": 1625
+    },
+    {
+        "handle_url": "http://m.appspool.net/au/photo-editor-appspool",
+        "handle_name": "photo-editor-appspool",
+        "country_code": "AU",
+        "icount": 10855
+    },
+    {
+        "handle_url": "http://de-ec2-bravo.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 355053
+    },
+    {
+        "handle_url": "http://de-ec2-foxtrot.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 355186
+    },
+    {
+        "handle_url": "http://m.flamilingo.com/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 2276
+    },
+    {
+        "handle_url": "http://n.apptips.me/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 355543
+    },
+    {
+        "handle_url": "http://n.mobzones.com/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 2276
+    },
+    {
+        "handle_url": "http://sg-ec2-charlie.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 355817
+    },
+    {
+        "handle_url": "http://sg-ec2-foxtrot.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 355979
+    },
+    {
+        "handle_url": "http://t.flamilingo.com/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 2277
+    },
+    {
+        "handle_url": "http://t.mozzi.biz:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 11291
+    },
+    {
+        "handle_url": "http://th-alpha-host.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 341531
+    },
+    {
+        "handle_url": "http://th-bravo-host.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 341567
+    },
+    {
+        "handle_url": "http://v.flamilingo.com/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 2273
+    },
+    {
+        "handle_url": "http://vn-bravo-host.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 354341
+    },
+    {
+        "handle_url": "http://vn-charlie-host.sam-media.com:8081/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 310687
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 2268
+    },
+    {
+        "handle_url": "http://w.mozzi.com/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 70313
+    },
+    {
+        "handle_url": "http://w.vn-mozzi.biz/au/review-au",
+        "handle_name": "review-au",
+        "country_code": "AU",
+        "icount": 22482
+    },
+    {
+        "handle_url": "http://m.appspool.net/au/secure-pro",
+        "handle_name": "secure-pro",
+        "country_code": "AU",
+        "icount": 1358
+    },
+    {
+        "handle_url": "http://m.appspool.net/au/speedtest",
+        "handle_name": "speedtest",
+        "country_code": "AU",
+        "icount": 3305
+    },
+    {
+        "handle_url": "http://m.videoflux.tv/au/trending-video-vf",
+        "handle_name": "trending-video-vf",
+        "country_code": "AU",
+        "icount": 7890
+    },
+    {
+        "handle_url": "http://de-ec2-bravo.sam-media.com:8088/be/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "BE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "BE",
+        "icount": 957
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/fruit-chef-fr",
+        "handle_name": "fruit-chef-fr",
+        "country_code": "BE",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/galaxy-s8-fr",
+        "handle_name": "galaxy-s8-fr",
+        "country_code": "BE",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "BE",
+        "icount": 15
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/iphone7",
+        "handle_name": "iphone7",
+        "country_code": "BE",
+        "icount": 586
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/iphone7-black",
+        "handle_name": "iphone7-black",
+        "country_code": "BE",
+        "icount": 408
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/pokemon-go",
+        "handle_name": "pokemon-go",
+        "country_code": "BE",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/popcorn",
+        "handle_name": "popcorn",
+        "country_code": "BE",
+        "icount": 8
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/be/samsung-s7",
+        "handle_name": "samsung-s7",
+        "country_code": "BE",
+        "icount": 411
+    },
+    {
+        "handle_url": "http://n.trendme.co/bh/beauty-tm",
+        "handle_name": "beauty-tm",
+        "country_code": "BH",
+        "icount": 552
+    },
+    {
+        "handle_url": "http://n.trendme.co/bh/beauty-tm-ar",
+        "handle_name": "beauty-tm-ar",
+        "country_code": "BH",
+        "icount": 1553
+    },
+    {
+        "handle_url": "http://n.trendme.co/tracking",
+        "handle_name": "beauty-tm-ar",
+        "country_code": "BH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/bh-clean-pro",
+        "handle_name": "bh-clean-pro",
+        "country_code": "BH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "bh-clean-pro",
+        "country_code": "BH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/bollywood-mix",
+        "handle_name": "bollywood-mix",
+        "country_code": "BH",
+        "icount": 20879
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "bollywood-mix",
+        "country_code": "BH",
+        "icount": 984
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/bollywood-mix-ar",
+        "handle_name": "bollywood-mix-ar",
+        "country_code": "BH",
+        "icount": 95243
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "bollywood-mix-ar",
+        "country_code": "BH",
+        "icount": 1783
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/clean-pro",
+        "handle_name": "clean-pro",
+        "country_code": "BH",
+        "icount": 220878
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "clean-pro",
+        "country_code": "BH",
+        "icount": 144987
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/clean-pro-ar",
+        "handle_name": "clean-pro-ar",
+        "country_code": "BH",
+        "icount": 848903
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "clean-pro-ar",
+        "country_code": "BH",
+        "icount": 596063
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/clean-pro-zain",
+        "handle_name": "clean-pro-zain",
+        "country_code": "BH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/cooking-2-impress",
+        "handle_name": "cooking-2-impress",
+        "country_code": "BH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/cooking-2-impress-ar",
+        "handle_name": "cooking-2-impress-ar",
+        "country_code": "BH",
+        "icount": 18
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "cooking-2-impress-ar",
+        "country_code": "BH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/bh/crazy-birds-rsh-softgames",
+        "handle_name": "crazy-birds-rsh-softgames",
+        "country_code": "BH",
+        "icount": 7564
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tracking",
+        "handle_name": "crazy-birds-rsh-softgames",
+        "country_code": "BH",
+        "icount": 272
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/bh/crazy-birds-rsh-softgames-ar",
+        "handle_name": "crazy-birds-rsh-softgames-ar",
+        "country_code": "BH",
+        "icount": 24
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/football-goals",
+        "handle_name": "football-goals",
+        "country_code": "BH",
+        "icount": 306
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/football-goals-ar",
+        "handle_name": "football-goals-ar",
+        "country_code": "BH",
+        "icount": 316
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "football-goals-ar",
+        "country_code": "BH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/bh/generic-m-learning-rsh-edia",
+        "handle_name": "generic-m-learning-rsh-edia",
+        "country_code": "BH",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/bh/job-m-learning-rsh-edia-ar",
+        "handle_name": "job-m-learning-rsh-edia-ar",
+        "country_code": "BH",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/bh/m-learning",
+        "handle_name": "m-learning",
+        "country_code": "BH",
+        "icount": 127
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/tracking",
+        "handle_name": "m-learning",
+        "country_code": "BH",
+        "icount": 19
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/bh/mlearning-ar",
+        "handle_name": "mlearning-ar",
+        "country_code": "BH",
+        "icount": 1857
+    },
+    {
+        "handle_url": "http://n.trendme.co/bh/protection-tm-ar",
+        "handle_name": "protection-tm-ar",
+        "country_code": "BH",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/ramadan-2-purple",
+        "handle_name": "ramadan-2-purple",
+        "country_code": "BH",
+        "icount": 56751
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "ramadan-2-purple",
+        "country_code": "BH",
+        "icount": 2700
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/ramadan-2-purple-ar",
+        "handle_name": "ramadan-2-purple-ar",
+        "country_code": "BH",
+        "icount": 24
+    },
+    {
+        "handle_url": "http://n.trendme.co/bh/ramadan-kids-ar-tm",
+        "handle_name": "ramadan-kids-ar-tm",
+        "country_code": "BH",
+        "icount": 4231
+    },
+    {
+        "handle_url": "http://n.trendme.co/tracking",
+        "handle_name": "ramadan-kids-ar-tm",
+        "country_code": "BH",
+        "icount": 36
+    },
+    {
+        "handle_url": "http://n.trendme.co/bh/ramadan-kids-tm",
+        "handle_name": "ramadan-kids-tm",
+        "country_code": "BH",
+        "icount": 44
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/recipe-video",
+        "handle_name": "recipe-video",
+        "country_code": "BH",
+        "icount": 8330
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "recipe-video",
+        "country_code": "BH",
+        "icount": 1654
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/bh/recipe-video-ar",
+        "handle_name": "recipe-video-ar",
+        "country_code": "BH",
+        "icount": 101
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "recipe-video-ar",
+        "country_code": "BH",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/bh/vid-ar-vf-ar",
+        "handle_name": "vid-ar-vf-ar",
+        "country_code": "BH",
+        "icount": 9076
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/tracking",
+        "handle_name": "vid-ar-vf-ar",
+        "country_code": "BH",
+        "icount": 907
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/bh/vid-ar-vf-en",
+        "handle_name": "vid-ar-vf-en",
+        "country_code": "BH",
+        "icount": 25761
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/tracking",
+        "handle_name": "vid-ar-vf-en",
+        "country_code": "BH",
+        "icount": 612
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/de/antivirus",
+        "handle_name": "antivirus",
+        "country_code": "DE",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/antivirus-ava",
+        "handle_name": "antivirus-ava",
+        "country_code": "DE",
+        "icount": 368
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/de/antivirus-ava",
+        "handle_name": "antivirus-ava",
+        "country_code": "DE",
+        "icount": 276
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/antivirus-kspr",
+        "handle_name": "antivirus-kspr",
+        "country_code": "DE",
+        "icount": 19964
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/battery-saver",
+        "handle_name": "battery-saver",
+        "country_code": "DE",
+        "icount": 9636
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/batterysaver2",
+        "handle_name": "batterysaver2",
+        "country_code": "DE",
+        "icount": 57245
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/bj-sexy-v2",
+        "handle_name": "bj-sexy-v2",
+        "country_code": "DE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/blackjack",
+        "handle_name": "blackjack",
+        "country_code": "DE",
+        "icount": 76
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/blackjack-sexy",
+        "handle_name": "blackjack-sexy",
+        "country_code": "DE",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/cleanmaster",
+        "handle_name": "cleanmaster",
+        "country_code": "DE",
+        "icount": 180
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/cleanmaster2",
+        "handle_name": "cleanmaster2",
+        "country_code": "DE",
+        "icount": 94955
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/cleanmaster2-t1",
+        "handle_name": "cleanmaster2-t1",
+        "country_code": "DE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/contentclub",
+        "handle_name": "contentclub",
+        "country_code": "DE",
+        "icount": 23
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/cut-rope",
+        "handle_name": "cut-rope",
+        "country_code": "DE",
+        "icount": 48
+    },
+    {
+        "handle_url": "http://n.mobfun.me/de/download-ad",
+        "handle_name": "download-ad",
+        "country_code": "DE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/download-ad-red",
+        "handle_name": "download-ad-red",
+        "country_code": "DE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "DE",
+        "icount": 904
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/download-managerx",
+        "handle_name": "download-managerx",
+        "country_code": "DE",
+        "icount": 62
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/download-now",
+        "handle_name": "download-now",
+        "country_code": "DE",
+        "icount": 14
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/facebook-video",
+        "handle_name": "facebook-video",
+        "country_code": "DE",
+        "icount": 23
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/fart-machine",
+        "handle_name": "fart-machine",
+        "country_code": "DE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/flappy-bird",
+        "handle_name": "flappy-bird",
+        "country_code": "DE",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/flash",
+        "handle_name": "flash",
+        "country_code": "DE",
+        "icount": 17892
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/football-tricks",
+        "handle_name": "football-tricks",
+        "country_code": "DE",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/fruit-chef",
+        "handle_name": "fruit-chef",
+        "country_code": "DE",
+        "icount": 58
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/gameclub",
+        "handle_name": "gameclub",
+        "country_code": "DE",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "DE",
+        "icount": 16170
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/de/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "DE",
+        "icount": 235
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/multigames",
+        "handle_name": "multigames",
+        "country_code": "DE",
+        "icount": 47819
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/multigames",
+        "handle_name": "multigames",
+        "country_code": "DE",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/pass-manager",
+        "handle_name": "pass-manager",
+        "country_code": "DE",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/de/pokemon-go",
+        "handle_name": "pokemon-go",
+        "country_code": "DE",
+        "icount": 363
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/popcorn",
+        "handle_name": "popcorn",
+        "country_code": "DE",
+        "icount": 33
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/ringtone",
+        "handle_name": "ringtone",
+        "country_code": "DE",
+        "icount": 432
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/skype-emo",
+        "handle_name": "skype-emo",
+        "country_code": "DE",
+        "icount": 40
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/talking-tom",
+        "handle_name": "talking-tom",
+        "country_code": "DE",
+        "icount": 771
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/wallpaper",
+        "handle_name": "wallpaper",
+        "country_code": "DE",
+        "icount": 1705
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/whats-backup",
+        "handle_name": "whats-backup",
+        "country_code": "DE",
+        "icount": 60
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/de/whats-backup",
+        "handle_name": "whats-backup",
+        "country_code": "DE",
+        "icount": 434
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/de/women-football",
+        "handle_name": "women-football",
+        "country_code": "DE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.beemobi.me/de/xtreme-videos",
+        "handle_name": "xtreme-videos",
+        "country_code": "DE",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ee/antivirus-kspr",
+        "handle_name": "antivirus-kspr",
+        "country_code": "EE",
+        "icount": 36337
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/battery-saver",
+        "handle_name": "battery-saver",
+        "country_code": "EE",
+        "icount": 2598
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "EE",
+        "icount": 404
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/cut-rope",
+        "handle_name": "cut-rope",
+        "country_code": "EE",
+        "icount": 1097
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ee/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "EE",
+        "icount": 6751
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ee/download-managerx",
+        "handle_name": "download-managerx",
+        "country_code": "EE",
+        "icount": 8547
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/facebook-video",
+        "handle_name": "facebook-video",
+        "country_code": "EE",
+        "icount": 796
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/flappybird",
+        "handle_name": "flappybird",
+        "country_code": "EE",
+        "icount": 949
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/flash-light",
+        "handle_name": "flash-light",
+        "country_code": "EE",
+        "icount": 1075
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/iphone6s",
+        "handle_name": "iphone6s",
+        "country_code": "EE",
+        "icount": 24
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/iphone7-black",
+        "handle_name": "iphone7-black",
+        "country_code": "EE",
+        "icount": 63246
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/iphone7-black-nr",
+        "handle_name": "iphone7-black-nr",
+        "country_code": "EE",
+        "icount": 1613
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/iq-test",
+        "handle_name": "iq-test",
+        "country_code": "EE",
+        "icount": 388
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/mario-run",
+        "handle_name": "mario-run",
+        "country_code": "EE",
+        "icount": 1781
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/multigames",
+        "handle_name": "multigames",
+        "country_code": "EE",
+        "icount": 398
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/popcorn",
+        "handle_name": "popcorn",
+        "country_code": "EE",
+        "icount": 825
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ee/download-manager",
+        "handle_name": "rotator1",
+        "country_code": "EE",
+        "icount": 3786
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ee/download-managerx",
+        "handle_name": "rotator1",
+        "country_code": "EE",
+        "icount": 5562
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/samsung-s7",
+        "handle_name": "samsung-s7",
+        "country_code": "EE",
+        "icount": 56122
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/travel-voucher",
+        "handle_name": "travel-voucher",
+        "country_code": "EE",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ee/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "EE",
+        "icount": 7200
+    },
+    {
+        "handle_url": "http://n.beemobi.me/es/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "ES",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/es/descarga-v2",
+        "handle_name": "descarga-v2",
+        "country_code": "ES",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/es/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "ES",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/es/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "ES",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://n.beemobi.me/es/gameclub",
+        "handle_name": "gameclub",
+        "country_code": "ES",
+        "icount": 74235
+    },
+    {
+        "handle_url": "http://n.beemobi.me/es/gameclub-mov",
+        "handle_name": "gameclub-mov",
+        "country_code": "ES",
+        "icount": 53607
+    },
+    {
+        "handle_url": "http://n.telemovil.tv/es/generic-tv",
+        "handle_name": "generic-tv",
+        "country_code": "ES",
+        "icount": 30
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/es/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "ES",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/es/mixclub",
+        "handle_name": "mixclub",
+        "country_code": "ES",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/es/mlearning",
+        "handle_name": "mlearning",
+        "country_code": "ES",
+        "icount": 24735
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/es/mlearning-mov",
+        "handle_name": "mlearning-mov",
+        "country_code": "ES",
+        "icount": 51097
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/es/multigames",
+        "handle_name": "multigames",
+        "country_code": "ES",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/es/phone-cleaner",
+        "handle_name": "phone-cleaner",
+        "country_code": "ES",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.beemobi.me/es/gameclub-mov",
+        "handle_name": "rotator1",
+        "country_code": "ES",
+        "icount": 4627
+    },
+    {
+        "handle_url": "http://n.teletube.tv/es/gameclub-mov",
+        "handle_name": "rotator1",
+        "country_code": "ES",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.teletube.tv/es/tvclub-generic",
+        "handle_name": "rotator1",
+        "country_code": "ES",
+        "icount": 163
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/es/mlearning-mov",
+        "handle_name": "rotator1",
+        "country_code": "ES",
+        "icount": 4434
+    },
+    {
+        "handle_url": "http://n.beemobi.me/es/tnc-beemobi",
+        "handle_name": "tnc-beemobi",
+        "country_code": "ES",
+        "icount": 34
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/es/tnc-flamilingo",
+        "handle_name": "tnc-flamilingo",
+        "country_code": "ES",
+        "icount": 31
+    },
+    {
+        "handle_url": "http://n.mobfun.me/es/tnc-mobfun",
+        "handle_name": "tnc-mobfun",
+        "country_code": "ES",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobilingo.eu/es/tnc-mobilingo",
+        "handle_name": "tnc-mobilingo",
+        "country_code": "ES",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/es/tnc-mobiworld",
+        "handle_name": "tnc-mobiworld",
+        "country_code": "ES",
+        "icount": 18
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/es/tnc-mozzi",
+        "handle_name": "tnc-mozzi",
+        "country_code": "ES",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.teletube.tv/es/tnc-teletube",
+        "handle_name": "tnc-teletube",
+        "country_code": "ES",
+        "icount": 72
+    },
+    {
+        "handle_url": "http://n.trendme.co/es/tnc-trendme",
+        "handle_name": "tnc-trendme",
+        "country_code": "ES",
+        "icount": 42
+    },
+    {
+        "handle_url": "http://n.videomundo.tv/es/tnc-videomundo",
+        "handle_name": "tnc-videomundo",
+        "country_code": "ES",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.trendme.co/es/trending",
+        "handle_name": "trending",
+        "country_code": "ES",
+        "icount": 33
+    },
+    {
+        "handle_url": "http://n.teletube.tv/es/tvclub",
+        "handle_name": "tvclub",
+        "country_code": "ES",
+        "icount": 15605
+    },
+    {
+        "handle_url": "http://n.teletube.tv/es/tvclub-generic",
+        "handle_name": "tvclub-generic",
+        "country_code": "ES",
+        "icount": 30566
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/es/whats-wp-1",
+        "handle_name": "whats-wp-1",
+        "country_code": "ES",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://n.apptips.me/fr/crazy-birds-2",
+        "handle_name": "crazy-birds-2",
+        "country_code": "FR",
+        "icount": 63
+    },
+    {
+        "handle_url": "http://n.apptips.me/fr/flappybird",
+        "handle_name": "flappybird",
+        "country_code": "FR",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://n.apptips.me/fr/flash-light",
+        "handle_name": "flash-light",
+        "country_code": "FR",
+        "icount": 8
+    },
+    {
+        "handle_url": "http://n.mobzones.com/fr/flash-light",
+        "handle_name": "flash-light",
+        "country_code": "FR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.apptips.me/fr/fruit-chef",
+        "handle_name": "fruit-chef",
+        "country_code": "FR",
+        "icount": 68
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/gh/horoscope-2017-exclusive",
+        "handle_name": "horoscope-2017-exclusive",
+        "country_code": "GH",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://m.mobiworld.biz/gr/antivirus-kspr",
+        "handle_name": "antivirus-kspr",
+        "country_code": "GR",
+        "icount": 1020927
+    },
+    {
+        "handle_url": "http://m.mobiworld.biz/gr/antivirus-kspr/",
+        "handle_name": "antivirus-kspr",
+        "country_code": "GR",
+        "icount": 2554
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/gr/choose-market",
+        "handle_name": "choose-market",
+        "country_code": "GR",
+        "icount": 18
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/choose-market",
+        "handle_name": "choose-market",
+        "country_code": "GR",
+        "icount": 217
+    },
+    {
+        "handle_url": "http://m.mobiworld.biz/gr/contentclub",
+        "handle_name": "contentclub",
+        "country_code": "GR",
+        "icount": 77121
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/gr/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "GR",
+        "icount": 104054
+    },
+    {
+        "handle_url": "http://m.mobiworld.biz/gr/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "GR",
+        "icount": 36762
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/galaxy-s8",
+        "handle_name": "galaxy-s8",
+        "country_code": "GR",
+        "icount": 54496
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/gr/gameclub",
+        "handle_name": "gameclub",
+        "country_code": "GR",
+        "icount": 40452
+    },
+    {
+        "handle_url": "http://m.mobiworld.biz/gr/gr-test-publish-msg-bundle",
+        "handle_name": "gr-test-publish-msg-bundle",
+        "country_code": "GR",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/iphone7",
+        "handle_name": "iphone7",
+        "country_code": "GR",
+        "icount": 3014
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/iphone7-black",
+        "handle_name": "iphone7-black",
+        "country_code": "GR",
+        "icount": 5631
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/gr/plaisio",
+        "handle_name": "plaisio",
+        "country_code": "GR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/plaisio",
+        "handle_name": "plaisio",
+        "country_code": "GR",
+        "icount": 31209
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/gr/supermarket",
+        "handle_name": "supermarket",
+        "country_code": "GR",
+        "icount": 15447
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/supermarket",
+        "handle_name": "supermarket",
+        "country_code": "GR",
+        "icount": 35446
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/tnc-funiwin",
+        "handle_name": "tnc-funiwin",
+        "country_code": "GR",
+        "icount": 4407
+    },
+    {
+        "handle_url": "http://m.mobiworld.biz/gr/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "GR",
+        "icount": 187
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/win-cash",
+        "handle_name": "win-cash",
+        "country_code": "GR",
+        "icount": 75392
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/winclub",
+        "handle_name": "winclub",
+        "country_code": "GR",
+        "icount": 217
+    },
+    {
+        "handle_url": "http://n.funiwin.com/gr/winclub4",
+        "handle_name": "winclub4",
+        "country_code": "GR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/hk/iphone",
+        "handle_name": "iphone",
+        "country_code": "HK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://m.mobfun.me/id/application1",
+        "handle_name": "application1",
+        "country_code": "ID",
+        "icount": 13225
+    },
+    {
+        "handle_url": "http://m.mobfun.me/tracking",
+        "handle_name": "application1",
+        "country_code": "ID",
+        "icount": 53
+    },
+    {
+        "handle_url": "http://m.mobfun.me/id/game1",
+        "handle_name": "game1",
+        "country_code": "ID",
+        "icount": 47418
+    },
+    {
+        "handle_url": "http://m.mobfun.me/tracking",
+        "handle_name": "game1",
+        "country_code": "ID",
+        "icount": 13
+    },
+    {
+        "handle_url": "http://m.mobfun.me/id/testing",
+        "handle_name": "testing",
+        "country_code": "ID",
+        "icount": 8
+    },
+    {
+        "handle_url": "http://m.mobfun.me/tracking",
+        "handle_name": "testing",
+        "country_code": "ID",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://m.mobfun.me/id/video1",
+        "handle_name": "video1",
+        "country_code": "ID",
+        "icount": 8502
+    },
+    {
+        "handle_url": "http://m.mobfun.me/tracking",
+        "handle_name": "video1",
+        "country_code": "ID",
+        "icount": 30
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/calvin-klein-v2",
+        "handle_name": "calvin-klein-v2",
+        "country_code": "IE",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/m-s",
+        "handle_name": "m-s",
+        "country_code": "IE",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/new-look",
+        "handle_name": "new-look",
+        "country_code": "IE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/calvin-klein-v2",
+        "handle_name": "rot-calvin-klein-v2",
+        "country_code": "IE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/rot-calvin-klein-v2",
+        "handle_name": "rot-calvin-klein-v2",
+        "country_code": "IE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/m-s",
+        "handle_name": "rot-m-s",
+        "country_code": "IE",
+        "icount": 15
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/tsco-voucher2",
+        "handle_name": "rot-tsco-voucher2",
+        "country_code": "IE",
+        "icount": 37
+    },
+    {
+        "handle_url": "http://n.mobzones.com/ie/tsco-voucher2",
+        "handle_name": "tsco-voucher2",
+        "country_code": "IE",
+        "icount": 14
+    },
+    {
+        "handle_url": "http://n.mobtrendz.com/iq/beauty-tm",
+        "handle_name": "beauty-tm",
+        "country_code": "IQ",
+        "icount": 13
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/candyrain2",
+        "handle_name": "candyrain2",
+        "country_code": "IQ",
+        "icount": 5163
+    },
+    {
+        "handle_url": "http://n.mobzones.com/iq/cooking-video-v2",
+        "handle_name": "cooking-video-v2",
+        "country_code": "IQ",
+        "icount": 359759
+    },
+    {
+        "handle_url": "http://n.mobzones.com/iq/cooking2impress-vf",
+        "handle_name": "cooking2impress-vf",
+        "country_code": "IQ",
+        "icount": 32801
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/crazybird",
+        "handle_name": "crazybird",
+        "country_code": "IQ",
+        "icount": 17
+    },
+    {
+        "handle_url": "http://W1.MOZZI.COM/iq/crazybirds",
+        "handle_name": "crazybirds",
+        "country_code": "IQ",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/crazybirds",
+        "handle_name": "crazybirds",
+        "country_code": "IQ",
+        "icount": 245630
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/crazybirds-rsh-softgames",
+        "handle_name": "crazybirds-rsh-softgames",
+        "country_code": "IQ",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/dancing-videos",
+        "handle_name": "dancing-videos",
+        "country_code": "IQ",
+        "icount": 33557
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/doua-prayer",
+        "handle_name": "doua-prayer",
+        "country_code": "IQ",
+        "icount": 9244191
+    },
+    {
+        "handle_url": "http://n.mobfun.cohttp://n.mobfun.co/iq/doua-prayer",
+        "handle_name": "doua-prayer",
+        "country_code": "IQ",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/download-collection-3",
+        "handle_name": "download-collection-3",
+        "country_code": "IQ",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "IQ",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/download-mobile",
+        "handle_name": "download-mobile",
+        "country_code": "IQ",
+        "icount": 58593
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/iq/flamilingo-career",
+        "handle_name": "flamilingo-career",
+        "country_code": "IQ",
+        "icount": 99517
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/iq/flamilingo-salary-rsh-edia",
+        "handle_name": "flamilingo-salary-rsh-edia",
+        "country_code": "IQ",
+        "icount": 2275
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/flappy-bird",
+        "handle_name": "flappy-bird",
+        "country_code": "IQ",
+        "icount": 186
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/flappy-birds",
+        "handle_name": "flappy-birds",
+        "country_code": "IQ",
+        "icount": 13
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/flappy-birds",
+        "handle_name": "flappy-birds",
+        "country_code": "IQ",
+        "icount": 6895
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/flappy-sheeps",
+        "handle_name": "flappy-sheeps",
+        "country_code": "IQ",
+        "icount": 47
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/flappybirds",
+        "handle_name": "flappybirds",
+        "country_code": "IQ",
+        "icount": 196158
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/football-ringtones",
+        "handle_name": "football-ringtones",
+        "country_code": "IQ",
+        "icount": 43
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/fruit-cut-ninja",
+        "handle_name": "fruit-cut-ninja",
+        "country_code": "IQ",
+        "icount": 353607
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "IQ",
+        "icount": 40041
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/gtc",
+        "handle_name": "gtc",
+        "country_code": "IQ",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/gtc-heat-city",
+        "handle_name": "gtc-heat-city",
+        "country_code": "IQ",
+        "icount": 13
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/master-tournaments",
+        "handle_name": "master-tournaments",
+        "country_code": "IQ",
+        "icount": 17
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/mp4-download",
+        "handle_name": "mp4-download",
+        "country_code": "IQ",
+        "icount": 53
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/parking-training",
+        "handle_name": "parking-training",
+        "country_code": "IQ",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/parkingtraining",
+        "handle_name": "parkingtraining",
+        "country_code": "IQ",
+        "icount": 17
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/phone-cleaner/",
+        "handle_name": "phone-cleaner",
+        "country_code": "IQ",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://52.28.240.8/iq/phone-cleaner-iq",
+        "handle_name": "phone-cleaner-iq",
+        "country_code": "IQ",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://W1.BUZ2MOBILE.COM/iq/phone-cleaner-iq",
+        "handle_name": "phone-cleaner-iq",
+        "country_code": "IQ",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobihouze.com/iq/phone-cleaner-iq",
+        "handle_name": "phone-cleaner-iq",
+        "country_code": "IQ",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/phone-cleaner-iq",
+        "handle_name": "phone-cleaner-iq",
+        "country_code": "IQ",
+        "icount": 389323
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/pokemons-go",
+        "handle_name": "pokemons-go",
+        "country_code": "IQ",
+        "icount": 79
+    },
+    {
+        "handle_url": "http://52.28.240.8/iq/protection-tm",
+        "handle_name": "protection-tm",
+        "country_code": "IQ",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.trendme.co/iq/protection-tm",
+        "handle_name": "protection-tm",
+        "country_code": "IQ",
+        "icount": 19590
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/racing-gz",
+        "handle_name": "racing-gz",
+        "country_code": "IQ",
+        "icount": 11910
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/racinggz",
+        "handle_name": "racinggz",
+        "country_code": "IQ",
+        "icount": 3360047
+    },
+    {
+        "handle_url": "http://n.mobihouze.com/iq/racinggz",
+        "handle_name": "racinggz",
+        "country_code": "IQ",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/ramadan",
+        "handle_name": "ramadan",
+        "country_code": "IQ",
+        "icount": 70675
+    },
+    {
+        "handle_url": "http://n.trendme.co/iq/ramadan-kids",
+        "handle_name": "ramadan-kids",
+        "country_code": "IQ",
+        "icount": 14418
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/real-free-kicks",
+        "handle_name": "real-free-kicks",
+        "country_code": "IQ",
+        "icount": 27
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/real-freekick",
+        "handle_name": "real-freekick",
+        "country_code": "IQ",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://n.trendme.co/iq/rich-tm",
+        "handle_name": "rich-tm",
+        "country_code": "IQ",
+        "icount": 11378
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/river-adventures",
+        "handle_name": "river-adventures",
+        "country_code": "IQ",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/secure-pro",
+        "handle_name": "secure-pro",
+        "country_code": "IQ",
+        "icount": 71
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/speed-tests",
+        "handle_name": "speed-tests",
+        "country_code": "IQ",
+        "icount": 14759
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/speed-tests-seo-exclusive",
+        "handle_name": "speed-tests-seo-exclusive",
+        "country_code": "IQ",
+        "icount": 256
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/super-dario",
+        "handle_name": "super-dario",
+        "country_code": "IQ",
+        "icount": 6555
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/superdario",
+        "handle_name": "superdario",
+        "country_code": "IQ",
+        "icount": 1025555
+    },
+    {
+        "handle_url": "http://n.mobihouze.com/iq/superdario",
+        "handle_name": "superdario",
+        "country_code": "IQ",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/iq/topgames",
+        "handle_name": "topgames",
+        "country_code": "IQ",
+        "icount": 4283
+    },
+    {
+        "handle_url": "http://n.appzworldz.com/iq/unlimited-apps-ap",
+        "handle_name": "unlimited-apps-ap",
+        "country_code": "IQ",
+        "icount": 14
+    },
+    {
+        "handle_url": "http://n.gamezpark.com/iq/unlimitedapps",
+        "handle_name": "unlimitedapps",
+        "country_code": "IQ",
+        "icount": 22
+    },
+    {
+        "handle_url": "http://n.vidzclubs.com/iq/vid-ar-vf",
+        "handle_name": "vid-ar-vf",
+        "country_code": "IQ",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://n.trendme.co/iq/weight-tm",
+        "handle_name": "weight-tm",
+        "country_code": "IQ",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/iq/whatsapp-fun-exclusive",
+        "handle_name": "whatsapp-fun-exclusive",
+        "country_code": "IQ",
+        "icount": 30
+    },
+    {
+        "handle_url": "http://n.mobihouze.com/iq/win-cash-v2",
+        "handle_name": "win-cash-v2",
+        "country_code": "IQ",
+        "icount": 498967
+    },
+    {
+        "handle_url": "http://n.mobzones.com/iq/win-cash-v2",
+        "handle_name": "win-cash-v2",
+        "country_code": "IQ",
+        "icount": 11261113
+    },
+    {
+        "handle_url": "http://n.mobzones.com/iq/win-cxnxxash-v2",
+        "handle_name": "win-cash-v2",
+        "country_code": "IQ",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobzones.comhttp://n.mobzones.com/iq/win-cash-v2",
+        "handle_name": "win-cash-v2",
+        "country_code": "IQ",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobihouze.com/iq/wincash-v-2",
+        "handle_name": "wincash-v-2",
+        "country_code": "IQ",
+        "icount": 246250
+    },
+    {
+        "handle_url": "http://n.mobzones.com/iq/wincash-v-2",
+        "handle_name": "wincash-v-2",
+        "country_code": "IQ",
+        "icount": 74378
+    },
+    {
+        "handle_url": "http://n.mobfun.co/iq/yamato",
+        "handle_name": "yamato",
+        "country_code": "IQ",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobzones.com/it/antivirus-ksprx",
+        "handle_name": "antivirus-ksprx",
+        "country_code": "IT",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/it/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "IT",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/18plus-exclusive",
+        "handle_name": "18plus-exclusive",
+        "country_code": "KE",
+        "icount": 7034
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "18plus-exclusive",
+        "country_code": "KE",
+        "icount": 275
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/18plus-exclusive",
+        "handle_name": "18plus-exclusive",
+        "country_code": "KE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/18plus-exclusive-2",
+        "handle_name": "18plus-exclusive-2",
+        "country_code": "KE",
+        "icount": 52818
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "18plus-exclusive-2",
+        "country_code": "KE",
+        "icount": 18312
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/18plus-exclusive-2",
+        "handle_name": "18plus-exclusive-2",
+        "country_code": "KE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/tracking",
+        "handle_name": "18plus-exclusive-2",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/anti-virus-black",
+        "handle_name": "anti-virus-black",
+        "country_code": "KE",
+        "icount": 15402
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "anti-virus-black",
+        "country_code": "KE",
+        "icount": 515
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ke/antivirus-avg",
+        "handle_name": "antivirus-avg",
+        "country_code": "KE",
+        "icount": 78939
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "antivirus-avg",
+        "country_code": "KE",
+        "icount": 6049
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.comhttp://w1.buz2mobile.com/ke/antivirus-avg",
+        "handle_name": "antivirus-avg",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/chatapp-background-green-en",
+        "handle_name": "chatapp-background-green-en",
+        "country_code": "KE",
+        "icount": 703
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "chatapp-background-green-en",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/cooking-2-impress",
+        "handle_name": "cooking-2-impress",
+        "country_code": "KE",
+        "icount": 974
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/download-collection",
+        "handle_name": "download-collection",
+        "country_code": "KE",
+        "icount": 3350
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "download-collection",
+        "country_code": "KE",
+        "icount": 73
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ke/download-mobile",
+        "handle_name": "download-mobile",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/download-sexy-ex",
+        "handle_name": "download-sexy-ex",
+        "country_code": "KE",
+        "icount": 10772
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "download-sexy-ex",
+        "country_code": "KE",
+        "icount": 317
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/download-sexy-ex",
+        "handle_name": "download-sexy-ex",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://52.28.240.8/ke/ex-gf-en",
+        "handle_name": "ex-gf-en",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/ex-gf-en",
+        "handle_name": "ex-gf-en",
+        "country_code": "KE",
+        "icount": 17878
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "ex-gf-en",
+        "country_code": "KE",
+        "icount": 504
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/ex-gf-en",
+        "handle_name": "ex-gf-en",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/fun-facts-video",
+        "handle_name": "fun-facts-video",
+        "country_code": "KE",
+        "icount": 18
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "fun-facts-video",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/funny-video-baby-vf",
+        "handle_name": "funny-video-baby-vf",
+        "country_code": "KE",
+        "icount": 2128
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "funny-video-baby-vf",
+        "country_code": "KE",
+        "icount": 51
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/gift-ideas-vf",
+        "handle_name": "gift-ideas-vf",
+        "country_code": "KE",
+        "icount": 5947
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "gift-ideas-vf",
+        "country_code": "KE",
+        "icount": 61
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/gospel",
+        "handle_name": "gospel",
+        "country_code": "KE",
+        "icount": 221
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "gp-avg",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/light-pro-app",
+        "handle_name": "light-pro-app",
+        "country_code": "KE",
+        "icount": 25
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "light-pro-app",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/love-quotes-en",
+        "handle_name": "love-quotes-en",
+        "country_code": "KE",
+        "icount": 12523
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "love-quotes-en",
+        "country_code": "KE",
+        "icount": 76
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/love-quotes-en",
+        "handle_name": "love-quotes-en",
+        "country_code": "KE",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ke/palm-reader-2",
+        "handle_name": "palm-reader-2",
+        "country_code": "KE",
+        "icount": 88280
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "palm-reader-2",
+        "country_code": "KE",
+        "icount": 50582
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "phone-cleaner",
+        "country_code": "KE",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ke/phone-cleaner-2",
+        "handle_name": "phone-cleaner-2",
+        "country_code": "KE",
+        "icount": 114928
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "phone-cleaner-2",
+        "country_code": "KE",
+        "icount": 5849
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.comm/ke/phone-cleaner-2",
+        "handle_name": "phone-cleaner-2",
+        "country_code": "KE",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/protection-tm",
+        "handle_name": "protection-tm",
+        "country_code": "KE",
+        "icount": 6769
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "protection-tm",
+        "country_code": "KE",
+        "icount": 31
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/racing-gz-2",
+        "handle_name": "racing-gz-2",
+        "country_code": "KE",
+        "icount": 11738
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "racing-gz-2",
+        "country_code": "KE",
+        "icount": 451
+    },
+    {
+        "handle_url": "http://admoustache.go2affise.com/ke/sexy-teaser",
+        "handle_name": "sexy-teaser",
+        "country_code": "KE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/sexy-teaser",
+        "handle_name": "sexy-teaser",
+        "country_code": "KE",
+        "icount": 86562
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "sexy-teaser",
+        "country_code": "KE",
+        "icount": 4170
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/tracking",
+        "handle_name": "sexy-teaser",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://52.28.240.8/ke/sexy-teaser-exclusive",
+        "handle_name": "sexy-teaser-exclusive",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/sexy-teaser-exclusive",
+        "handle_name": "sexy-teaser-exclusive",
+        "country_code": "KE",
+        "icount": 18158
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "sexy-teaser-exclusive",
+        "country_code": "KE",
+        "icount": 546
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/sexy-teaser-exclusive",
+        "handle_name": "sexy-teaser-exclusive",
+        "country_code": "KE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "sexy1",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/snapchat-pictures",
+        "handle_name": "snapchat-pictures",
+        "country_code": "KE",
+        "icount": 784
+    },
+    {
+        "handle_url": "http://52.28.240.8/ke/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "KE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "KE",
+        "icount": 31620
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "speed-test",
+        "country_code": "KE",
+        "icount": 431
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/tracking",
+        "handle_name": "speed-test",
+        "country_code": "KE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://52.28.240.8/ke/super-battery",
+        "handle_name": "super-battery",
+        "country_code": "KE",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ke/super-battery",
+        "handle_name": "super-battery",
+        "country_code": "KE",
+        "icount": 87
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/super-mario",
+        "handle_name": "super-mario",
+        "country_code": "KE",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "super-mario",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/trending-video-vf",
+        "handle_name": "trending-video-vf",
+        "country_code": "KE",
+        "icount": 1086
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/twerking-video",
+        "handle_name": "twerking-video",
+        "country_code": "KE",
+        "icount": 919
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "twerking-video",
+        "country_code": "KE",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/twerking-video",
+        "handle_name": "twerking-video",
+        "country_code": "KE",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ke/whatsapp-emoticons-2",
+        "handle_name": "whatsapp-emoticons-2",
+        "country_code": "KE",
+        "icount": 58245
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "whatsapp-emoticons-2",
+        "country_code": "KE",
+        "icount": 2430
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.comm/ke/whatsapp-emoticons-2",
+        "handle_name": "whatsapp-emoticons-2",
+        "country_code": "KE",
+        "icount": 35
+    },
+    {
+        "handle_url": "http://52.28.240.8/ke/whatsapp-girls",
+        "handle_name": "whatsapp-girls",
+        "country_code": "KE",
+        "icount": 30
+    },
+    {
+        "handle_url": "http://W1.MOZZI.COM/ke/whatsapp-girls",
+        "handle_name": "whatsapp-girls",
+        "country_code": "KE",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/whatsapp-girls",
+        "handle_name": "whatsapp-girls",
+        "country_code": "KE",
+        "icount": 7567
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/ke/whatsapp-girls/",
+        "handle_name": "whatsapp-girls",
+        "country_code": "KE",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "whatsapp-girls",
+        "country_code": "KE",
+        "icount": 4061
+    },
+    {
+        "handle_url": "http://w1.mozzi.comm/ke/whatsapp-girls",
+        "handle_name": "whatsapp-girls",
+        "country_code": "KE",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.mobfun.co/kw/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "KW",
+        "icount": 49
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/kw/douaprayer",
+        "handle_name": "douaprayer",
+        "country_code": "KW",
+        "icount": 36
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/kw/recipe-video-ar",
+        "handle_name": "recipe-video-ar",
+        "country_code": "KW",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/my/blank-page",
+        "handle_name": "blank-page",
+        "country_code": "MY",
+        "icount": 504
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/download-movie",
+        "handle_name": "download-movie",
+        "country_code": "MY",
+        "icount": 10033
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/download-movie-ms",
+        "handle_name": "download-movie-ms",
+        "country_code": "MY",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://m.gamezpark.com/my/fruit-cut-ninja-aoc",
+        "handle_name": "fruit-cut-ninja-aoc",
+        "country_code": "MY",
+        "icount": 19300
+    },
+    {
+        "handle_url": "http://m.gamezones.biz/my/fruit-cut-ninja-ms-aoc",
+        "handle_name": "fruit-cut-ninja-ms-aoc",
+        "country_code": "MY",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://m.gamezpark.com/my/fruit-cut-ninja-ms-aoc",
+        "handle_name": "fruit-cut-ninja-ms-aoc",
+        "country_code": "MY",
+        "icount": 26180
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/fruit-cut-ninja-ms-aoc",
+        "handle_name": "fruit-cut-ninja-ms-aoc",
+        "country_code": "MY",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/my/fruit-cut-ninja-rsh-softgames-ms",
+        "handle_name": "fruit-cut-ninja-rsh-softgames-ms",
+        "country_code": "MY",
+        "icount": 66912
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/fruit-cut-ninja-rsh-softgames-ms",
+        "handle_name": "fruit-cut-ninja-rsh-softgames-ms",
+        "country_code": "MY",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/my/fruit-cut-ninja-rsh_softgames",
+        "handle_name": "fruit-cut-ninja-rsh_softgames",
+        "country_code": "MY",
+        "icount": 34976
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/my/fruit-cut-ninja-rsh_softgames/",
+        "handle_name": "fruit-cut-ninja-rsh_softgames",
+        "country_code": "MY",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/my/gameclub",
+        "handle_name": "gameclub",
+        "country_code": "MY",
+        "icount": 135
+    },
+    {
+        "handle_url": "http://m.appzworldz.com/my/mario-aoc",
+        "handle_name": "mario-aoc",
+        "country_code": "MY",
+        "icount": 8655
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/mario-aoc",
+        "handle_name": "mario-aoc",
+        "country_code": "MY",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://m.appzworldz.com/my/mario-aoc-ms",
+        "handle_name": "mario-aoc-ms",
+        "country_code": "MY",
+        "icount": 14756
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/mario-mcb-celcom",
+        "handle_name": "mario-mcb-celcom",
+        "country_code": "MY",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/mario-ms-mcb-celcom",
+        "handle_name": "mario-ms-mcb-celcom",
+        "country_code": "MY",
+        "icount": 9
+    },
+    {
+        "handle_url": "http://m.mobiworld.biz/my/mobiworld-celcom",
+        "handle_name": "mobiworld-celcom",
+        "country_code": "MY",
+        "icount": 13
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/phone-memory",
+        "handle_name": "phone-memory",
+        "country_code": "MY",
+        "icount": 5934
+    },
+    {
+        "handle_url": "http://m.appzworldz.com/my/phone-memory-aoc",
+        "handle_name": "phone-memory-aoc",
+        "country_code": "MY",
+        "icount": 814
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/phone-memory-exclusive",
+        "handle_name": "phone-memory-exclusive",
+        "country_code": "MY",
+        "icount": 308
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/phone-memory-mcb-celcom",
+        "handle_name": "phone-memory-mcb-celcom",
+        "country_code": "MY",
+        "icount": 22
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/phone-memory-mcb-exclusive",
+        "handle_name": "phone-memory-mcb-exclusive",
+        "country_code": "MY",
+        "icount": 194
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/phone-memory-ms",
+        "handle_name": "phone-memory-ms",
+        "country_code": "MY",
+        "icount": 900104
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.bizhttp://w1.buz2mobile.biz/my/phone-memory-ms",
+        "handle_name": "phone-memory-ms",
+        "country_code": "MY",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://m.appzworldz.com/my/phone-memory-ms-aoc",
+        "handle_name": "phone-memory-ms-aoc",
+        "country_code": "MY",
+        "icount": 976445
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/phone-memory-ms-exclusive",
+        "handle_name": "phone-memory-ms-exclusive",
+        "country_code": "MY",
+        "icount": 290
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/phone-memory-ms-mcb-celcom",
+        "handle_name": "phone-memory-ms-mcb-celcom",
+        "country_code": "MY",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/phone-memory-ms-mcb-exclusive",
+        "handle_name": "phone-memory-ms-mcb-exclusive",
+        "country_code": "MY",
+        "icount": 81
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/phone-memory-ms-v2",
+        "handle_name": "phone-memory-ms-v2",
+        "country_code": "MY",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/phone-memory-v2",
+        "handle_name": "phone-memory-v2",
+        "country_code": "MY",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/my/protection-tm",
+        "handle_name": "protection-tm",
+        "country_code": "MY",
+        "icount": 42576
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/protection-tm",
+        "handle_name": "protection-tm",
+        "country_code": "MY",
+        "icount": 341
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/protection-tm-aoc",
+        "handle_name": "protection-tm-aoc",
+        "country_code": "MY",
+        "icount": 21558
+    },
+    {
+        "handle_url": "http://m.trendme.co/my/protection-tm-mcb-celcom",
+        "handle_name": "protection-tm-mcb-celcom",
+        "country_code": "MY",
+        "icount": 22
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/my/protection-tm-ms",
+        "handle_name": "protection-tm-ms",
+        "country_code": "MY",
+        "icount": 347814
+    },
+    {
+        "handle_url": "http://w.mozzi.bizhttp://w.mozzi.biz/my/protection-tm-ms",
+        "handle_name": "protection-tm-ms",
+        "country_code": "MY",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/protection-tm-ms",
+        "handle_name": "protection-tm-ms",
+        "country_code": "MY",
+        "icount": 44733
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/protection-tm-ms-aoc",
+        "handle_name": "protection-tm-ms-aoc",
+        "country_code": "MY",
+        "icount": 454436
+    },
+    {
+        "handle_url": "http://m.gamezones.biz/my/racing-gz",
+        "handle_name": "racing-gz",
+        "country_code": "MY",
+        "icount": 35
+    },
+    {
+        "handle_url": "http://m.gamezpark.com/my/racing-gz-aoc",
+        "handle_name": "racing-gz-aoc",
+        "country_code": "MY",
+        "icount": 229
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/my/racing-gz-exclusive",
+        "handle_name": "racing-gz-exclusive",
+        "country_code": "MY",
+        "icount": 2788
+    },
+    {
+        "handle_url": "http://m.gamesflame.net/my/racing-gz-mcb-exclusive",
+        "handle_name": "racing-gz-mcb-exclusive",
+        "country_code": "MY",
+        "icount": 378
+    },
+    {
+        "handle_url": "http://m.gamezones.biz/my/racing-gz-ms",
+        "handle_name": "racing-gz-ms",
+        "country_code": "MY",
+        "icount": 6534
+    },
+    {
+        "handle_url": "http://m.gamezpark.com/my/racing-gz-ms-aoc",
+        "handle_name": "racing-gz-ms-aoc",
+        "country_code": "MY",
+        "icount": 196
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/my/racing-gz-ms-exclusive",
+        "handle_name": "racing-gz-ms-exclusive",
+        "country_code": "MY",
+        "icount": 2548
+    },
+    {
+        "handle_url": "http://m.gamesflame.net/my/racing-gz-ms-mcb-exclusive",
+        "handle_name": "racing-gz-ms-mcb-exclusive",
+        "country_code": "MY",
+        "icount": 406
+    },
+    {
+        "handle_url": "http://m.gamesflame.net/my/racing-mcb-celcom",
+        "handle_name": "racing-mcb-celcom",
+        "country_code": "MY",
+        "icount": 20
+    },
+    {
+        "handle_url": "http://m.gamesflame.net/my/racing-ms-mcb-celcom",
+        "handle_name": "racing-ms-mcb-celcom",
+        "country_code": "MY",
+        "icount": 23
+    },
+    {
+        "handle_url": "http://m.videoflux.tv/my/ramadan-2-purple-vf-ms",
+        "handle_name": "ramadan-2-purple-vf-ms",
+        "country_code": "MY",
+        "icount": 965
+    },
+    {
+        "handle_url": "http://m.vidzclubs.com/my/ramadan-2-purple-vf-ms-aoc",
+        "handle_name": "ramadan-2-purple-vf-ms-aoc",
+        "country_code": "MY",
+        "icount": 72
+    },
+    {
+        "handle_url": "http://m.trendme.co/my/ramadan-kids-ms",
+        "handle_name": "ramadan-kids-ms",
+        "country_code": "MY",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://m.mobtrendz.com/my/ramadan-kids-ms-aoc",
+        "handle_name": "ramadan-kids-ms-aoc",
+        "country_code": "MY",
+        "icount": 21
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test-v2",
+        "handle_name": "rotator2",
+        "country_code": "MY",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/rotator2-ms",
+        "handle_name": "rotator2-ms",
+        "country_code": "MY",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test-ms-v2",
+        "handle_name": "rotator2-ms",
+        "country_code": "MY",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://m.gamezones.biz/my/racing-gz",
+        "handle_name": "rotator3",
+        "country_code": "MY",
+        "icount": 28
+    },
+    {
+        "handle_url": "http://m.gamezones.biz/my/racing-gz-ms",
+        "handle_name": "rotator3-ms",
+        "country_code": "MY",
+        "icount": 6987
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "MY",
+        "icount": 147996
+    },
+    {
+        "handle_url": "http://m.appzworldz.com/my/speed-test-aoc",
+        "handle_name": "speed-test-aoc",
+        "country_code": "MY",
+        "icount": 43717
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test-aoc",
+        "handle_name": "speed-test-aoc",
+        "country_code": "MY",
+        "icount": 18
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test-exclusive",
+        "handle_name": "speed-test-exclusive",
+        "country_code": "MY",
+        "icount": 6563
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/speed-test-mcb-celcom",
+        "handle_name": "speed-test-mcb-celcom",
+        "country_code": "MY",
+        "icount": 25062
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/speed-test-mcb-exclusive",
+        "handle_name": "speed-test-mcb-exclusive",
+        "country_code": "MY",
+        "icount": 893
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test-ms",
+        "handle_name": "speed-test-ms",
+        "country_code": "MY",
+        "icount": 1907025
+    },
+    {
+        "handle_url": "http://m.appzworldz.com/my/speed-test-ms-aoc",
+        "handle_name": "speed-test-ms-aoc",
+        "country_code": "MY",
+        "icount": 1974611
+    },
+    {
+        "handle_url": "http://m.appzworldz.comhttp://m.appzworldz.com/my/speed-test-ms-aoc",
+        "handle_name": "speed-test-ms-aoc",
+        "country_code": "MY",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test-ms-aoc",
+        "handle_name": "speed-test-ms-aoc",
+        "country_code": "MY",
+        "icount": 386
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.biz/my/speed-test-ms-exclusive",
+        "handle_name": "speed-test-ms-exclusive",
+        "country_code": "MY",
+        "icount": 1702
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/speed-test-ms-mcb-celcom",
+        "handle_name": "speed-test-ms-mcb-celcom",
+        "country_code": "MY",
+        "icount": 17579
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/speed-test-ms-mcb-exclusive",
+        "handle_name": "speed-test-ms-mcb-exclusive",
+        "country_code": "MY",
+        "icount": 237
+    },
+    {
+        "handle_url": "http://m.appspool.net/my/super-mario",
+        "handle_name": "super-mario",
+        "country_code": "MY",
+        "icount": 33621
+    },
+    {
+        "handle_url": "http://m.appspool.net/my/super-mario-ms",
+        "handle_name": "super-mario-ms",
+        "country_code": "MY",
+        "icount": 6902
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/unlimited-apps-mcb-celcom",
+        "handle_name": "unlimited-apps-mcb-celcom",
+        "country_code": "MY",
+        "icount": 24
+    },
+    {
+        "handle_url": "http://m.appstrikes.com/my/unlimited-apps-ms-mcb-celcom",
+        "handle_name": "unlimited-apps-ms-mcb-celcom",
+        "country_code": "MY",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://m.gamesflame.net/my/unlimited-games-mcb-celcom",
+        "handle_name": "unlimited-games-mcb-celcom",
+        "country_code": "MY",
+        "icount": 21
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ng/anti-virus-black",
+        "handle_name": "anti-virus-black",
+        "country_code": "NG",
+        "icount": 11
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ng/antivirus",
+        "handle_name": "antivirus",
+        "country_code": "NG",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/ng/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "NG",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.apptips.me/nl/antivirus-avg",
+        "handle_name": "antivirus-avg",
+        "country_code": "NL",
+        "icount": 378
+    },
+    {
+        "handle_url": "http://n.apptips.me/nl/antivirus-ksprx",
+        "handle_name": "antivirus-ksprx",
+        "country_code": "NL",
+        "icount": 289
+    },
+    {
+        "handle_url": "http://n.apptips.me/nl/download-managerx",
+        "handle_name": "download-managerx",
+        "country_code": "NL",
+        "icount": 62
+    },
+    {
+        "handle_url": "http://n.apptips.me/nl/flappybird",
+        "handle_name": "flappybird",
+        "country_code": "NL",
+        "icount": 27
+    },
+    {
+        "handle_url": "http://n.apptips.me/nl/street-racing",
+        "handle_name": "street-racing",
+        "country_code": "NL",
+        "icount": 56
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/om/ramadan-2-purple",
+        "handle_name": "ramadan-2-purple",
+        "country_code": "OM",
+        "icount": 7337
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "ramadan-2-purple",
+        "country_code": "OM",
+        "icount": 77
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/om/ramadan-2-purple-ar",
+        "handle_name": "ramadan-2-purple-ar",
+        "country_code": "OM",
+        "icount": 9363
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "ramadan-2-purple-ar",
+        "country_code": "OM",
+        "icount": 127
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/om/recipe-video-ar",
+        "handle_name": "recipe-video-ar",
+        "country_code": "OM",
+        "icount": 6999
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "recipe-video-ar",
+        "country_code": "OM",
+        "icount": 3785
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/om/recipe-video-en",
+        "handle_name": "recipe-video-en",
+        "country_code": "OM",
+        "icount": 855569
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tracking",
+        "handle_name": "recipe-video-en",
+        "country_code": "OM",
+        "icount": 762674
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/antivirus-kspr-t1",
+        "handle_name": "antivirus-kspr-t1",
+        "country_code": "PL",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/avgds",
+        "handle_name": "avgds",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/pl/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "PL",
+        "icount": 68
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/descarga-v4",
+        "handle_name": "descarga-v4",
+        "country_code": "PL",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/descarga-v4",
+        "handle_name": "descarga-v4",
+        "country_code": "PL",
+        "icount": 41
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/descarga-v4",
+        "handle_name": "descarga-v4",
+        "country_code": "PL",
+        "icount": 358917
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.comhttp://w1.buz2mobile.com/pl/descarga-v4",
+        "handle_name": "descarga-v4",
+        "country_code": "PL",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "PL",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "PL",
+        "icount": 6726
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "PL",
+        "icount": 13
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/download-ad-red",
+        "handle_name": "download-ad-red",
+        "country_code": "PL",
+        "icount": 14
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "PL",
+        "icount": 282
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/download-managerx",
+        "handle_name": "download-managerx",
+        "country_code": "PL",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/download-movie-tgm",
+        "handle_name": "download-movie-tgm",
+        "country_code": "PL",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/facebook-video",
+        "handle_name": "facebook-video",
+        "country_code": "PL",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/fail-videos",
+        "handle_name": "fail-videos",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/pl/fruit-chef",
+        "handle_name": "fruit-chef",
+        "country_code": "PL",
+        "icount": 9
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/galaxy-s8",
+        "handle_name": "galaxy-s8",
+        "country_code": "PL",
+        "icount": 3139
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/giftcard-vs",
+        "handle_name": "giftcard-vs",
+        "country_code": "PL",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/gp-avg-t0",
+        "handle_name": "gp-avg-t0",
+        "country_code": "PL",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/gp-avg-t1",
+        "handle_name": "gp-avg-t1",
+        "country_code": "PL",
+        "icount": 20
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/iphone-6-plus",
+        "handle_name": "iphone-6-plus",
+        "country_code": "PL",
+        "icount": 18
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/iphone6s",
+        "handle_name": "iphone6s",
+        "country_code": "PL",
+        "icount": 11376
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/iphone7-black",
+        "handle_name": "iphone7-black",
+        "country_code": "PL",
+        "icount": 27034
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/iphone7-black",
+        "handle_name": "iphone7-black",
+        "country_code": "PL",
+        "icount": 2651
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/iphone7-t0",
+        "handle_name": "iphone7-t0",
+        "country_code": "PL",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/iphone7-t0",
+        "handle_name": "iphone7-t0",
+        "country_code": "PL",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/iphone7-t1",
+        "handle_name": "iphone7-t1",
+        "country_code": "PL",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/iq-test",
+        "handle_name": "iq-test",
+        "country_code": "PL",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/love-horoscope",
+        "handle_name": "love-horoscope",
+        "country_code": "PL",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/petrol-white",
+        "handle_name": "petrol-white",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/pokemon-go",
+        "handle_name": "pokemon-go",
+        "country_code": "PL",
+        "icount": 63
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/pre-gp-avg",
+        "handle_name": "pre-gp-avg",
+        "country_code": "PL",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/pre-gp-avg",
+        "handle_name": "pre-gp-avg",
+        "country_code": "PL",
+        "icount": 35
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/rapid-dl",
+        "handle_name": "rapid-dl",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/rapid-dl",
+        "handle_name": "rapid-dl",
+        "country_code": "PL",
+        "icount": 73
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/rapid-dl",
+        "handle_name": "rapid-dl",
+        "country_code": "PL",
+        "icount": 12233
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/rapid-dl-blue",
+        "handle_name": "rapid-dl-blue",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/rapid-dl-blue-t0",
+        "handle_name": "rapid-dl-blue-t0",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/rapid-dl-blue-t1",
+        "handle_name": "rapid-dl-blue-t1",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/rapid-dl-t0",
+        "handle_name": "rapid-dl-t0",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/rapid-dl-t1",
+        "handle_name": "rapid-dl-t1",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/ringtone",
+        "handle_name": "ringtone",
+        "country_code": "PL",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/ringtone",
+        "handle_name": "ringtone",
+        "country_code": "PL",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/ringtone",
+        "handle_name": "ringtone",
+        "country_code": "PL",
+        "icount": 438
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/descarga-v4",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/dl-manager",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/rotator2",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/descarga-v4",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 31
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/dl-manager",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 7646
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/descarga-v4",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 363244
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/rotator2",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.comhttp://w1.buz2mobile.com/pl/descarga-v4",
+        "handle_name": "rotator2",
+        "country_code": "PL",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/samsung-s7",
+        "handle_name": "samsung-s7",
+        "country_code": "PL",
+        "icount": 470
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/snap-pics",
+        "handle_name": "snap-pics",
+        "country_code": "PL",
+        "icount": 10438
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/speed-booster",
+        "handle_name": "speed-booster",
+        "country_code": "PL",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/pl/spinner",
+        "handle_name": "spinner",
+        "country_code": "PL",
+        "icount": 12706
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/spinner",
+        "handle_name": "spinner",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.qubble.com/pl/visa-giftcard",
+        "handle_name": "visa-giftcard",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/voucher-furn",
+        "handle_name": "voucher-furn",
+        "country_code": "PL",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.trendme.co/pl/weight-loss-tm",
+        "handle_name": "weight-loss-tm",
+        "country_code": "PL",
+        "icount": 236
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pl/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "PL",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.mobzones.com/pl/xtreme-videos",
+        "handle_name": "xtreme-videos",
+        "country_code": "PL",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/pt/cut-rope",
+        "handle_name": "cut-rope",
+        "country_code": "PT",
+        "icount": 193
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pt/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "PT",
+        "icount": 16967
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/pt/flappy-bird",
+        "handle_name": "flappy-bird",
+        "country_code": "PT",
+        "icount": 5860
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/pt/flappybirds",
+        "handle_name": "flappybirds",
+        "country_code": "PT",
+        "icount": 119860
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/pt/fruit-chef",
+        "handle_name": "fruit-chef",
+        "country_code": "PT",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/pt/love-horoscope",
+        "handle_name": "love-horoscope",
+        "country_code": "PT",
+        "icount": 2658
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/battery-saver",
+        "handle_name": "battery-saver",
+        "country_code": "QA",
+        "icount": 315
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/bollywood-mix",
+        "handle_name": "bollywood-mix",
+        "country_code": "QA",
+        "icount": 15
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/clean-pro",
+        "handle_name": "clean-pro",
+        "country_code": "QA",
+        "icount": 72994
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "clean-pro",
+        "country_code": "QA",
+        "icount": 52
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/cooking-video-qa",
+        "handle_name": "cooking-video-qa",
+        "country_code": "QA",
+        "icount": 593010
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "cooking-video-qa",
+        "country_code": "QA",
+        "icount": 79128
+    },
+    {
+        "handle_url": "http://w1.mozzi.comhttp://w1.mozzi.com/qa/cooking-video-qa",
+        "handle_name": "cooking-video-qa",
+        "country_code": "QA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/cookingvideoiqar",
+        "handle_name": "cookingvideoiqar",
+        "country_code": "QA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/flamilingo-career-rsh-edia",
+        "handle_name": "flamilingo-career-rsh-edia",
+        "country_code": "QA",
+        "icount": 7796
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/tracking",
+        "handle_name": "flamilingo-career-rsh-edia",
+        "country_code": "QA",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/flamilingo-salary-rsh-edia",
+        "handle_name": "flamilingo-salary-rsh-edia",
+        "country_code": "QA",
+        "icount": 5793
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/tracking",
+        "handle_name": "flamilingo-salary-rsh-edia",
+        "country_code": "QA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/flamilingo-salary-rsh-edia-ar",
+        "handle_name": "flamilingo-salary-rsh-edia-ar",
+        "country_code": "QA",
+        "icount": 3482
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/tracking",
+        "handle_name": "flamilingo-salary-rsh-edia-ar",
+        "country_code": "QA",
+        "icount": 19
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/qa/flappy-bird",
+        "handle_name": "flappy-bird",
+        "country_code": "QA",
+        "icount": 54
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/qa/fruit-cut-ninja-ar",
+        "handle_name": "fruit-cut-ninja-ar",
+        "country_code": "QA",
+        "icount": 210
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tracking",
+        "handle_name": "fruit-cut-ninja-ar",
+        "country_code": "QA",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/qa/funny-video-vf",
+        "handle_name": "funny-video-vf",
+        "country_code": "QA",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/generic-m-learning-rsh-edia",
+        "handle_name": "generic-m-learning-rsh-edia",
+        "country_code": "QA",
+        "icount": 1465
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/generic-m-learning-rsh-edia-ar",
+        "handle_name": "generic-m-learning-rsh-edia-ar",
+        "country_code": "QA",
+        "icount": 1325
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/job-m-learning-rsh-edia",
+        "handle_name": "job-m-learning-rsh-edia",
+        "country_code": "QA",
+        "icount": 493
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/mlearning",
+        "handle_name": "mlearning",
+        "country_code": "QA",
+        "icount": 349
+    },
+    {
+        "handle_url": "http://w.flamilingo.com/qa/mlearningar",
+        "handle_name": "mlearningar",
+        "country_code": "QA",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/phone-cleaner",
+        "handle_name": "phone-cleaner",
+        "country_code": "QA",
+        "icount": 87385
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "phone-cleaner",
+        "country_code": "QA",
+        "icount": 156
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/ramadan",
+        "handle_name": "ramadan",
+        "country_code": "QA",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/ramadan-en",
+        "handle_name": "ramadan-en",
+        "country_code": "QA",
+        "icount": 15972
+    },
+    {
+        "handle_url": "http://n.trendme.co/qa/ramadan-kids-ar-tm",
+        "handle_name": "ramadan-kids-ar-tm",
+        "country_code": "QA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/qa/river",
+        "handle_name": "river",
+        "country_code": "QA",
+        "icount": 268
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/qa/rope-rsh-softgames",
+        "handle_name": "rope-rsh-softgames",
+        "country_code": "QA",
+        "icount": 2640
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/super-battery",
+        "handle_name": "super-battery",
+        "country_code": "QA",
+        "icount": 2372
+    },
+    {
+        "handle_url": "http://n.appspool.net/qa/unlimited-apps-ap",
+        "handle_name": "unlimited-apps-ap",
+        "country_code": "QA",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/qa/video",
+        "handle_name": "video",
+        "country_code": "QA",
+        "icount": 12506
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/tracking",
+        "handle_name": "video",
+        "country_code": "QA",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.trendme.co/qa/weight-tm",
+        "handle_name": "weight-tm",
+        "country_code": "QA",
+        "icount": 15
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/rs/clash-clans-tips",
+        "handle_name": "clash-clans-tips",
+        "country_code": "RS",
+        "icount": 112
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/rs/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "RS",
+        "icount": 948
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/rs/download-managerx",
+        "handle_name": "download-managerx",
+        "country_code": "RS",
+        "icount": 161
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/rs/fruit-chef",
+        "handle_name": "fruit-chef",
+        "country_code": "RS",
+        "icount": 719
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/rs/gameclub",
+        "handle_name": "gameclub",
+        "country_code": "RS",
+        "icount": 2280
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/rs/jelly-slice",
+        "handle_name": "jelly-slice",
+        "country_code": "RS",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/rs/mixclub",
+        "handle_name": "mixclub",
+        "country_code": "RS",
+        "icount": 1795
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/rs/multigames",
+        "handle_name": "multigames",
+        "country_code": "RS",
+        "icount": 790
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/rs/wallpaper",
+        "handle_name": "wallpaper",
+        "country_code": "RS",
+        "icount": 2480
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/rs/whats-wp-1",
+        "handle_name": "whats-wp-1",
+        "country_code": "RS",
+        "icount": 3560
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/rs/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "RS",
+        "icount": 142
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/rs/whats-wp-3",
+        "handle_name": "whats-wp-3",
+        "country_code": "RS",
+        "icount": 2390
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/sg/antivirus-black",
+        "handle_name": "antivirus-black",
+        "country_code": "SG",
+        "icount": 12181
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/sg/clean-pro",
+        "handle_name": "clean-pro",
+        "country_code": "SG",
+        "icount": 30
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/sg/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "SG",
+        "icount": 16470
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/sg/crossroad",
+        "handle_name": "crossroad",
+        "country_code": "SG",
+        "icount": 258
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/sg/download-ad-red",
+        "handle_name": "download-ad-red",
+        "country_code": "SG",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/sg/download-now",
+        "handle_name": "download-now",
+        "country_code": "SG",
+        "icount": 110
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/sg/pool",
+        "handle_name": "pool",
+        "country_code": "SG",
+        "icount": 265
+    },
+    {
+        "handle_url": "http://m.frogstargames.com/sg/rope",
+        "handle_name": "rope",
+        "country_code": "SG",
+        "icount": 292
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/sg/wechat",
+        "handle_name": "wechat",
+        "country_code": "SG",
+        "icount": 8
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/sg/whatsapp-green",
+        "handle_name": "whatsapp-green",
+        "country_code": "SG",
+        "icount": 648
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/sk/antivirus-ava",
+        "handle_name": "antivirus-ava",
+        "country_code": "SK",
+        "icount": 3905
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/sk/antivirus-kspr",
+        "handle_name": "antivirus-kspr",
+        "country_code": "SK",
+        "icount": 10635
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/battery-saver",
+        "handle_name": "battery-saver",
+        "country_code": "SK",
+        "icount": 687
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "SK",
+        "icount": 456
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/cut-rope",
+        "handle_name": "cut-rope",
+        "country_code": "SK",
+        "icount": 476
+    },
+    {
+        "handle_url": "http://52.28.240.8/sk/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "SK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/sk/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "SK",
+        "icount": 4234
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/sk/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "SK",
+        "icount": 60
+    },
+    {
+        "handle_url": "http://w1.qubble.com/sk/euro2016",
+        "handle_name": "euro2016",
+        "country_code": "SK",
+        "icount": 9
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/facebook-video",
+        "handle_name": "facebook-video",
+        "country_code": "SK",
+        "icount": 3529
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/flappybird",
+        "handle_name": "flappybird",
+        "country_code": "SK",
+        "icount": 581
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/flash-light",
+        "handle_name": "flash-light",
+        "country_code": "SK",
+        "icount": 1882
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/galaxy-s8",
+        "handle_name": "galaxy-s8",
+        "country_code": "SK",
+        "icount": 707
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/iphone-6s-v2",
+        "handle_name": "iphone-6s-v2",
+        "country_code": "SK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.qubble.com/sk/iphone6s",
+        "handle_name": "iphone6s",
+        "country_code": "SK",
+        "icount": 25
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/iphone7-black",
+        "handle_name": "iphone7-black",
+        "country_code": "SK",
+        "icount": 1481
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/kauf-voucher",
+        "handle_name": "kauf-voucher",
+        "country_code": "SK",
+        "icount": 759
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/mario-run",
+        "handle_name": "mario-run",
+        "country_code": "SK",
+        "icount": 398
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/sk/popcorn",
+        "handle_name": "popcorn",
+        "country_code": "SK",
+        "icount": 1714
+    },
+    {
+        "handle_url": "http://w1.qubble.com/sk/samsung-s7",
+        "handle_name": "samsung-s7",
+        "country_code": "SK",
+        "icount": 13566
+    },
+    {
+        "handle_url": "http://n.mobzones.com/sk/supermarket-ldl",
+        "handle_name": "supermarket-ldl",
+        "country_code": "SK",
+        "icount": 3582
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/sk/supermarket-ldl",
+        "handle_name": "supermarket-ldl",
+        "country_code": "SK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w1.qubble.com/sk/tsco-voucher",
+        "handle_name": "tsco-voucher",
+        "country_code": "SK",
+        "icount": 440
+    },
+    {
+        "handle_url": "http://w1.mozzi.com/sk/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "SK",
+        "icount": 8083
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/18-plus-th",
+        "handle_name": "18-plus-th",
+        "country_code": "TH",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/18-plus-th-dmb",
+        "handle_name": "18-plus-th-dmb",
+        "country_code": "TH",
+        "icount": 40
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/chatsapp-background-th",
+        "handle_name": "chatsapp-background-th",
+        "country_code": "TH",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/chatsapp-background-th",
+        "handle_name": "chatsapp-background-th",
+        "country_code": "TH",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/chatsapp-background-th-dmb",
+        "handle_name": "chatsapp-background-th-dmb",
+        "country_code": "TH",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/chatsapp-emoji-th",
+        "handle_name": "chatsapp-emoji-th",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "TH",
+        "icount": 253
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/crazy-birds-dmb",
+        "handle_name": "crazy-birds-dmb",
+        "country_code": "TH",
+        "icount": 68
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/crazy-birds-dmb",
+        "handle_name": "crazy-birds-dmb",
+        "country_code": "TH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/download-6",
+        "handle_name": "download-6",
+        "country_code": "TH",
+        "icount": 27945
+    },
+    {
+        "handle_url": "http://t.mobihouze.com/th/download-7",
+        "handle_name": "download-7",
+        "country_code": "TH",
+        "icount": 47
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/download-7",
+        "handle_name": "download-7",
+        "country_code": "TH",
+        "icount": 4312212
+    },
+    {
+        "handle_url": "http://t.mozzi.bizhttp://t.mozzi.biz/th/download-7",
+        "handle_name": "download-7",
+        "country_code": "TH",
+        "icount": 99
+    },
+    {
+        "handle_url": "http://t.mobihouze.com/th/download5",
+        "handle_name": "download5",
+        "country_code": "TH",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/download5",
+        "handle_name": "download5",
+        "country_code": "TH",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/download5",
+        "handle_name": "download5",
+        "country_code": "TH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/flappy-bird",
+        "handle_name": "flappy-bird",
+        "country_code": "TH",
+        "icount": 479508
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/flappy-bird",
+        "handle_name": "flappy-bird",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/flappy-th-dmb",
+        "handle_name": "flappy-th-dmb",
+        "country_code": "TH",
+        "icount": 33775
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/flappy-th-dmb",
+        "handle_name": "flappy-th-dmb",
+        "country_code": "TH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/funny-video-baby-vf",
+        "handle_name": "funny-video-baby-vf",
+        "country_code": "TH",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/generic-funny-videos",
+        "handle_name": "generic-funny-videos",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/horoscope-th-dmb",
+        "handle_name": "horoscope-th-dmb",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/horoscope-th-dmb",
+        "handle_name": "horoscope-th-dmb",
+        "country_code": "TH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/hot-video-th",
+        "handle_name": "hot-video-th",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/hot-video-th",
+        "handle_name": "hot-video-th",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/live-goal-th",
+        "handle_name": "live-goal-th",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/live-goal-th-dmb",
+        "handle_name": "live-goal-th-dmb",
+        "country_code": "TH",
+        "icount": 8
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/mp3-download-th-dmb",
+        "handle_name": "mp3-download-th-dmb",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/mp3-download-th-dmb",
+        "handle_name": "mp3-download-th-dmb",
+        "country_code": "TH",
+        "icount": 789222
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/pokemon-go",
+        "handle_name": "pokemon-go",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/pokemon-go-th-dmb",
+        "handle_name": "pokemon-go-th-dmb",
+        "country_code": "TH",
+        "icount": 374
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/racing-gz-th-dmb",
+        "handle_name": "racing-gz-th-dmb",
+        "country_code": "TH",
+        "icount": 15
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/sexy-video-th-2",
+        "handle_name": "sexy-video-th-2",
+        "country_code": "TH",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/sexy-video-th-2-dmb",
+        "handle_name": "sexy-video-th-2-dmb",
+        "country_code": "TH",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/sexy-video-th-3",
+        "handle_name": "sexy-video-th-3",
+        "country_code": "TH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://th-charlie-host.sam-media.com/th/sexy-video-th-3",
+        "handle_name": "sexy-video-th-3",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/sexy-video-th-3",
+        "handle_name": "sexy-video-th-3",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/sexy-video-th-3-dmb",
+        "handle_name": "sexy-video-th-3-dmb",
+        "country_code": "TH",
+        "icount": 5
+    },
+    {
+        "handle_url": "http://th-charlie-host.sam-media.com/th/sexy-video-th-3-dmb",
+        "handle_name": "sexy-video-th-3-dmb",
+        "country_code": "TH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/sexy-video-th-3-dmb",
+        "handle_name": "sexy-video-th-3-dmb",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/sexy1",
+        "handle_name": "sexy1",
+        "country_code": "TH",
+        "icount": 195
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/teaser",
+        "handle_name": "teaser",
+        "country_code": "TH",
+        "icount": 26
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/teaser-dmb",
+        "handle_name": "teaser-dmb",
+        "country_code": "TH",
+        "icount": 4735
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/trending-video-vf",
+        "handle_name": "trending-video-vf",
+        "country_code": "TH",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://t.mozzi.biz/th/whatsapp-pokemon-2",
+        "handle_name": "whatsapp-pokemon-2",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://th-alpha-host.sam-media.com/th/whatsapp-pokemon-2",
+        "handle_name": "whatsapp-pokemon-2",
+        "country_code": "TH",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://th-charlie-host.sam-media.com/th/whatsapp-pokemon-2",
+        "handle_name": "whatsapp-pokemon-2",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/th/whatsapp-pokemon-th-dmb",
+        "handle_name": "whatsapp-pokemon-th-dmb",
+        "country_code": "TH",
+        "icount": 72
+    },
+    {
+        "handle_url": "http://t.buz2mobile.com/tracking",
+        "handle_name": "whatsapp-pokemon-th-dmb",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://th-alpha-host.sam-media.com/th/whatsapp-pokemon-th-dmb",
+        "handle_name": "whatsapp-pokemon-th-dmb",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://th-charlie-host.sam-media.com/th/whatsapp-pokemon-th-dmb",
+        "handle_name": "whatsapp-pokemon-th-dmb",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://th-delta-host.sam-media.com/th/whatsapp-pokemon-th-dmb",
+        "handle_name": "whatsapp-pokemon-th-dmb",
+        "country_code": "TH",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus",
+        "handle_name": "antivirus",
+        "country_code": "TR",
+        "icount": 163022
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-1",
+        "handle_name": "antivirus-1",
+        "country_code": "TR",
+        "icount": 1852211
+    },
+    {
+        "handle_url": "http://n.mobfun.mehttp://n.mobfun.me/tr/antivirus-1",
+        "handle_name": "antivirus-1",
+        "country_code": "TR",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-1-buz",
+        "handle_name": "antivirus-1-buz",
+        "country_code": "TR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-2",
+        "handle_name": "antivirus-2",
+        "country_code": "TR",
+        "icount": 860
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-3",
+        "handle_name": "antivirus-3",
+        "country_code": "TR",
+        "icount": 39
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tr/antivirus-4",
+        "handle_name": "antivirus-4",
+        "country_code": "TR",
+        "icount": 46286
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-5",
+        "handle_name": "antivirus-5",
+        "country_code": "TR",
+        "icount": 36
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-black",
+        "handle_name": "antivirus-black",
+        "country_code": "TR",
+        "icount": 615
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-blck-buz",
+        "handle_name": "antivirus-blck-buz",
+        "country_code": "TR",
+        "icount": 47269
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-blck-gang",
+        "handle_name": "antivirus-blck-gang",
+        "country_code": "TR",
+        "icount": 48111
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-blue",
+        "handle_name": "antivirus-blue",
+        "country_code": "TR",
+        "icount": 516
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/antivirus-blue",
+        "handle_name": "antivirus-blue",
+        "country_code": "TR",
+        "icount": 44
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-green",
+        "handle_name": "antivirus-green",
+        "country_code": "TR",
+        "icount": 55802
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/antivirus-green",
+        "handle_name": "antivirus-green",
+        "country_code": "TR",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-green-gang",
+        "handle_name": "antivirus-green-gang",
+        "country_code": "TR",
+        "icount": 56227
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-kspr",
+        "handle_name": "antivirus-kspr",
+        "country_code": "TR",
+        "icount": 36145
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/antivirus-kspr",
+        "handle_name": "antivirus-kspr",
+        "country_code": "TR",
+        "icount": 6300
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-ksprx",
+        "handle_name": "antivirus-ksprx",
+        "country_code": "TR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-red",
+        "handle_name": "antivirus-red",
+        "country_code": "TR",
+        "icount": 139243
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-skull",
+        "handle_name": "antivirus-skull",
+        "country_code": "TR",
+        "icount": 162242
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/antivirus-white",
+        "handle_name": "antivirus-white",
+        "country_code": "TR",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/avg-buz",
+        "handle_name": "avg-buz",
+        "country_code": "TR",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tr/avg-buz",
+        "handle_name": "avg-buz",
+        "country_code": "TR",
+        "icount": 14676
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/avg-gang",
+        "handle_name": "avg-gang",
+        "country_code": "TR",
+        "icount": 1724316
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/avira",
+        "handle_name": "avira",
+        "country_code": "TR",
+        "icount": 437403
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/avira-gang",
+        "handle_name": "avira-gang",
+        "country_code": "TR",
+        "icount": 3911837
+    },
+    {
+        "handle_url": "http://n.mobfun.mehttp://n.mobfun.me/tr/avira-gang",
+        "handle_name": "avira-gang",
+        "country_code": "TR",
+        "icount": 12
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/cats",
+        "handle_name": "cats",
+        "country_code": "TR",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/celeb-alike",
+        "handle_name": "celeb-alike",
+        "country_code": "TR",
+        "icount": 110497
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/clash-clans-tips",
+        "handle_name": "clash-clans-tips",
+        "country_code": "TR",
+        "icount": 169350
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/coffee-read",
+        "handle_name": "coffee-read",
+        "country_code": "TR",
+        "icount": 103973
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/coffee-read-2",
+        "handle_name": "coffee-read-2",
+        "country_code": "TR",
+        "icount": 24233
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/crazy-birds",
+        "handle_name": "crazy-birds",
+        "country_code": "TR",
+        "icount": 39138
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/crazybirds-oc",
+        "handle_name": "crazybirds-oc",
+        "country_code": "TR",
+        "icount": 143431
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/cut-rope",
+        "handle_name": "cut-rope",
+        "country_code": "TR",
+        "icount": 51319
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/dl-count",
+        "handle_name": "dl-count",
+        "country_code": "TR",
+        "icount": 478116
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "TR",
+        "icount": 42178
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "TR",
+        "icount": 6089
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/dl-manager-2",
+        "handle_name": "dl-manager-2",
+        "country_code": "TR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/dl-manager-gang",
+        "handle_name": "dl-manager-gang",
+        "country_code": "TR",
+        "icount": 491908
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/dl-managerx",
+        "handle_name": "dl-managerx",
+        "country_code": "TR",
+        "icount": 5989661
+    },
+    {
+        "handle_url": "http://n.frogstargames.comhttp://n.frogstargames.com/tr/dl-managerx",
+        "handle_name": "dl-managerx",
+        "country_code": "TR",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "TR",
+        "icount": 33005
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/download-managerx",
+        "handle_name": "download-managerx",
+        "country_code": "TR",
+        "icount": 1355629
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/fashiontv",
+        "handle_name": "fashiontv",
+        "country_code": "TR",
+        "icount": 3707
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/fitnesstv",
+        "handle_name": "fitnesstv",
+        "country_code": "TR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/football-goals",
+        "handle_name": "football-goals",
+        "country_code": "TR",
+        "icount": 6
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/football-tricks",
+        "handle_name": "football-tricks",
+        "country_code": "TR",
+        "icount": 12137
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/friendfinder",
+        "handle_name": "friendfinder",
+        "country_code": "TR",
+        "icount": 103185
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/fruit-chef",
+        "handle_name": "fruit-chef",
+        "country_code": "TR",
+        "icount": 5094
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/gameclub",
+        "handle_name": "gameclub",
+        "country_code": "TR",
+        "icount": 110664
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/gossip-tv",
+        "handle_name": "gossip-tv",
+        "country_code": "TR",
+        "icount": 199
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "TR",
+        "icount": 108848
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "TR",
+        "icount": 483
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/jelly-slice",
+        "handle_name": "jelly-slice",
+        "country_code": "TR",
+        "icount": 10
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/love-match",
+        "handle_name": "love-match",
+        "country_code": "TR",
+        "icount": 2402
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/love-test",
+        "handle_name": "love-test",
+        "country_code": "TR",
+        "icount": 2413
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/love-test-exclusive",
+        "handle_name": "love-test-exclusive",
+        "country_code": "TR",
+        "icount": 140
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/mario-run",
+        "handle_name": "mario-run",
+        "country_code": "TR",
+        "icount": 885
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/mcsecure",
+        "handle_name": "mcsecure",
+        "country_code": "TR",
+        "icount": 18798
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/mcsecure",
+        "handle_name": "mcsecure",
+        "country_code": "TR",
+        "icount": 225
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/movie-club",
+        "handle_name": "movie-club",
+        "country_code": "TR",
+        "icount": 200
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/multigames",
+        "handle_name": "multigames",
+        "country_code": "TR",
+        "icount": 47487
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/multigames-app",
+        "handle_name": "multigames-app",
+        "country_code": "TR",
+        "icount": 20173
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/multigames-oc",
+        "handle_name": "multigames-oc",
+        "country_code": "TR",
+        "icount": 176927
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/musictv",
+        "handle_name": "musictv",
+        "country_code": "TR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/ramadan",
+        "handle_name": "ramadan",
+        "country_code": "TR",
+        "icount": 172
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/ringtone",
+        "handle_name": "ringtone",
+        "country_code": "TR",
+        "icount": 863
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/ringtone",
+        "handle_name": "ringtone",
+        "country_code": "TR",
+        "icount": 8878
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/tr/spinner",
+        "handle_name": "spinner",
+        "country_code": "TR",
+        "icount": 391558
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/sportstv",
+        "handle_name": "sportstv",
+        "country_code": "TR",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/streamtv",
+        "handle_name": "streamtv",
+        "country_code": "TR",
+        "icount": 163
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/street-racing",
+        "handle_name": "street-racing",
+        "country_code": "TR",
+        "icount": 46828
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/tarot",
+        "handle_name": "tarot",
+        "country_code": "TR",
+        "icount": 97230
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/top-games",
+        "handle_name": "top-games",
+        "country_code": "TR",
+        "icount": 3220
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/tvclub",
+        "handle_name": "tvclub",
+        "country_code": "TR",
+        "icount": 1158
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/video",
+        "handle_name": "video",
+        "country_code": "TR",
+        "icount": 2509
+    },
+    {
+        "handle_url": "http://n.teletube.tv/tr/video-player",
+        "handle_name": "video-player",
+        "country_code": "TR",
+        "icount": 33
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/whats-turk-gang",
+        "handle_name": "whats-turk-gang",
+        "country_code": "TR",
+        "icount": 216
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "TR",
+        "icount": 6774
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/tr/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "TR",
+        "icount": 18574
+    },
+    {
+        "handle_url": "http://w1.buz2mobile.com/tr/whats-wp-2-buz",
+        "handle_name": "whats-wp-2-buz",
+        "country_code": "TR",
+        "icount": 15
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/whats-wp-2-slow",
+        "handle_name": "whats-wp-2-slow",
+        "country_code": "TR",
+        "icount": 28
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/whats-wp-3",
+        "handle_name": "whats-wp-3",
+        "country_code": "TR",
+        "icount": 7
+    },
+    {
+        "handle_url": "http://n.mobfun.me/tr/whats-wp-gang",
+        "handle_name": "whats-wp-gang",
+        "country_code": "TR",
+        "icount": 870371
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/tw/download-ad-tw",
+        "handle_name": "download-ad-tw",
+        "country_code": "TW",
+        "icount": 501434
+    },
+    {
+        "handle_url": "http://w.mozzi.bizhttp://w.mozzi.biz/tw/download-ad-tw",
+        "handle_name": "download-ad-tw",
+        "country_code": "TW",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://w.mozzi.biz/tw/whatsapp-girl-tw",
+        "handle_name": "whatsapp-girl-tw",
+        "country_code": "TW",
+        "icount": 229
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/antivirus-black",
+        "handle_name": "antivirus-black",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/antivirus-green",
+        "handle_name": "antivirus-green",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/antivirus-kspr",
+        "handle_name": "antivirus-kspr",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.trendme.co/uk/clash-clans-tips",
+        "handle_name": "clash-clans-tips",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/contentsclub",
+        "handle_name": "contentsclub",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/uk/crazy-bird",
+        "handle_name": "crazy-bird",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/dl-manager",
+        "handle_name": "dl-manager",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/dl-manager-2",
+        "handle_name": "dl-manager-2",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobfun.me/uk/dl-mgr-nft",
+        "handle_name": "dl-mgr-nft",
+        "country_code": "UK",
+        "icount": 2290
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/download-managerx",
+        "handle_name": "download-managerx",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/uk/football-tricks",
+        "handle_name": "football-tricks",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/uk/fruit-chef",
+        "handle_name": "fruit-chef",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/uk/gamesclub",
+        "handle_name": "gamesclub",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/gp-avg",
+        "handle_name": "gp-avg",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/uk/jelly-slice",
+        "handle_name": "jelly-slice",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobfun.me/uk/kspr-nft",
+        "handle_name": "kspr-nft",
+        "country_code": "UK",
+        "icount": 2291
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/mcsecure",
+        "handle_name": "mcsecure",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/uk/multigames",
+        "handle_name": "multigames",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/ringtone",
+        "handle_name": "ringtone",
+        "country_code": "UK",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.trendme.co/uk/trending",
+        "handle_name": "trending",
+        "country_code": "UK",
+        "icount": 8
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/uk/whats-wp-2",
+        "handle_name": "whats-wp-2",
+        "country_code": "UK",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobfun.me/uk/whatsapp-nft",
+        "handle_name": "whatsapp-nft",
+        "country_code": "UK",
+        "icount": 4525
+    },
+    {
+        "handle_url": "http://v.mobfun.me/vn/facebook-video-vn",
+        "handle_name": "facebook-video-vn",
+        "country_code": "VN",
+        "icount": 22311
+    },
+    {
+        "handle_url": "http://w.vn-mozzi.biz/vn/facebook-video-vn",
+        "handle_name": "facebook-video-vn",
+        "country_code": "VN",
+        "icount": 3
+    },
+    {
+        "handle_url": "http://v.flamilingo.com/vn/flamilingo-salary-vn",
+        "handle_name": "flamilingo-salary-vn",
+        "country_code": "VN",
+        "icount": 2161
+    },
+    {
+        "handle_url": "http://v.mobfun.me/vn/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "VN",
+        "icount": 1762
+    },
+    {
+        "handle_url": "http://w.vn-mozzi.biz/vn/speed-test",
+        "handle_name": "speed-test",
+        "country_code": "VN",
+        "icount": 41
+    },
+    {
+        "handle_url": "http://v.mobfun.me/vn/speed-test-sms",
+        "handle_name": "speed-test-sms",
+        "country_code": "VN",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://v.mobfun.me/vn/super-mario",
+        "handle_name": "super-mario",
+        "country_code": "VN",
+        "icount": 10603
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/za/avg",
+        "handle_name": "avg",
+        "country_code": "ZA",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.trendme.co/za/be-rich",
+        "handle_name": "be-rich",
+        "country_code": "ZA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.watchnow.cc/za/bikini-girls",
+        "handle_name": "bikini-girls",
+        "country_code": "ZA",
+        "icount": 2326
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/za/crazy-birds-2",
+        "handle_name": "crazy-birds-2",
+        "country_code": "ZA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/za/download-manager",
+        "handle_name": "download-manager",
+        "country_code": "ZA",
+        "icount": 602
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/za/lost-lover",
+        "handle_name": "lost-lover",
+        "country_code": "ZA",
+        "icount": 298
+    },
+    {
+        "handle_url": "http://n.lavamobi.com/za/sexy-africans",
+        "handle_name": "sexy-africans",
+        "country_code": "ZA",
+        "icount": 38
+    },
+    {
+        "handle_url": "http://n.watchnow.cc/za/sexy-neigbour",
+        "handle_name": "sexy-neigbour",
+        "country_code": "ZA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.trendme.co/za/soccer-tips",
+        "handle_name": "soccer-tips",
+        "country_code": "ZA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/za/super-cars",
+        "handle_name": "super-cars",
+        "country_code": "ZA",
+        "icount": 676
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/za/super-mario-run",
+        "handle_name": "super-mario-run",
+        "country_code": "ZA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.frogstargames.com/za/talking-tom",
+        "handle_name": "talking-tom",
+        "country_code": "ZA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.trendme.co/za/testingwin",
+        "handle_name": "testingwin",
+        "country_code": "ZA",
+        "icount": 2
+    },
+    {
+        "handle_url": "http://n.videoflux.tv/za/tnc-videoflux",
+        "handle_name": "tnc-videoflux",
+        "country_code": "ZA",
+        "icount": 1
+    },
+    {
+        "handle_url": "http://n.mobiworld.biz/za/whatsapp-content-club",
+        "handle_name": "whatsapp-content-club",
+        "country_code": "ZA",
+        "icount": 4
+    },
+    {
+        "handle_url": "http://n.lavamobi.com/za/yoga-hos",
+        "handle_name": "yoga-hos",
+        "country_code": "ZA",
+        "icount": 2337
+    }
+]}

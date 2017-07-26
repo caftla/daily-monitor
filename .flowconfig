@@ -1,0 +1,20 @@
+[ignore]
+./node_modules/redux
+.*/styled-components/src/.*
+
+[libs]
+# ./flow-typed/npm/redux.flow
+
+
+
+[include]
+# ./node_modules/styled-components/.*
+
+[options]
+esproposal.export_star_as=enable
+module.file_ext=.js
+module.file_ext=.json
+module.file_ext=.jsx
+module.file_ext=.styl
+module.file_ext=.flow
+module.name_mapper='.*\(.styl\)' -> 'empty/object'

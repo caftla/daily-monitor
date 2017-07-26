@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": false,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6",
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "baseUrl": "./"
+    },
+    "include": [
+        "reports/**/*"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}

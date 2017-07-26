@@ -1,0 +1,47 @@
+{
+  "name": "slack-daily-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate_daily_report": "ts-node reports/index.tsx",
+    "upload_daily_report": "cp test.html \"../gh-pages/archive/$(date -v -1d +%Y-%m-%d).html\" && cd ../gh-pages && git add . && git commit -m \"added $(date -v -1d +%Y-%m-%d)\" && git push origin gh-pages && cd ../app",
+    "upload_daily_report_ubuntu": "cp test.html \"../gh-pages/archive/$(date -d \"1 day ago\" +%Y-%m-%d).html\" && cd ../gh-pages && git add . && git commit -m \"added $(date -d \"1 day ago\" +%Y-%m-%d)\" && git push origin gh-pages && cd ../app",
+    "send": "node send.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-transform-react-jsx": "^6.23.0",
+    "d3": "^4.7.4",
+    "d3-format": "^1.1.1",
+    "d3-selection-multi": "^1.0.1",
+    "d3-time-format": "^2.0.5",
+    "flow": "^0.2.3",
+    "flow-static-land": "^0.2.6",
+    "isomorphic-fetch": "^2.2.1",
+    "js-dom": "^0.0.1",
+    "jsdom": "^9.12.0",
+    "node-fetch": "^1.6.3",
+    "pg": "^6.1.5",
+    "prelude-ls": "^1.1.2",
+    "ramda": "^0.23.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "@types/d3": "^4.10.0",
+    "@types/node": "^8.0.15",
+    "@types/ramda": "^0.24.4",
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "flow-bin": "^0.47.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2",
+    "flow-bin": "^0.47.0"
+  }
+}

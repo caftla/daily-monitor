@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+temp/
+/data.txt
+/test.html
+*.temp.json
+*.temp.html
+.cached/
+/emails.txt
+/log.txt
+/data.txt
+/test.html
