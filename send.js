@@ -32,4 +32,4 @@ R.pipe(
 , R.map(x => x.trim())
 , R.map(x => send(x))
 , xs => sequence1(xs, []).then(x => console.log('done')).catch(console.log)
-)(fs.readFileSync('emails.txt'))
+)(fs.readFileSync('emails.txt', 'utf8'))
