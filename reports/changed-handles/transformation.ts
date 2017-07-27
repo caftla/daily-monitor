@@ -24,8 +24,8 @@ export default function(data, {dateTo, timeZoneOffset}) {
       , R.pipe(R.map(p => [p, baseDefaults]), R.fromPairs)(props)
     )
 
-  const summableProps = ['views', 'leads', 'sales', 'pixels', 'paid_sales', 'firstbillings', 'uniquesales', 'optout_24', 'total_optouts', 'cost']
-  const props = summableProps.concat(['cr', 'cq', 'resubs', 'pixels_ratio', 'ecpa', 'active24'])
+  const summableProps = ['views', 'leads', 'sales', 'uniquesales', 'uniqueleads', 'pixels', 'paid_sales', 'firstbillings', 'uniquesales', 'optout_24', 'total_optouts', 'cost']
+  const props = summableProps.concat(['cr', 'cq', 'resubs', 'releads', 'pixels_ratio', 'ecpa', 'active24'])
 
   const change = (t, b) => b == 0 ? (t == 0 ? 0 : 1) : (t - b) / b
   const stdChange : (t: number, {sigma, mean} : {sigma: number, mean: number}) => number 
@@ -42,7 +42,8 @@ export default function(data, {dateTo, timeZoneOffset}) {
   const ratios = d => R.merge(d, { 
       cr: safediv(d.sales, d.views)
     , cq: safediv(d.firstbillings, d.sales) 
-    , resubs: safediv(d.sales - d.uniquesales, d.sales) 
+    , resubs: safediv(d.sales, d.uniquesales) 
+    , releads: safediv(d.leads, d.uniqueleads) 
     , pixels_ratio: safediv(d.pixels, d.sales) 
     , ecpa: safediv(d.cost, d.sales) 
     , active24: safediv(d.sales - d.optout_24, d.sales)

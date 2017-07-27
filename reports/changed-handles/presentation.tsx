@@ -17,6 +17,7 @@ export default function(results: any, params: any, {affiliatesMap, getHandleUrl}
   const intFormat = d3Format.format(',.0f')
   const bigIntFormat = d3Format.format(',.2s')
   const cpaFormat = d3Format.format(',.1f')
+  const rateFormat = R.pipe(d3Format.format(',.1f'), x => `${x}×`)
   
   
   const valueToLabel = value => ({ 'views': 'Views', 'sales': 'Sales', 'active24': 'Active 24', 'cr': 'CR', 'cq': 'CQ', 'resubs': 'Re-Subs', 'pixels_ratio': 'Pixels', 'ecpa': 'eCPA', 'total_optouts': 'Unsubs' })[value] || value
@@ -50,7 +51,8 @@ export default function(results: any, params: any, {affiliatesMap, getHandleUrl}
   , column('sales', positiveColorScale, intFormat)  
   , column('cr', positiveColorScale, crFormat)
   , column('cq', positiveColorScale, cqFormat, { col0: '10%' })
-  , column('resubs', negativeColorScale, cqFormat)
+  , column('resubs', negativeColorScale, rateFormat)
+  , column('releads', negativeColorScale, rateFormat)
   , column('active24', positiveColorScale, cqFormat)
   , column('pixels_ratio', neutralColorScale, cqFormat)
   , column('ecpa', negativeColorScale, cpaFormat)
@@ -95,14 +97,14 @@ export default function(results: any, params: any, {affiliatesMap, getHandleUrl}
     
 
   const pagesSummarycolumns =  [
-    column('views', positiveColorScale, bigIntFormat)
-  , column('sales', positiveColorScale, intFormat)  
-  , column('cr', positiveColorScale, crFormat)
-  , column('cq', positiveColorScale, cqFormat)
-  , column('resubs', negativeColorScale, cqFormat)
-  , column('active24', positiveColorScale, cqFormat)
-  , column('pixels_ratio', neutralColorScale, cqFormat)
-  , column('ecpa', negativeColorScale, cpaFormat)
+      column('sales', positiveColorScale, intFormat)  
+    , column('cr', positiveColorScale, crFormat)
+    , column('cq', positiveColorScale, cqFormat)
+    , column('resubs', negativeColorScale, rateFormat)
+    , column('releads', negativeColorScale, rateFormat)
+    , column('active24', positiveColorScale, cqFormat)
+    , column('pixels_ratio', neutralColorScale, cqFormat)
+    , column('ecpa', negativeColorScale, cpaFormat)
   ]
   
   
@@ -118,7 +120,7 @@ export default function(results: any, params: any, {affiliatesMap, getHandleUrl}
         <col span="1" style={ { width: '10%' } } />
       </colgroup> 
       {
-        columns.map(c => !!c.colgroup ? c.colgroup() : [])
+        pagesSummarycolumns.map(c => !!c.colgroup ? c.colgroup() : [])
       }
       <THEAD style={ { backgroundColor: '#17becf' } }>{ [<th></th>,<th>Handle</th>].concat(pagesSummarycolumns.map(c => c.th())) }</THEAD>
       <tbody>

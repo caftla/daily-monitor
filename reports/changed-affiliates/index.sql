@@ -43,6 +43,8 @@ with Views as (
       
     where b.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
       and b.firstbilling
+
+    group by page, section, row, b.rockman_id
   ) group by page, section, row
 
 )
@@ -68,6 +70,31 @@ with Views as (
   )
   
   select page, section, row, count(*) :: int as uniquesales from ReSubs1 r 
+  group by page, section, row
+  order by page, section, row
+
+)
+
+, ReLeads as (
+  with ReLeads1 as (
+    select 
+      e.$page$ as page
+    , e.$section$ as section
+    , date_trunc('day', CONVERT_TIMEZONE('UTC', '$timeZoneOffset$', e.timestamp) + interval '1 hour' * (
+      extract(epoch from
+       date_trunc('day', timestamp '$dateTo$' + interval '1439 minutes') - timestamp '$dateTo$'
+      )/3600
+    )) :: timestamp AT TIME ZONE '$timeZoneOffset$' as row
+    , e.msisdn as msisdn
+    from public.events e 
+    where e.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
+      and e.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
+      and e.lead
+    group by page, section, row, msisdn
+    order by page, section, row, msisdn
+  )
+  
+  select page, section, row, count(*) :: int as uniqueleads from ReLeads1 r 
   group by page, section, row
   order by page, section, row
 
@@ -123,40 +150,53 @@ with Views as (
           s.rockman_id = b.rockman_id
       and s.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
       and s.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
+      and ((b.timestamp - s.timestamp) <= interval '1 day')
       and s.sale
       
     where b.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
-      and s.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', (timestamp '$dateTo$' + interval '1 day' ))
       and b.optout
+
+    group by page, section, row, b.rockman_id
+
   ) group by page, section, row
 )
 
 , Optouts as (
 
-  select 
-    e.$page$ as page
-  , e.$section$ as section
-  , date_trunc('day', CONVERT_TIMEZONE('UTC', '$timeZoneOffset$', e.timestamp) + interval '1 hour' * (
-    extract(epoch from
-     date_trunc('day', timestamp '$dateTo$' + interval '1439 minutes') - timestamp '$dateTo$'
-    )/3600
-  )) :: timestamp AT TIME ZONE '$timeZoneOffset$' as row
-  , sum(case when e.optout then 1 else 0 end) :: int as total_optouts
-  from events e
-  where e.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
-    and e.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
-  group by page, section, row
-  order by page, section, row
+  select page, section, row, count(*) :: int as total_optouts from (
+    select 
+        b.$page$ as page
+      , b.$section$ as section
+      , date_trunc('day', CONVERT_TIMEZONE('UTC', '$timeZoneOffset$', b.timestamp) + interval '1 hour' * (
+        extract(epoch from
+         date_trunc('day', timestamp '$dateTo$' + interval '1439 minutes') - timestamp '$dateTo$'
+        )/3600
+      )) :: timestamp AT TIME ZONE '$timeZoneOffset$' as row
+      , b.rockman_id 
+    
+    from events b
+
+    where b.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
+      and b.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
+      and b.optout
+
+    group by page, section, row, b.rockman_id
+    
+  ) group by page, section, row
 )
+
 , Daily as (
 
   select v.*
   , nvl(f.firstbillings, 0) as firstbillings
-  , nvl(r.uniquesales, 0) as uniquesales, o.optout_24, p.total_optouts, c.cost, c.home_cpa from Views v
+  , nvl(r.uniquesales, 0) as uniquesales
+  , nvl(l.uniqueleads, 0) as uniqueleads
+  , o.optout_24, p.total_optouts, c.cost, c.home_cpa from Views v
   left join Optout24 o on v.page = o.page and v.section = o.section and v.row = o.row
   left join Cost2 c on v.page = c.page and v.section = c.section and v.row = c.row
   left join Optouts p on v.page = p.page and v.section = p.section and v.row = p.row
   left join ReSubs r on v.page = r.page and v.section = r.section and v.row = r.row
+  left join ReLeads l on v.page = l.page and v.section = l.section and v.row = l.row
   left join FirstBillings f on v.page = f.page and v.section = f.section and v.row = f.row
   order by v.page, v.section, v.row
 )
