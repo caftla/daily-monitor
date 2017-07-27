@@ -1,35 +1,95 @@
 const request = require('request')
 const fs = require('fs')
-
 const R = require('ramda')
+const google = require('googleapis');
+const googleAuth = require('google-auth-library');
 
-const send = email => () => new Promise((resolve, reject) => request.post('https://api.elasticemail.com/v2/email/send', {form:{
-      apikey: process.env.elasticemail_api_key
-    , subject: 'Daily Campaign Monitor - ' + new Date(new Date() - 1 * 1000 * 3600 * 24).toISOString().split('T')[0]
-
-    , from: 'homam@sam-media.com'
-    , to: email
-    , bodyHtml: fs.readFileSync('./test.html', 'utf8')
-    , isTransactional: 'true'
-    }}, function(err, httpResponse, body) {
-        console.log(email, err, body);
-        if(!!err)
-            return reject(err)
-        else 
-            return resolve(body)
-    })
+const readFileP = path => new Promise((resolve, reject) => 
+  fs.readFile(path, 'utf8', (err, content) => !!err ? reject(err) : resolve(content))
 )
 
-const send1 = email => () => new Promise((resolve, reject) => resolve(email))
+const authorize = (credentials) => new Promise((resolve, reject) =>  {
+  const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) + '/.credentials/';
+  const TOKEN_PATH = './gmail-nodejs-quickstart.json';
+  var clientSecret = credentials.web.client_secret;
+  var clientId = credentials.web.client_id;
+  var redirectUrl = credentials.web.redirect_uris[0];
+  var auth = new googleAuth();
+  var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+
+  // Check if we have previously stored a token.
+  fs.readFile(TOKEN_PATH, function(err, token) {
+    if (err) {
+      reject(err)
+    } else {
+      oauth2Client.credentials = JSON.parse(token);
+      resolve(oauth2Client);
+    }
+  });
+})
+
+const getOauth2Client = () => readFileP('./client_secret_.apps.googleusercontent.com.json')
+  .then(content => authorize(JSON.parse(content)))
+
+const subject = 'Daily Campaign Monitor - ' + new Date(new Date() - 1 * 1000 * 3600 * 24).toISOString().split('T')[0]
+
+const send = email => () => new Promise((resolve, reject) => {
+  
+  getOauth2Client().then(oauth2Client => 
+    sendMessage(email, oauth2Client)
+  )
+  .then(resp => { console.log('sent to ', email); resolve(resp)})
+  .catch(err => { console.error(err); reject(err)})
+})
+
+function makeBody(to, from, subject, message) {
+    var str = ["Content-Type: text/html; charset=\"UTF-8\"\n",
+        "MIME-Version: 1.0\n",
+        "Content-Transfer-Encoding: 7bit\n",
+        "to: ", to, "\n",
+        "from: ", from, "\n",
+        "subject: ", subject, "\n\n",
+        message
+    ].join('');
+
+    var encodedMail = new Buffer(str).toString("base64").replace(/\+/g, '-').replace(/\//g, '_');
+        return encodedMail;
+}
+
+const sendMessage = (email, auth) => new Promise((resolve, reject) =>  {
+    var gmail = google.gmail('v1');
+    const message = fs.readFileSync('./test.html', 'utf8')
+    var raw = makeBody(email, 'homam@sam-media.com', subject, message);
+    gmail.users.messages.send({
+        auth: auth,
+        userId: 'me',
+        resource: {
+            raw: raw
+        }
+    }, function(err, response) {
+        if(!!err)
+          reject(err)
+        else
+          resolve(response)
+          
+    });
+})
+
 
 const sequence1 = (ps, res) => ps.length == 0
     ? res
     : ps[0]().then(r => sequence1(R.tail(ps), res.concat([r])))
 
 
-R.pipe(
-  R.split(',')
-, R.map(x => x.trim())
-, R.map(x => send(x))
-, xs => sequence1(xs, []).then(x => console.log('done')).catch(console.log)
-)(fs.readFileSync('emails.txt', 'utf8'))
+getOauth2Client().then(oauth2Client => {
+  return R.pipe(
+    R.split(',')
+  , R.map(x => x.trim())
+  , R.map(x => () => sendMessage(x, oauth2Client)
+    .then(_ => console.log(`Sent email to ${x}`))
+    .catch(err => console.error(`Error sending email to ${x}`, err)) 
+  )
+  , xs => sequence1(xs, []).then(x => console.log('done')).catch(err => console.error('Error ', err))
+  )(fs.readFileSync('emails.txt', 'utf8'))
+}).then(_ => console.log('all done'))
+.catch(err => console.error('Error ', err))

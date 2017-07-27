@@ -10,3 +10,5 @@ temp/
 /log.txt
 /data.txt
 /test.html
+client_secret_.apps.googleusercontent.com.json
+gmail-nodejs-quickstart.json
