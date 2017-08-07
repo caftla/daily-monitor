@@ -7,7 +7,7 @@ cd /home/ubuntu/slack-daily-data/app
 nvm use 7.2.1
 
 echo "starting"
-daily="true" npm run generate_daily_report
+daily="false" npm run generate_daily_report
 echo "generated"
 npm run upload_daily_report_ubuntu
 echo "uploaded"
