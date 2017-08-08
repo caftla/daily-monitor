@@ -7,9 +7,23 @@ cd /home/ubuntu/slack-daily-data/app
 nvm use 7.2.1
 
 echo "starting"
-daily="true" npm run generate_daily_report
+
+if [ $1 == 'daily' ]
+then
+  echo "generating a daily report"
+  npm run generate_daily_report
+fi
+
+if [ $1 == 'hourly' ]
+then
+  echo "generating an hourly report"
+  npm run generate_hourly_report
+fi
+
 echo "generated"
-npm run upload_daily_report_ubuntu
+npm run upload_report_ubuntu
 echo "uploaded"
 npm run send
 echo "sent"
+
+
