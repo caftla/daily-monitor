@@ -34,7 +34,7 @@ const Country = ({data, date}) => {
     </thead>
     <tbody>{
       data.map((x, i) => <tr key={i}>
-        <TD width='80' link={ `https://sam-dash.herokuapp.com/filter_page_section_row/${date_from}/${date_to}/country_code=${x.country_code}/country_code/country_code/day?username=sam-media&hash=37b90bce2765c2072c` } value={x.country_code} style={{ paddingLeft: '0.7em' }}  />
+        <TD width='80' link={ `http://sigma.sam-media.com/filter_page_section_row/${date_from}/${date_to}/country_code=${x.country_code}/country_code/country_code/day?username=sam-media&hash=37b90bce2765c2072c` } value={x.country_code} style={{ paddingLeft: '0.7em' }}  />
         <TD width='120'  value={d3.format(',')(+x.sales) + change_sign(+x.sales_change)} />
         <TD width='120'  value={d3.format(',.0f')(+x.sales_avg)} />
         <TD width='120'  value={d3.format('+.0%')(+x.sales_abs_change)} />
@@ -48,7 +48,7 @@ const Country = ({data, date}) => {
 
   const render_all = (date, d) =>
     <div style={ { backgrounColor: 'white', fontFamily: 'Osaka, CONSOLAS, monospace' } }>
-      <a style={ { color: 'red' } } href={`http://sam-dash.herokuapp.com/daily_reports_archive/${date}/?username=sam-media&hash=37b90bce2765c2072c`}>View full version of this report online</a>
+      <a style={ { color: 'red' } } href={`http://sigma.sam-media.com/daily_reports_archive/${date}/?username=sam-media&hash=37b90bce2765c2072c`}>View full version of this report online</a>
       <h3 style={ { fontWeight: 'bold'  } }>
         Top Changed Countries comparing to the last 7 days
       </h3>

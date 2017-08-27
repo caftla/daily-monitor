@@ -122,7 +122,7 @@ const Daily = <div style={ {
       , margin: `1em 1em`} }>
       <h3>Daily Campaign Monitor - { yesterday } 
           <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-            <a style={ { color: 'black' } } href={ `https://sam-dash.herokuapp.com/daily_reports_archive/${yesterday}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
+            <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/daily_reports_archive/${yesterday}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
             </span>
       </h3>
       { 
@@ -151,7 +151,7 @@ async function goHourly() {
     , margin: `1em 1em`} }>
     <h3>Hourly Top-Changed Affiliates Monitor - { dateParamsHourly.dateTo.replace('T', ' ') } UTC{ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) } 
         <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-          <a style={ { color: 'black' } } href={ `https://sam-dash.herokuapp.com/hourly_reports_archive/${fileName}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
+          <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/hourly_reports_archive/${fileName}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
           </span>
     </h3>
     { 
