@@ -141,24 +141,26 @@ const Daily = <div style={ {
 async function goHourly() {
   const affiliatesMap = await getAffiliatesMap()
   const { changedAffiliates } = await makeChangedAffiliates(changedAffiliatesParamsHourly, {affiliatesMap})
+  const fileName = dateParamsHourly.dateTo + (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset)
   
-      const Hourly = <div style={ { 
-        backgroundColor: 'white', color: 'black'
-      , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
-      , fontSize: '14px'
-      , maxWidth: '1200px'
-      , margin: `1em 1em`} }>
-      <h3>Hourly Top-Changed Affiliates Monitor - { dateParamsHourly.dateTo.replace('T', ' ') } 
-          <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-            <a style={ { color: 'black' } } href={ `https://sam-dash.herokuapp.com/daily_reports_archive/${yesterday}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
-            </span>
-      </h3>
-      { 
-        [changedAffiliates]
-        .map(c => <div style={ { marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver' } }>{ c }</div>)
-      }
-    </div>
-      return ReactDOMServer.renderToStaticMarkup(Hourly)
+  const Hourly = <div style={ { 
+     backgroundColor: 'white', color: 'black'
+    , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
+    , fontSize: '14px'
+    , maxWidth: '1200px'
+    , margin: `1em 1em`} }>
+    <h3>Hourly Top-Changed Affiliates Monitor - { dateParamsHourly.dateTo.replace('T', ' ') } UTC{ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) } 
+        <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
+          <a style={ { color: 'black' } } href={ `https://sam-dash.herokuapp.com/hourly_reports_archive/${fileName}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
+          </span>
+    </h3>
+    { 
+      [changedAffiliates]
+      .map(c => <div style={ { marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver' } }>{ c }</div>)
+    }
+  </div>
+
+  return { content: ReactDOMServer.renderToStaticMarkup(Hourly), fileName }
 }
 
 
@@ -169,7 +171,7 @@ if(isItDaily ==="true"){
   .catch(console.error)
 } else {
   goHourly()
-  .then(write('./../test.html'))
+  .then(({content, fileName}) => write(`./../../gh-pages/hourly-archive/${fileName}.html`)(content) )
   .catch(console.error)
 }
 
