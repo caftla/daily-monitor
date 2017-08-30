@@ -163,14 +163,16 @@ export default function(results: any, params: any, {affiliatesMap}) {
       {
         pagesColumns.map(c => !!c.colgroup ? c.colgroup() : [])
       }
-      <THEAD style={ { backgroundColor: '#8c564b'} }>{ [<th></th>,<th>Affiliate</th>].concat(pagesColumns.map(c => c.th())) }</THEAD>
+      <THEAD style={ { backgroundColor: '#8c564b'} }>{ [<th></th>,<th>Affiliate</th>].concat(process.env.daily === 'true' ? pagesColumns.map(c => c.th()) : R.take(7, pagesColumns).map(c => c.th())) }</THEAD>
       <tbody>
         { R.pipe(R.chain(p => p.sections.filter(sectionsPred).map(s => R.merge(s, {page: p.page})) ), R.filter(pagesPred))(results).map(s =>
           <tr style={ { borderBottom: 'solid 1px silver' } }>
             <td style={ { paddingLeft: '0.3em' } }><A href={makeCountrySummaryUrl(s.page)}>{ s.page }</A></td>
             <td style={ { paddingLeft: '0.3em' } }><A href={makeAffiliateSummaryUrl(s.page, s.section)} title={ s.section }>{ affiliatesMap[s.section] || s.section }</A></td>
             {
+              process.env.daily === 'true' ?
               pagesColumns.map(c => c.td(s))
+              : R.take(7, pagesColumns).map(c => c.td(s))
             }
           </tr>
         )}
