@@ -38,7 +38,7 @@ export default function(results: any, params: any, {affiliatesMap, getHandleUrl}
   const sectionsPred = s => 
         (s.share_of_sales_today > 0.05 || s.share_of_sales_base >  0.1) 
     &&  (
-              ( Math.abs(s.metrics.sales.stdChange) > 2.2 && (s.metrics.sales.value > 10 || s.metrics.sales.mean > 10))
+              ( Math.abs(s.metrics.sales.stdChange) > 2.3 && (s.metrics.sales.value > 10 || s.metrics.sales.mean > 10))
           ||  (Math.abs(s.metrics.cr.stdChange) > 2.5 && (s.metrics.views.value > 1000 || s.metrics.sales.mean > 20 || s.metrics.sales.value > 20))
     )
     

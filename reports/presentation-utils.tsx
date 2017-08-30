@@ -1,8 +1,8 @@
 import * as React from "react";
 import d3 from 'd3'
 const d3Scale = require('d3-scale')
-import d3Format = require('d3-format')
 const R = require('ramda')
+import d3Format = require('d3-format')
 
 export const A = ({href, children, style}) => <a style={ R.merge({ color: 'black' }, style) } href={href}>{ children }</a>
 
@@ -43,7 +43,7 @@ export const makeColumn = valueToLabel => (value, scale, format, coptions?) => n
 
 
 export const newMakeUrl = ({dateFrom, dateTo}) => {
-  const makeUrl = (filter, breakdown) => `http://95.97.146.246/filter_page_section_row/${dateFrom}/${dateTo}/${filter}/${breakdown}?username=sam-media&hash=37b90bce2765c2072c`
+  const makeUrl = (filter, breakdown) => `http://sigma.sam-media.com/filter_page_section_row/${dateFrom}/${dateTo}/${filter}/${breakdown}?username=sam-media&hash=37b90bce2765c2072c`
   return {
       makeUrl
     , makeCountrySummaryUrl: (country_code) => makeUrl(`country_code=${country_code}`, `-/-/day`)
@@ -54,12 +54,10 @@ export const newMakeUrl = ({dateFrom, dateTo}) => {
 
 export const { ChangeSymbol, positiveColorScale, negativeColorScale, neutralColorScale } = (function() {
 
-  const colorScale = (domain, colors) => v => Math.abs(v) >= 2.2
-    ? d3Scale.scaleQuantize().domain(domain).range(colors)(Math.abs(v))
-    : 'white'
+  const colorScale = (domain, colors) => v => Math.abs(v) >= 2.2 ? d3Scale.scaleQuantize().domain(domain).range(colors)(Math.abs(v)) : 'white'
     
-  const greens = colorScale(R.range(2, 7), ['#CBE7C1', '#BBDFB3', '#A5D19C', '#77BD65', '#54AE3D'])
-  const reds = colorScale(R.range(2, 7), ['#F7BBBB', '#F7A5A9', '#F4777D', '#EE4B4C', '#E22124'])
+  const greens = colorScale([2, 7], ['#CBE7C1', '#BBDFB3', '#A5D19C', '#77BD65', '#54AE3D'])
+  const reds = colorScale([2, 7], ['#F7BBBB', '#F7A5A9', '#F4777D', '#EE4B4C', '#E22124'])
   const positiveColorScale = v => v < 0 ? reds(v) : greens(v)
   const negativeColorScale = v => v < 0 ? greens(v) : reds(v)
   const neutralColorScale = colorScale(R.range(2, 7), ['#FAD1BD', '#FFCAAF', '#FAA27C', '#EF8656', '#FB6123']) 

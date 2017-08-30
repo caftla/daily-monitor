@@ -36,22 +36,22 @@ export default function(results: any, params: any, {affiliatesMap}) {
   // top changed countries
   const pagesSummaryPred = p => (pagesPred(p) 
     && (
-            (Math.abs(p.metrics.sales.stdChange) > 2.2 && (p.metrics.cost.value > 1000 || p.metrics.cost.mean > 1000))
+            (Math.abs(p.metrics.sales.stdChange) > 2.3 && (p.metrics.cost.value > 1000 || p.metrics.cost.mean > 1000))
         ||  (p.metrics.sales.change < -0.5  && p.metrics.cost.mean > 1000)  
     )
   ) || ((p.metrics.total_optouts.change > 0.5 || p.metrics.total_optouts.stdChange > 3)  && (
            p.metrics.total_optouts.value > 10
         && p.metrics.total_optouts.value > 3 * p.metrics.sales.mean || p.metrics.total_optouts.value > 500)
       )  
-    ||  (Math.abs(p.metrics.resubs.stdChange) > 2.2 && p.metrics.resubs.value > 1.5 && p.metrics.sales.value > 20)
-    ||  (Math.abs(p.metrics.releads.stdChange) > 2.2 && p.metrics.releads.value > 2 && p.metrics.leads.value > 20)
+    ||  (Math.abs(p.metrics.resubs.stdChange) > 2.3 && p.metrics.resubs.value > 1.5 && p.metrics.sales.value > 20)
+    ||  (Math.abs(p.metrics.releads.stdChange) > 2.3 && p.metrics.releads.value > 2 && p.metrics.leads.value > 20)
   
   // top changed affiliates and top affiliates
   const sectionsPred = s => (
         (s.share_of_sales_today > 0.05 || s.share_of_sales_base >  0.1) 
     &&  (s.metrics.sales.value > 5 || s.metrics.sales.mean > 10)
     &&  (
-              ( Math.abs(s.metrics.sales.stdChange) > 2.2 && (s.metrics.sales.value > 10 || s.metrics.sales.mean > 10))
+              ( Math.abs(s.metrics.sales.stdChange) > 2.3 && (s.metrics.sales.value > 10 || s.metrics.sales.mean > 10))
           ||  (Math.abs(s.metrics.cq.stdChange) > 3 && s.metrics.sales.value > 10)
           ||  (Math.abs(s.metrics.cr.stdChange) > 3 && (s.metrics.views.mean > 1000 || s.metrics.views.value > 1000 || s.metrics.sales.mean > 20 || s.metrics.sales.value > 20))
       )
@@ -60,8 +60,8 @@ export default function(results: any, params: any, {affiliatesMap}) {
     
   // top affiliates
   const allPred = s => (s.share_of_sales_today > 0.05 || s.share_of_sales_base >  0.1)
-    ||  (Math.abs(s.metrics.resubs.stdChange) > 2.2 && s.metrics.resubs.value > 1.5 && s.metrics.sales.value > 20)
-    ||  (Math.abs(s.metrics.releads.stdChange) > 2.2 && s.metrics.releads.value > 2 && s.metrics.leads.value > 20)
+    ||  (Math.abs(s.metrics.resubs.stdChange) > 2.3 && s.metrics.resubs.value > 1.5 && s.metrics.sales.value > 20)
+    ||  (Math.abs(s.metrics.releads.stdChange) > 2.3 && s.metrics.releads.value > 2 && s.metrics.leads.value > 20)
     
   
   
