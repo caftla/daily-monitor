@@ -26,6 +26,9 @@ export default function(results: any, params: any, {affiliatesMap}) {
   
   const {dateFrom, dateTo} = params
 
+  const isDaily = params.frequency == 'daily'
+  const isHourly = params.frequency == 'hourly'
+
   const { makeUrl, makeCountrySummaryUrl, makeAffiliateSummaryUrl } = newMakeUrl({dateFrom, dateTo})
   
   
@@ -36,7 +39,12 @@ export default function(results: any, params: any, {affiliatesMap}) {
   // top changed countries
   const pagesSummaryPred = p => (pagesPred(p) 
     && (
-            (Math.abs(p.metrics.sales.stdChange) > 2.3 && (p.metrics.cost.value > 1000 || p.metrics.cost.mean > 1000))
+            (Math.abs(p.metrics.sales.stdChange) > 2.3 && 
+              ( 
+                   (p.metrics.cost.value > 400 || p.metrics.cost.mean > 400)
+                || (p.metrics.sales.value > 500 || p.metrics.sales.mean > 500)
+              )
+            )
         ||  (p.metrics.sales.change < -0.5  && p.metrics.cost.mean > 1000)  
     )
   ) || ((p.metrics.total_optouts.change > 0.5 || p.metrics.total_optouts.stdChange > 3)  && (
@@ -110,7 +118,9 @@ export default function(results: any, params: any, {affiliatesMap}) {
     </TABLE>
     
 
-  const pagesColumns = [
+ 
+  // Top Changed Affiliates    
+  const pagesColumns = (isHourly ? [column('views', positiveColorScale, bigIntFormat)] : []).concat([
       column('sales', positiveColorScale, intFormat)  
     , column('cr', positiveColorScale, crFormat)
     , column('cq', positiveColorScale, cqFormat)
@@ -118,9 +128,9 @@ export default function(results: any, params: any, {affiliatesMap}) {
     , column('releads', negativeColorScale, rateFormat)
     , column('active24', positiveColorScale, cqFormat)
     , column('pixels_ratio', neutralColorScale, cqFormat)
-    , column('ecpa', negativeColorScale, cpaFormat)
-  ]
+  ]).concat(!isHourly ? [column('ecpa', negativeColorScale, cpaFormat)] : [])
 
+  // Top Changed Countries
   const pagesSummarycolumns =  [column('views', positiveColorScale, bigIntFormat)].concat(pagesColumns).concat([
     column('total_optouts', negativeColorScale, intFormat)
   ])
@@ -165,12 +175,17 @@ export default function(results: any, params: any, {affiliatesMap}) {
       }
       <THEAD style={ { backgroundColor: '#8c564b'} }>{ [<th></th>,<th>Affiliate</th>].concat(pagesColumns.map(c => c.th())) }</THEAD>
       <tbody>
-        { R.pipe(R.chain(p => p.sections.filter(sectionsPred).map(s => R.merge(s, {page: p.page})) ), R.filter(pagesPred))(results).map(s =>
-          <tr style={ { borderBottom: 'solid 1px silver' } }>
-            <td style={ { paddingLeft: '0.3em' } }><A href={makeCountrySummaryUrl(s.page)}>{ s.page }</A></td>
-            <td style={ { paddingLeft: '0.3em' } }><A href={makeAffiliateSummaryUrl(s.page, s.section)} title={ s.section }>{ affiliatesMap[s.section] || s.section }</A></td>
+        { R.pipe(
+              R.chain(p => p.sections.filter(sectionsPred).map(s => R.merge(s, {page: p.page})) )
+            , R.filter(pagesPred)
+            , R.reduce(({list, page}, a) => ({list: list.concat([R.merge(a, {isNew: a.page != page})]), page: a.page}), {list: [], page: null})
+            , R.prop('list')
+          )(results).map(s =>
+          <tr style={ R.merge({ borderBottom: 'solid 1px silver' }, s.isNew ? { borderTop: 'solid 2px #7f7f7f' } : {}) }>
+            <td style={ { paddingLeft: '0.3em' } }><A target="_blank" href={makeCountrySummaryUrl(s.page)}>{ s.page }</A></td>
+            <td style={ { paddingLeft: '0.3em' } }><A target="_blank" href={makeAffiliateSummaryUrl(s.page, s.section)} title={ s.section }>{ affiliatesMap[s.section] || s.section }</A></td>
             {
-              pagesColumns.map(c => c.td(s))
+              pagesColumns.map(c => c.td(s, { ignoreBgColor:  !['sales', 'pixels_ratio', 'releads'].some(v => v == c.value) } ))
             }
           </tr>
         )}

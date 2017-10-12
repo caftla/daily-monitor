@@ -8,7 +8,8 @@
     "generate_hourly_report": "daily=false ts-node reports/index.tsx",
     "upload_report": "cp test.html \"../gh-pages/archive/$(date -v -1d +%Y-%m-%d).html\" && cd ../gh-pages && git add . && git commit -m \"added $(date -v -1d +%Y-%m-%d)\" && git push origin gh-pages && cd ../app",
     "upload_report_ubuntu": "cp test.html \"../gh-pages/archive/$(date -d \"1 day ago\" +%Y-%m-%d).html\" && cd ../gh-pages && git add . && git commit -m \"added $(date -d \"1 day ago\" +%Y-%m-%d)\" && git push origin gh-pages && cd ../app",
-    "send": "node send.js"
+    "send": "node send.js",
+    "sync-archive": "cd ../gh-pages && git pull && git add . && git commit -m \"added report\" && git push origin gh-pages && cd ../app"
   },
   "author": "",
   "license": "ISC",
