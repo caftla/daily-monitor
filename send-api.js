@@ -73,18 +73,14 @@ const sendMessage = (subject, message, email, auth) => new Promise((resolve, rej
 })
 
 
-const sequence1 = (ps, res) => ps.length == 0
-    ? res
-    : ps[0]().then(r => sequence1(R.tail(ps), res.concat([r])))
+// const sequence1 = (ps, res) => ps.length == 0
+//     ? res
+//     : ps[0]().then(r => sequence1(R.tail(ps), res.concat([r])))
 
 
-module.exports = (subject, message, emails) => 
+module.exports = (subject, message, email) => 
   getOauth2Client().then(oauth2Client => {
-    return R.pipe(
-      R.map(x => () => sendMessage(subject, message, x, oauth2Client)
-      .then(_ => console.log(`Sent email to ${x}`))
-      .catch(err => console.error(`Error sending email to ${x}`, err)) 
-    )
-    , xs => sequence1(xs, [])
-    )(emails)
+    return sendMessage(subject, message, email, oauth2Client)
+      .then(_ => console.log(`Sent email to ${email}`))
+      .catch(err => console.error(`Error sending email to ${email}`, err)) 
   })

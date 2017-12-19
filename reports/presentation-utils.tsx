@@ -3,6 +3,7 @@ import d3 from 'd3'
 const d3Scale = require('d3-scale')
 const R = require('ramda')
 import d3Format = require('d3-format')
+import signature from './hash'
 
 export const A = ({href, children, style}) => <a style={ R.merge({ color: 'black' }, style) } href={href}>{ children }</a>
 
@@ -44,7 +45,13 @@ export const makeColumn = valueToLabel => (value, scale, format, coptions?) => n
 
 
 export const newMakeUrl = ({dateFrom, dateTo}) => {
-  const makeUrl = (filter, breakdown) => `http://sigma.sam-media.com/filter_page_section_row/${dateFrom}/${dateTo}/${filter}/${breakdown}?username=sam-media&hash=37b90bce2765c2072c`
+  /* TODO: links here should follow this format to allow authentication: 
+   http://sigma.sam-media.com/daily_reports_archive/${yesterday}/?username=${username}&exp_ts=${tomorrow}&hash=${signature(username,tomorrow)(process.env.secret)}
+   
+   the signature function can be imported from ./hash.ts
+   username can be passed as props (best case scenario)
+  */
+   const makeUrl = (filter, breakdown) => `http://sigma.sam-media.com/filter_page_section_row/${dateFrom}/${dateTo}/${filter}/${breakdown}/`
   return {
       makeUrl
     , makeCountrySummaryUrl: (country_code) => makeUrl(`country_code=${country_code}`, `-/-/day`)

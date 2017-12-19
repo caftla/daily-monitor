@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+  "scripts": {  
     "generate_daily_report": "daily=true ts-node reports/index.tsx",
     "generate_hourly_report": "daily=false ts-node reports/index.tsx",
+    "generate_daily_report_cached": "daily=true ts-node reports/index.tsx --cached",
+    "generate_hourly_report_cached": "daily=false ts-node reports/index.tsx --cached",
     "upload_report": "cp test.html \"../gh-pages/archive/$(date -v -1d +%Y-%m-%d).html\" && cd ../gh-pages && git add . && git commit -m \"added $(date -v -1d +%Y-%m-%d)\" && git push origin gh-pages && cd ../app",
     "upload_report_ubuntu": "cp test.html \"../gh-pages/archive/$(date -d \"1 day ago\" +%Y-%m-%d).html\" && cd ../gh-pages && git add . && git commit -m \"added $(date -d \"1 day ago\" +%Y-%m-%d)\" && git push origin gh-pages && cd ../app",
     "send": "node send.js",
