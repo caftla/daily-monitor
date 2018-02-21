@@ -11,6 +11,11 @@ mkdir reports/.chached /test_hourly_emails /test_daily_emails
 npm run generate_daily_report_cached
 # or
 npm run generate_hourly_report_cached
+
+# for py
+virtualenv vex
+source vex/bin/activate
+pip install -r requirements.txt
 ```
 Test emails for all users are stored in the test directories.
 

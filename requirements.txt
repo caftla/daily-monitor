@@ -1,0 +1,2 @@
+pandas
+sam_anomaly_detector
