@@ -16,9 +16,9 @@ const send = require('../send-api.js')
 const trace = (x, y) => { console.log(x); return y }
 const trace_ = x => trace(x, x)
 
-const timeZoneOffset = -2
+const timeZoneOffset = 0
 
-const dateFrom = new Date(new Date().valueOf() - 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
+const dateFrom = new Date(new Date().valueOf() - 91 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
 const dateTo    = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
 const yesterday = new Date(new Date().valueOf() - 1 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
 
