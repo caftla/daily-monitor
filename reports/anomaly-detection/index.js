@@ -3,7 +3,7 @@ var PythonShell = require('python-shell');
 module.exports = data => new Promise((resolve, reject) => {
     const pyshell = new PythonShell('forecast_and_detect_anomalies.py', {
         mode: 'json',
-        scriptPath: __dirname + '/anomaly-detection'
+        scriptPath: __dirname
     });
 
     pyshell.send(data);
