@@ -1,16 +1,13 @@
 import query from './sql-api'
-const fs = require('fs')
-const R = require('ramda')
 import * as React from "react";
 import * as ReactDOMServer from 'react-dom/server'
-const path = require('path')
-
-import changedTransactions from './changed-transactions'
 import makeChangedAffiliates from './changed-affiliates'
 import makeChangedHandles from './changed-handles'
-
 import signature from './hash'
 
+const fs = require('fs')
+const R = require('ramda')
+const path = require('path')
 const send = require('../send-api.js')
 
 const trace = (x, y) => { console.log(x); return y }
@@ -19,7 +16,7 @@ const trace_ = x => trace(x, x)
 const timeZoneOffset = 0
 
 const dateFrom = new Date(new Date().valueOf() - 91 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
-const dateTo    = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
+const dateTo = new Date(new Date().setDate(new Date().getDate() + 1).valueOf() - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
 const yesterday = new Date(new Date().valueOf() - 1 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
 
 // configuration of the magic link lifetime, here set to 7 days
