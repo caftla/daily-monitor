@@ -183,7 +183,6 @@ export default function (results: any, params: any, {affiliatesMap}) {
         changedCountries: MakeChange('Top Changed Countries', topChangedCountries),
         changedAffiliates: '',
         topAffiliates: '',
-
         // changedAffiliates: MakeChange('Top Changed Affiliates', topChangedAffiliates()),
         // topAffiliates: MakeChange('Top Affiliates', topAffiliates())
     };

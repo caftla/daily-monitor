@@ -18,72 +18,71 @@ const trace_ = x => trace(x, x);
 
 const timeZoneOffset = 0;
 
-const dateFrom = new Date(new Date().valueOf() - 91 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
-const dateTo = new Date(new Date().setDate(new Date().getDate() + 1).valueOf() - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
-const yesterday = new Date(new Date().valueOf() - 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
+let dateFrom = new Date(new Date().valueOf() - 14 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
+let dateTo = new Date(new Date().setDate(new Date().getDate() + 1).valueOf() - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
+let yesterday = new Date(new Date().valueOf() - 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
 
 // configuration of the magic link lifetime, here set to 7 days
-const expiry_ts = new Date().valueOf() + 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600;
+let expiry_ts = new Date().valueOf() + 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600;
 
-const dateFromHourly = new Date(new Date().valueOf() - 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600);
-const dateToHourly = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600);
+let dateFromHourly = new Date(new Date().valueOf() - 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600);
+let dateToHourly = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600);
 
-const roundMinutes = date => {
+let roundMinutes = date => {
     date.setHours(date.getHours() + Math.round(date.getMinutes() / 60) - 1);
     date.setMinutes(0);
     date.setSeconds(0);
     return date.toISOString().replace(/(.*)\D\d+/, '$1').split('Z')[0]
 };
 
-
-const dateParams = {
+let dateParams = {
     dateFrom: `${dateFrom}T00:00:00`,
     dateTo: `${dateTo}T00:00:00`,
     timeZoneOffset,
     frequency: 'daily'
 };
 
-const dateParamsHourly = {
+let dateParamsHourly = {
     dateFrom: roundMinutes(dateFromHourly),
     dateTo: roundMinutes(dateToHourly),
     timeZoneOffset,
     frequency: 'hourly'
 };
 
-const changedAffiliatesParams = {
+let changedAffiliatesParams = {
     ...dateParams,
     page: 'country_code',
     section: 'affiliate_id',
     filter: ''
 };
 
-const changedHandlesParams = {
+let changedHandlesParams = {
     ...dateParams,
     page: 'country_code',
     section: 'handle_name',
     filter: ''
 };
 
-const changedTransactionsParams = {
+let changedTransactionsParams = {
     ...dateParams,
     page: 'country_code',
     section: 'gateway',
     filter: ''
 };
 
-const changedAffiliatesParamsHourly = {
+let changedAffiliatesParamsHourly = {
     ...dateParamsHourly,
     page: 'country_code',
     section: 'affiliate_id',
     filter: ''
 };
 
-const write = fileName => x => new Promise((resolve, reject) => {
+let write = fileName => x => new Promise((resolve, reject) => {
     fs.writeFileSync(path.resolve(__dirname, fileName), x, 'utf8');
     resolve(x);
 });
 
-const getAffiliatesMap = () => query(process.env.jewel_connection_string, `select * from affiliate_mapping`, {})
+let getAffiliatesMap = () => query(process.env.jewel_connection_string, `select * from affiliate_mapping`, {})
     .then((x: { rows: [any] }) => x.rows)
     .then(R.pipe(
         R.map(x => [x.affiliate_id, x.affiliate_name])
@@ -94,20 +93,20 @@ const getAffiliatesMap = () => query(process.env.jewel_connection_string, `selec
         }
     ));
 
-const sendMock = (x, y, z) => {
+let sendMock = (x, y, z) => {
     console.info('sendMock: ', 'Subject:', x, 'To:', z)
 };
 
-const sequenceP = xs => {
+let sequenceP = xs => {
     if (xs.length == 0) {
         return Promise.resolve([])
     } else {
-        const p1 = R.head(xs)();
+        let p1 = R.head(xs)();
         return p1.then(y1 => sequenceP(R.tail(xs)).then(ys => [y1].concat(ys)))
     }
 };
 
-const getGetHandleUrl = () => query(process.env.jewel_connection_string, `SELECT
+let getGetHandleUrl = () => query(process.env.jewel_connection_string, `SELECT
       substring(p.landing_page_url, 0, charindex('?', p.landing_page_url)) as handle_url
     , p.handle as handle_name
     , p.country as country_code
@@ -131,20 +130,20 @@ const getGetHandleUrl = () => query(process.env.jewel_connection_string, `SELECT
     ));
 
 async function goDaily() {
-    const affiliatesMap = await getAffiliatesMap();
-    const getHandleUrl = await getGetHandleUrl();
-    // const ChangedTransactions = await changedTransactions(changedTransactionsParams, {affiliatesMap})
-    const {topAffiliates, changedCountries, changedAffiliates} = await makeChangedAffiliates(changedAffiliatesParams, {affiliatesMap});
-    const {topHandles, changedHandles} = await makeChangedHandles(changedHandlesParams, {affiliatesMap, getHandleUrl});
+    let affiliatesMap = await getAffiliatesMap();
+    let getHandleUrl = await getGetHandleUrl();
+    // let ChangedTransactions = await changedTransactions(changedTransactionsParams, {affiliatesMap})
+    let {topAffiliates, changedCountries, changedAffiliates} = await makeChangedAffiliates(changedAffiliatesParams, {affiliatesMap});
+    let {topHandles, changedHandles} = await makeChangedHandles(changedHandlesParams, {affiliatesMap, getHandleUrl});
 
-    const subject = `Daily Campaign Monitor - ${yesterday}`;
+    let subject = `Daily Campaign Monitor - ${yesterday}`;
 
-    const Daily = username => <div style={{
-        backgroundColor: 'white', color: 'black'
-        , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
-        , fontSize: '14px'
-        , maxWidth: '1200px'
-        , margin: `1em 1em`
+    let Daily = username => <div style={{
+        backgroundColor: 'white', color: 'black',
+        fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif',
+        fontSize: '14px',
+        maxWidth: '1200px',
+        margin: `1em 1em`
     }}>
         <h3>{subject}
             <span style={{fontSize: '80%', paddingLeft: '2em'}}> (
@@ -153,41 +152,42 @@ async function goDaily() {
               view the full report online</a>)
           </span>
         </h3>
-        {
-            [changedCountries
-                // , ChangedTransactions
-                , changedAffiliates
-                // , changedHandles
-                , topAffiliates
-                , topHandles].map(c => <div
-                style={{marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver'}}>{c}</div>)
-        }
+        {[changedCountries,
+            //ChangedTransactions,
+            changedAffiliates,
+            //changedHandles,
+            topAffiliates,
+            topHandles
+        ].map(c => {
+            return <div style={{marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver'}}>
+                {c}
+            </div>;
+        })}
     </div>;
 
     R.pipe(
-        R.split(',')
-        , R.map(entry => entry.trim())
-        , R.map(username => ({content: ReactDOMServer.renderToStaticMarkup(Daily(username)), username, yesterday}))
-        , R.map(({content, username, yesterday}) => async () => {
+        R.split(','),
+        R.map(entry => entry.trim()),
+        R.map(username => ({content: ReactDOMServer.renderToStaticMarkup(Daily(username)), username, yesterday})),
+        R.map(({content, username, yesterday}) => async () => {
             await write(`./../test_daily_emails/${yesterday}_${username}.html`)(content); //for testing
             // return sendMock(subject, content, username) //<- this function mocks "send" function
             return send(subject, content, username) // <- the actual send function
-        })
-        , sequenceP
+        }),
+        sequenceP
     )(fs.readFileSync('emails.txt', 'utf8'));
 
     return {content: ReactDOMServer.renderToStaticMarkup(Daily('homam@sam-media.com')), yesterday}
 }
 
-
 async function goHourly() {
-    const affiliatesMap = await getAffiliatesMap();
-    const {topAffiliates, changedCountries, changedAffiliates} = await makeChangedAffiliates(changedAffiliatesParamsHourly, {affiliatesMap});
-    const fileName = dateParamsHourly.dateTo + (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset);
+    let affiliatesMap = await getAffiliatesMap();
+    let {topAffiliates, changedCountries, changedAffiliates} = await makeChangedAffiliates(changedAffiliatesParamsHourly, {affiliatesMap});
+    let fileName = dateParamsHourly.dateTo + (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset);
 
-    const subject = `Hourly Monitor - ${ dateParamsHourly.dateTo.replace('T', ' ') } UTC${ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) }`;
+    let subject = `Hourly Monitor - ${ dateParamsHourly.dateTo.replace('T', ' ') } UTC${ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) }`;
 
-    const Hourly = username => <div style={{
+    let Hourly = username => <div style={{
         backgroundColor: 'white', color: 'black'
         , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
         , fontSize: '14px'
