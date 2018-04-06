@@ -45,7 +45,7 @@ const setTitle = (metric) => s => {
         let change = s.metrics[metric].change;
         return `
 Change: ${d3Format.format('0.1f')(stdChange)} σ
-Change: ${d3Format.format('0.0%')(change)}`
+Change: ${d3Format.format('0.0f')(change)}`
     }
     return '-';
 };
