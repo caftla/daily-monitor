@@ -46,20 +46,13 @@ export default function (results: any, params: any, {affiliatesMap}) {
         (p.metrics.sales.actual > 0 || p.metrics.sales.sum > 14);
 
     const selectTopChangedCountries = p => {
-        return (pagesPred(p) &&
-                ((Math.abs(p.metrics.sales.stdChange) > 2.3 && (p.metrics.cost.actual > 400 || p.metrics.sales.actual > 500))
-                    || (p.metrics.sales.change < -0.5)
-                )
-            ) ||
-            (
-                (p.metrics.total_optouts.change > 0.5 || p.metrics.total_optouts.stdChange > 3) &&
-                (
-                    p.metrics.total_optouts.actual > 10 &&
-                    p.metrics.total_optouts.actual > 500
-                )
-            )
-            || (Math.abs(p.metrics.resubs.stdChange) > 2.3 && p.metrics.resubs.actual > 1.5 && p.metrics.sales.actual > 20)
-            || (Math.abs(p.metrics.releads.stdChange) > 2.3 && p.metrics.releads.actual > 2 && p.metrics.leads.actual > 20);
+        return R.pipe(
+            R.toPairs,
+            R.map(([metric, stats]) => {
+                return Math.abs(stats.change) > 5
+            }),
+            R.find(x => x == true)
+        )(p.metrics) || false
     };
 
     const selectTopChangedAffiliatesAndTopAffiliates = s => {
@@ -67,19 +60,19 @@ export default function (results: any, params: any, {affiliatesMap}) {
                 (s.share_of_sales_today > 0.05 || s.share_of_sales_base > 0.1) &&
                 (s.metrics.sales.actual > 5) &&
                 (
-                    (Math.abs(s.metrics.sales.stdChange) > 2.3 && (s.metrics.sales.actual > 10)) ||
-                    (Math.abs(s.metrics.cq.stdChange) > 3 && s.metrics.sales.actual > 10) ||
-                    (Math.abs(s.metrics.cr.stdChange) > 3 && (s.metrics.views.actual > 1000 || s.metrics.sales.actual > 20))
+                    ((s.metrics.sales.actual > 10)) ||
+                    (s.metrics.sales.actual > 10) ||
+                    ((s.metrics.views.actual > 1000 || s.metrics.sales.actual > 20))
                 )
             ) ||
-            (Math.abs(s.metrics.resubs.stdChange) > 2.2 && s.metrics.resubs.actual > 1.5 && s.metrics.sales.actual > 20) ||
-            (Math.abs(s.metrics.releads.stdChange) > 2.2 && s.metrics.releads.actual > 2 && s.metrics.leads.actual > 20);
+            (s.metrics.resubs.actual > 1.5 && s.metrics.sales.actual > 20) ||
+            (s.metrics.releads.actual > 2 && s.metrics.leads.actual > 20);
     };
 
     const selectTopAffiliates = s => {
         return (s.share_of_sales_today > 0.05 || s.share_of_sales_base > 0.1) ||
-            (Math.abs(s.metrics.resubs.stdChange) > 2.3 && s.metrics.resubs.actual > 1.5 && s.metrics.sales.actual > 20) ||
-            (Math.abs(s.metrics.releads.stdChange) > 2.3 && s.metrics.releads.actual > 2 && s.metrics.leads.actual > 20);
+            (s.metrics.resubs.actual > 1.5 && s.metrics.sales.actual > 20) ||
+            (s.metrics.releads.actual > 2 && s.metrics.leads.actual > 20);
     };
 
     let columns = [
@@ -94,7 +87,7 @@ export default function (results: any, params: any, {affiliatesMap}) {
         column('ecpa', negativeColorScale, cpaFormat)
     ];
 
-    const Page = (r) =>
+    const topAffiliatesTable = (r) =>
         <TABLE>
             <colgroup>
                 <col span="1" style={{width: '5%'}}/>
@@ -151,8 +144,9 @@ export default function (results: any, params: any, {affiliatesMap}) {
             {
                 topChangedCountriesColumn.map(c => !!c.colgroup ? c.colgroup() : [])
             }
-            <THEAD style={{backgroundColor: '#1f77b4'}}>{[
-                <th></th>].concat(topChangedCountriesColumn.map(c => c.th()))}</THEAD>
+            <THEAD style={{backgroundColor: '#1f77b4'}}>
+            {[<th></th>].concat(topChangedCountriesColumn.map(c => c.th()))}
+            </THEAD>
             <tbody>
             {results.filter(selectTopChangedCountries).map(s =>
                 <tr style={{borderBottom: 'solid 1px silver'}}>
@@ -167,7 +161,7 @@ export default function (results: any, params: any, {affiliatesMap}) {
 
     let topAffiliates = () => results.filter(pagesPred).map((r, i) =>
         <div style={{marginTop: `${i > 0 ? 1 : 0}em`}}>
-            {Page(r)}
+            {topAffiliatesTable(r)}
         </div>);
 
     let topChangedAffiliates = () =>
@@ -192,11 +186,13 @@ export default function (results: any, params: any, {affiliatesMap}) {
                 , R.prop('list')
             )(results).map(s =>
                 <tr style={R.merge({borderBottom: 'solid 1px silver'}, s.isNew ? {borderTop: 'solid 2px #7f7f7f'} : {})}>
-                    <td style={{paddingLeft: '0.3em'}}><A target="_blank"
-                                                          href={makeCountrySummaryUrl(s.page)}>{s.page}</A></td>
-                    <td style={{paddingLeft: '0.3em'}}><A target="_blank"
-                                                          href={makeAffiliateSummaryUrl(s.page, s.section)}
-                                                          title={s.section}>{affiliatesMap[s.section] || s.section}</A>
+                    <td style={{paddingLeft: '0.3em'}}>
+                        <A target="_blank" href={makeCountrySummaryUrl(s.page)}>{s.page}</A>
+                    </td>
+                    <td style={{paddingLeft: '0.3em'}}>
+                        <A target="_blank" href={makeAffiliateSummaryUrl(s.page, s.section)}
+                           title={s.section}>{affiliatesMap[s.section] || s.section}
+                        </A>
                     </td>
                     {
                         topChangedAffiliatesColumn.map(c => c.td(s, {ignoreBgColor: !['sales', 'pixels_ratio', 'releads'].some(v => v == c.value)}))

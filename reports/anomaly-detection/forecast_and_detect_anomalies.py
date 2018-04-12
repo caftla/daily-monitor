@@ -38,7 +38,7 @@ def get_anomalies(df, metric):
     data = df[['time', metric]].rename(columns={metric: 'value'})
     metric_anomalies = Detector(min_time_points=5, min_dataset_size=0).forecast_today(dataset=data)
     if not metric_anomalies.empty:
-        columns = ['ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'change', 'stdChange']
+        columns = ['ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'severity', 'change']
         metric_anomalies['ds'] = pd.to_datetime(metric_anomalies['ds'], unit='ms') \
             .apply(lambda ds: ds.strftime('%Y-%m-%d'))
         anomalies = loads(metric_anomalies[columns].iloc[0].to_json())

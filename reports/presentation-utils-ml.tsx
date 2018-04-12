@@ -2,7 +2,6 @@ import * as React from 'react';
 
 const d3Scale = require('d3-scale');
 const R = require('ramda');
-import d3Format = require('d3-format');
 
 export const A = ({href, children, style}) => <a style={R.merge({color: 'black'}, style)} href={href}>{children}</a>;
 
@@ -39,10 +38,13 @@ export const newColumn = (value, cols) => ({
     </colgroup>
 });
 
-let title = (metric) => s => `
-Change: ${d3Format.format('0.1f')(s.metrics[metric].stdChange)} σ
-Change: ${d3Format.format('0.0%')(s.metrics[metric].change)}
-SLevel: ${getSeverityLevel(s.metrics[metric].stdChange, s.metrics[metric].change)}`;
+let title = (metric) => s => {
+    if (s.metrics[metric].change && s.metrics[metric].severity) {
+        return `
+Change: ${s.metrics[metric].change.toFixed(2)}%
+Severity: ${s.metrics[metric].severity}`;
+    }
+};
 
 export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
     metric,
@@ -53,9 +55,10 @@ export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
                     style: {width: '10%'},
                     title: title(metric),
                     content: (s, options) => ChangeSymbol(scale)(
-                        s.metrics[metric].stdChange,
                         s.metrics[metric].change,
-                        format(s.metrics[metric].actual), options
+                        s.metrics[metric].severity,
+                        format(s.metrics[metric].actual),
+                        options
                     )
                 }
             ]
@@ -79,37 +82,6 @@ export const newMakeUrl = ({dateFrom, dateTo}) => {
     }
 };
 
-const getSeverityLevel = (function () {
-    let t = y => Math.log(y + 1) / Math.log(2);
-
-    let levelf = (a, b) => (s, r) => Math.pow((s - 1) / (a - 1), 2) + Math.pow(t(r / b), 2) > 1;
-
-    let as = [0, 2.3, 3, 4, 5, 6]; // [0, 2.3, 3.0, 4.0, 5.0, 6.0]
-    let bs = [0, 2.8, 3.2, 4.0, 5.0, 6.0]; // [0, 1.0, 1.5, 2.0, 3.2, 6.4]
-    let severity = [0, 1, 2, 3, 4, 5];
-
-    let levels = R.pipe(
-        R.map(([a, b, severity]) => ({
-            severity,
-            f: levelf(a, b)
-        })),
-        R.reverse
-    )(R.zipWith(
-        (xs, x) => xs.concat([x]),
-        R.zip(as, bs),
-        severity)
-    );
-
-    return (s, r) => {
-        if (Math.abs(s) <= 1) {
-            return 0;
-        } else {
-            let l = levels.find(lev => lev.f(Math.abs(s), r == -1 ? 1000 : r < 0 ? 1 / (1 - Math.abs(r)) : r));
-            return l && l.severity ? l.severity : 5;
-        }
-    }
-})();
-
 export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColorScale} = (function () {
     const colorScale = (domain, colors) => v => v == 0 ? 'white' : d3Scale.scaleQuantize().domain(domain).range(colors)(Math.abs(v));
 
@@ -129,15 +101,14 @@ export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColor
     }, style)}>&nbsp;{children}&nbsp;</span>;
 
     const ChangeSymbol =
-        (scale, format = v => Math.round(Math.abs(v)) + (v > 0 ? '+' : '-')) => (stdChange, change, content, options = {ignoreBgColor: false}) => {
-            let severity = getSeverityLevel(stdChange, change);
-            let bgColor = options.ignoreBgColor ? '' : scale(severity * (stdChange > 0 ? 1 : -1));
+        (scale, format = v => Math.round(Math.abs(v)) + (v > 0 ? '+' : '-')) => (change, severity, content, options = {ignoreBgColor: false}) => {
+            let bgColor = options.ignoreBgColor ? '' : scale(severity * (change > 0 ? 1 : -1));
             let textColor = 'black';
             if (bgColor == '#54AE3D' || bgColor == '#77BD65' || bgColor == '#E22124' || bgColor == '#EE4B4C') {
                 textColor = 'white';
             }
 
-            if (Math.abs(stdChange) < 1 || Math.abs(change) < 0.075) {
+            if (Math.abs(change) < 0.075) {
                 return <ChangeSymbolSpan>{content}</ChangeSymbolSpan>;
             } else {
                 return <ChangeSymbolSpan style={{

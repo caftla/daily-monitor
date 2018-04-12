@@ -226,15 +226,13 @@ async function goHourly() {
     return {content: ReactDOMServer.renderToStaticMarkup(Hourly('homam@sam-media.com')), fileName}
 }
 
-
 if (process.env.daily === "true") {
     goDaily()
-    // .then(trace_)
-        .then(({content}) => write('./../../gh-pages/archive/test.html')(content))
+        .then(({content}) => write('./../test_daily_emails/test.html')(content))
         .catch(console.error)
 } else {
     goHourly()
-        .then(({content, fileName}) => write(`./../../gh-pages/hourly-archive/${fileName}.html`)(content))
+        .then(({content, fileName}) => write(`./../test_daily_emails/${fileName}.html`)(content))
         .then(_ => console.log("done"))
         .catch(console.error)
 }
