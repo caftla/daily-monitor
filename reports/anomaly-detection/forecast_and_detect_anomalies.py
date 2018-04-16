@@ -1,5 +1,6 @@
 from json import loads, dumps
 from sys import stdin
+from time import time
 
 import numpy as np
 import pandas as pd
@@ -26,24 +27,14 @@ def safediv(a, b):
     return r
 
 
-def read_and_prepare_data():
-    json_input = loads(stdin.readlines()[0])
-    df = pd.DataFrame(json_input['data'])
-    # df = pd.read_json('~/Desktop/data.json')
-
-    df = df.rename(columns={
-        'row': 'day',
-        'page': 'country',
-        'section': 'affiliate',
-    })
-    df['day'] = pd.to_datetime(df['day']).apply(lambda d: d.strftime('%Y-%m-%d'))
-    data = (
-        df
+def aggregate_data(raw_data, group_by) -> pd.DataFrame:
+    return (
+        raw_data
             .rename(columns={
             'page': 'country',
             'section': 'affiliate',
         })
-            .groupby(['country', 'day'])
+            .groupby(group_by)
             .agg({
             'views': 'sum',
             'sales': 'sum',
@@ -56,21 +47,41 @@ def read_and_prepare_data():
             'optout_24': 'sum',
             'cost': 'sum',
         })
-            .assign(cr=lambda d: safediv(d.sales, d.views))
-            .assign(cq=lambda d: safediv(d.firstbillings, d.sales))
-            .assign(resubs=lambda d: safediv(d.sales, d.uniquesales))
-            .assign(releads=lambda d: safediv(d.leads, d.uniqueleads))
-            .assign(active24=lambda d: safediv(d.sales - d.optout_24, d.sales))
-            .assign(ecpa=lambda d: safediv(d.cost, d.sales))
-            .assign(pixels_ratio=lambda d: safediv(d.pixels, d.sales))
+            .assign(
+            cr=lambda d: safediv(d.sales, d.views),
+            cq=lambda d: safediv(d.firstbillings, d.sales),
+            resubs=lambda d: safediv(d.sales, d.uniquesales),
+            releads=lambda d: safediv(d.leads, d.uniqueleads),
+            active24=lambda d: safediv(d.sales - d.optout_24, d.sales),
+            ecpa=lambda d: safediv(d.cost, d.sales),
+            pixels_ratio=lambda d: safediv(d.pixels, d.sales)
+        )
             .fillna(0)
     )
 
-    countries = [c for c in df['country'].unique() if c is not None]
+
+def read_and_prepare_data(read_from_file=False):
+    if read_from_file:
+        raw_data = pd.read_json('data.json')
+    else:
+        json_input = loads(stdin.readlines()[0])
+        raw_data = pd.DataFrame(json_input['data'])
+
+    raw_data = raw_data.rename(columns={
+        'row': 'day',
+        'page': 'country',
+        'section': 'affiliate',
+    })
+    raw_data['day'] = pd.to_datetime(raw_data['day']).apply(lambda d: d.strftime('%Y-%m-%d'))
+
+    country_data = aggregate_data(raw_data, ['country', 'day'])
+    affiliate_data = aggregate_data(raw_data, ['country', 'affiliate', 'day'])
+
+    countries = [c for c in raw_data['country'].unique() if c is not None]
     metrics = ['views', 'leads', 'uniqueleads', 'sales', 'uniquesales', 'firstbillings', 'pixels', 'optout_24',
                'total_optouts', 'cost', 'cr', 'cq', 'resubs', 'releads', 'pixels_ratio', 'ecpa', 'active24']
 
-    return data, countries, metrics
+    return countries, metrics, country_data, affiliate_data
 
 
 def get_anomalies(df, metric) -> dict:
@@ -94,17 +105,37 @@ def get_anomalies(df, metric) -> dict:
     return anomalies
 
 
-data, countries, metrics = read_and_prepare_data()
-anomalies = []
-for country in countries:
-    metric_anomalies = {}
-    for metric in metrics:
-        metric_anomalies[metric] = get_anomalies(data.loc[country], metric)
-    country_metric_anomalies = {
-        'country': country,
-        'metrics': metric_anomalies
-    }
-    get_logger('Anomalies: [{}]'.format(dumps(country_metric_anomalies)))
-    anomalies.append(country_metric_anomalies)
+if __name__ == '__main__':
+    get_logger('loading data...')
+    countries, metrics, country_data, affiliate_data = read_and_prepare_data()
+    get_logger('data loaded')
+    anomalies = []
+    for country in countries:
+        start_time = time()
+        get_logger('processing [{}]...'.format(country))
+        anomalies_for_whole_country = {}
+        for metric in metrics:
+            anomalies_for_whole_country[metric] = get_anomalies(country_data.loc[country], metric)
 
-print(dumps(anomalies))
+        country_affiliates = [
+            a for a in affiliate_data.loc[country].index.get_level_values('affiliate').unique() if a is not None
+        ]
+        anomalies_per_affiliate = []
+        for affiliate in country_affiliates:
+            affiliate_metric_anomalies = {}
+            for metric in metrics:
+                affiliate_metric_anomalies[metric] = get_anomalies(affiliate_data.loc[country].loc[affiliate], metric)
+            anomalies_per_affiliate.append({
+                'affiliate': affiliate,
+                'metrics': affiliate_metric_anomalies
+            })
+
+        country_anomalies = {
+            'country': country,
+            'metrics': anomalies_for_whole_country,
+            'affiliates': anomalies_per_affiliate,
+        }
+        get_logger('anomalies in [{}] seconds: [{}]'.format(time() - start_time, dumps((country_anomalies))))
+        anomalies.append(country_anomalies)
+
+        print(dumps(anomalies))

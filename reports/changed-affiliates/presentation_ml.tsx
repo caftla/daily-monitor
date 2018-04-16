@@ -14,6 +14,7 @@ import d3Format = require('d3-format');
 const R = require('ramda');
 
 export default function (results: any, params: any, {affiliatesMap}) {
+    // console.log(JSON.stringify(results));
     const cqFormat = d3Format.format('0.0%');
     const crFormat = d3Format.format('0.1%');
     const intFormat = d3Format.format(',.0f');
@@ -96,15 +97,19 @@ export default function (results: any, params: any, {affiliatesMap}) {
             {
                 columns.map(c => !!c.colgroup ? c.colgroup() : [])
             }
-            <THEAD style={{backgroundColor: '#7f7f7f'}}>{[<th style={{paddingLeft: '0.3em'}} colSpan="2"><A
-                style={{color: 'white'}} href={makeCountrySummaryUrl(r.page)}>{r.page}</A></th>]
+            <THEAD style={{backgroundColor: '#7f7f7f'}}>
+            {[<th style={{paddingLeft: '0.3em'}} colSpan="2">
+                <A style={{color: 'white'}} href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
+            </th>]
                 .concat(columns.map(c => c.th()))}</THEAD>
             <tbody>
-            {r.sections.filter(selectTopAffiliates).map(s =>
+            {r.affiliates.filter(selectTopAffiliates).map(s =>
                 <tr style={{borderBottom: 'solid 1px silver'}}>
-                    <td style={{paddingLeft: '0.3em'}}><A href={makeAffiliateSummaryUrl(r.page, s.section)}>{r.page}</A>
+                    <td style={{paddingLeft: '0.3em'}}><A
+                        href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{r.country}</A>
                     </td>
-                    <td><A href={makeAffiliateSummaryUrl(r.page, s.section)}>{affiliatesMap[s.section] || 'Unknown'}</A>
+                    <td>
+                        <A href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{affiliatesMap[s.affiliate] || 'Unknown'}</A>
                     </td>
                     {
                         columns.map(c => c.td(s))
@@ -114,7 +119,9 @@ export default function (results: any, params: any, {affiliatesMap}) {
             </tbody>
             <tfoot>
             <tr style={{borderBottom: 'solid 2px silver', fontWeight: 'bold', height: '5ex'}}>
-                <td colSpan="2" style={{paddingLeft: '0.3em'}}><A href={makeCountrySummaryUrl(r.page)}>{r.page}</A></td>
+                <td colSpan="2" style={{paddingLeft: '0.3em'}}>
+                    <A href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
+                </td>
                 {
                     columns.map(c => c.td(r))
                 }
@@ -150,7 +157,7 @@ export default function (results: any, params: any, {affiliatesMap}) {
             <tbody>
             {results.filter(selectTopChangedCountries).map(s =>
                 <tr style={{borderBottom: 'solid 1px silver'}}>
-                    <td style={{paddingLeft: '0.3em'}}><A href={makeCountrySummaryUrl(s.page)}>{s.page}</A></td>
+                    <td style={{paddingLeft: '0.3em'}}><A href={makeCountrySummaryUrl(s.country)}>{s.country}</A></td>
                     {
                         topChangedCountriesColumn.map(c => c.td(s))
                     }
@@ -177,21 +184,21 @@ export default function (results: any, params: any, {affiliatesMap}) {
                 <th>Affiliate</th>].concat(topChangedAffiliatesColumn.map(c => c.th()))}</THEAD>
             <tbody>
             {R.pipe(
-                R.chain(p => p.sections.filter(selectTopChangedAffiliatesAndTopAffiliates).map(s => R.merge(s, {page: p.page})))
+                R.chain(p => p.affiliates.filter(selectTopChangedAffiliatesAndTopAffiliates).map(s => R.merge(s, {country: p.country})))
                 , R.filter(pagesPred)
-                , R.reduce(({list, page}, a) => ({
-                    list: list.concat([R.merge(a, {isNew: a.page != page})]),
-                    page: a.page
-                }), {list: [], page: null})
+                , R.reduce(({list, country}, a) => ({
+                    list: list.concat([R.merge(a, {isNew: a.country != country})]),
+                    country: a.country
+                }), {list: [], country: null})
                 , R.prop('list')
             )(results).map(s =>
                 <tr style={R.merge({borderBottom: 'solid 1px silver'}, s.isNew ? {borderTop: 'solid 2px #7f7f7f'} : {})}>
                     <td style={{paddingLeft: '0.3em'}}>
-                        <A target="_blank" href={makeCountrySummaryUrl(s.page)}>{s.page}</A>
+                        <A target="_blank" href={makeCountrySummaryUrl(s.country)}>{s.country}</A>
                     </td>
                     <td style={{paddingLeft: '0.3em'}}>
-                        <A target="_blank" href={makeAffiliateSummaryUrl(s.page, s.section)}
-                           title={s.section}>{affiliatesMap[s.section] || s.section}
+                        <A target="_blank" href={makeAffiliateSummaryUrl(s.country, s.affiliate)}
+                           title={s.affiliate}>{affiliatesMap[s.affiliate] || s.affiliate}
                         </A>
                     </td>
                     {
@@ -209,9 +216,7 @@ export default function (results: any, params: any, {affiliatesMap}) {
 
     return {
         changedCountries: MakeChange('Top Changed Countries', changedCountries),
-        changedAffiliates: '',
-        topAffiliates: ''
-        // changedAffiliates: MakeChange('Top Changed Affiliates', topChangedAffiliates()),
-        // topAffiliates: MakeChange('Top Affiliates', topAffiliates())
+        changedAffiliates: MakeChange('Top Changed Affiliates', topChangedAffiliates()),
+        topAffiliates: MakeChange('Top Affiliates', topAffiliates())
     }
 }
