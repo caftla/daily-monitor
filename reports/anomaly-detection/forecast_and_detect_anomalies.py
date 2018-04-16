@@ -1,3 +1,4 @@
+import multiprocessing
 from json import loads, dumps
 from sys import stdin
 from time import time
@@ -105,37 +106,45 @@ def get_anomalies(df, metric) -> dict:
     return anomalies
 
 
+def get_country_anomalies(country, metrics, country_data, affiliate_data):
+    start_time = time()
+    get_logger('processing [{}]...'.format(country))
+    anomalies_for_whole_country = {}
+    for metric in metrics:
+        anomalies_for_whole_country[metric] = get_anomalies(country_data, metric)
+    country_affiliates = [
+        a for a in affiliate_data.index.get_level_values('affiliate').unique() if a is not None
+    ]
+    anomalies_per_affiliate = []
+    for affiliate in country_affiliates:
+        affiliate_metric_anomalies = {}
+        for metric in metrics:
+            affiliate_metric_anomalies[metric] = get_anomalies(affiliate_data.loc[affiliate], metric)
+        anomalies_per_affiliate.append({
+            'affiliate': affiliate,
+            'metrics': affiliate_metric_anomalies
+        })
+    country_anomalies = {
+        'country': country,
+        'metrics': anomalies_for_whole_country,
+        'affiliates': anomalies_per_affiliate,
+    }
+    get_logger('anomalies in [{}] seconds: [{}]'.format(time() - start_time, dumps((country_anomalies))))
+    return country_anomalies
+
+
 if __name__ == '__main__':
     get_logger('loading data...')
     countries, metrics, country_data, affiliate_data = read_and_prepare_data()
     get_logger('data loaded')
     anomalies = []
-    for country in countries:
-        start_time = time()
-        get_logger('processing [{}]...'.format(country))
-        anomalies_for_whole_country = {}
-        for metric in metrics:
-            anomalies_for_whole_country[metric] = get_anomalies(country_data.loc[country], metric)
-
-        country_affiliates = [
-            a for a in affiliate_data.loc[country].index.get_level_values('affiliate').unique() if a is not None
-        ]
-        anomalies_per_affiliate = []
-        for affiliate in country_affiliates:
-            affiliate_metric_anomalies = {}
-            for metric in metrics:
-                affiliate_metric_anomalies[metric] = get_anomalies(affiliate_data.loc[country].loc[affiliate], metric)
-            anomalies_per_affiliate.append({
-                'affiliate': affiliate,
-                'metrics': affiliate_metric_anomalies
-            })
-
-        country_anomalies = {
-            'country': country,
-            'metrics': anomalies_for_whole_country,
-            'affiliates': anomalies_per_affiliate,
-        }
-        get_logger('anomalies in [{}] seconds: [{}]'.format(time() - start_time, dumps((country_anomalies))))
+    for country in ['AU']:
+        country_anomalies = get_country_anomalies(
+            country,
+            metrics,
+            country_data.loc[country],
+            affiliate_data.loc[country]
+        )
         anomalies.append(country_anomalies)
 
-        print(dumps(anomalies))
+    print(dumps(anomalies))
