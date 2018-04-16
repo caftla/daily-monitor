@@ -38,39 +38,37 @@ def read_and_prepare_data():
     })
     df['day'] = pd.to_datetime(df['day']).apply(lambda d: d.strftime('%Y-%m-%d'))
     data = (
-        df.rename(columns={
+        df
+            .rename(columns={
             'page': 'country',
             'section': 'affiliate',
         })
             .groupby(['country', 'day'])
             .agg({
             'views': 'sum',
-            'leads': 'sum',
-            'uniqueleads': 'sum',
             'sales': 'sum',
-            'uniquesales': 'sum',
-            'paid_sales': 'sum',
-            'firstbillings': 'sum',
             'pixels': 'sum',
-            'optout_24': 'sum',
-            'day_optouts': 'sum',
             'total_optouts': 'sum',
+            'firstbillings': 'sum',
+            'uniquesales': 'sum',
+            'uniqueleads': 'sum',
+            'leads': 'sum',
+            'optout_24': 'sum',
             'cost': 'sum',
         })
             .assign(cr=lambda d: safediv(d.sales, d.views))
             .assign(cq=lambda d: safediv(d.firstbillings, d.sales))
             .assign(resubs=lambda d: safediv(d.sales, d.uniquesales))
             .assign(releads=lambda d: safediv(d.leads, d.uniqueleads))
-            .assign(pixels_ratio=lambda d: safediv(d.pixels, d.sales))
-            .assign(ecpa=lambda d: safediv(d.cost, d.sales))
             .assign(active24=lambda d: safediv(d.sales - d.optout_24, d.sales))
+            .assign(ecpa=lambda d: safediv(d.cost, d.sales))
+            .assign(pixels_ratio=lambda d: safediv(d.pixels, d.sales))
             .fillna(0)
     )
 
     countries = [c for c in df['country'].unique() if c is not None]
-    metrics = ['views', 'leads', 'uniqueleads', 'sales', 'uniquesales', 'paid_sales', 'firstbillings', 'pixels',
-               'optout_24', 'day_optouts', 'total_optouts', 'cost', 'cr', 'cq', 'resubs', 'releads', 'pixels_ratio',
-               'ecpa', 'active24']
+    metrics = ['views', 'leads', 'uniqueleads', 'sales', 'uniquesales', 'firstbillings', 'pixels', 'optout_24',
+               'total_optouts', 'cost', 'cr', 'cq', 'resubs', 'releads', 'pixels_ratio', 'ecpa', 'active24']
 
     return data, countries, metrics
 
