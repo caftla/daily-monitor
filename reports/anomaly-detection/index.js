@@ -1,15 +1,13 @@
 var PythonShell = require('python-shell');
 
-module.exports = (metrics, country, stats) => new Promise((resolve, reject) => {
+module.exports = (data) => new Promise((resolve, reject) => {
     const pyshell = new PythonShell('forecast_and_detect_anomalies.py', {
         mode: 'json',
         scriptPath: __dirname
     });
 
     pyshell.send({
-        'metrics': metrics,
-        'country': country,
-        'stats': stats
+        'data': data
     });
 
     pyshell.on('message', function (message) {
