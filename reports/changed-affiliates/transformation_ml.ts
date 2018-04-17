@@ -8,7 +8,5 @@ export default async function (data) {
     };
     let trace_ = x => trace(x, x);
 
-    // let data = _data.filter(d => d.page == 'GR' || d.page == 'QA');
-
     return detectAnomalies(data);
 }

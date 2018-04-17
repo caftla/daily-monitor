@@ -8,7 +8,7 @@ import pandas as pd
 from sam_anomaly_detector import Detector
 
 
-def get_logger(message):
+def log(message):
     # import logging
     # from logging.handlers import SysLogHandler
     # logger = logging.getLogger()
@@ -63,7 +63,8 @@ def aggregate_data(raw_data, group_by) -> pd.DataFrame:
 
 def read_and_prepare_data(read_from_file=False):
     if read_from_file:
-        raw_data = pd.read_json('data.json')
+        import os
+        raw_data = pd.read_json(os.path.dirname(os.path.realpath(__file__)) + '/data.json')
     else:
         json_input = loads(stdin.readlines()[0])
         raw_data = pd.DataFrame(json_input['data'])
@@ -85,7 +86,7 @@ def read_and_prepare_data(read_from_file=False):
     return countries, metrics, country_data, affiliate_data
 
 
-def get_anomalies(df, metric) -> dict:
+def get_anomalies(df, metric, return_anomalies):
     anomalies = {
         'actual': float(df[metric][-1])
     }
@@ -103,48 +104,47 @@ def get_anomalies(df, metric) -> dict:
             lambda ds: ds.strftime('%Y-%m-%d')
         )
         anomalies = metric_anomalies[columns].to_dict(orient='records')[0]
-    return anomalies
+    return_anomalies[metric] = anomalies
+
+def parallize(fn, args, iterator):
+    result = multiprocessing.Manager().dict()
+    jobs = []
+    for i in iterator:
+        p = multiprocessing.Process(target=fn, args=args + (i, result))
+        jobs.append(p)
+        p.start()
+    for job in jobs:
+        job.join()
+    return result.values()
 
 
-def get_country_anomalies(country, metrics, country_data, affiliate_data):
+def get_anomalies_per_country(country, metrics, countries_data, affiliates_data):
+    log('processing [{}]...'.format(country))
     start_time = time()
-    get_logger('processing [{}]...'.format(country))
-    anomalies_for_whole_country = {}
-    for metric in metrics:
-        anomalies_for_whole_country[metric] = get_anomalies(country_data, metric)
+    country_data = countries_data.loc[country]
+    affiliate_data = affiliates_data.loc[country]
     country_affiliates = [
         a for a in affiliate_data.index.get_level_values('affiliate').unique() if a is not None
     ]
     anomalies_per_affiliate = []
     for affiliate in country_affiliates:
-        affiliate_metric_anomalies = {}
-        for metric in metrics:
-            affiliate_metric_anomalies[metric] = get_anomalies(affiliate_data.loc[affiliate], metric)
         anomalies_per_affiliate.append({
             'affiliate': affiliate,
-            'metrics': affiliate_metric_anomalies
+            'metrics': parallize(get_anomalies, (affiliate_data.loc[affiliate],), metrics)
         })
     country_anomalies = {
         'country': country,
-        'metrics': anomalies_for_whole_country,
+        'metrics': parallize(get_anomalies, (country_data,), metrics),
         'affiliates': anomalies_per_affiliate,
     }
-    get_logger('anomalies in [{}] seconds: [{}]'.format(time() - start_time, dumps((country_anomalies))))
-    return country_anomalies
+    anomalies.append(country_anomalies)
+    log('finished processing [{}] in seconds [{:.2f}]'.format(country, time() - start_time))
 
 
 if __name__ == '__main__':
-    get_logger('loading data...')
-    countries, metrics, country_data, affiliate_data = read_and_prepare_data()
-    get_logger('data loaded')
+    countries, metrics, countries_data, affiliates_data = read_and_prepare_data(read_from_file=True)
     anomalies = []
-    for country in ['AU']:
-        country_anomalies = get_country_anomalies(
-            country,
-            metrics,
-            country_data.loc[country],
-            affiliate_data.loc[country]
-        )
-        anomalies.append(country_anomalies)
+    for country in countries:
+        get_anomalies_per_country(country, metrics, countries_data, affiliates_data)
 
     print(dumps(anomalies))
