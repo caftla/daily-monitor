@@ -1,2 +1,2 @@
 pandas
-sam_anomaly_detector==1.8
+sam_anomaly_detector==2.0

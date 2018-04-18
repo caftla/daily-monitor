@@ -1,4 +1,5 @@
 import multiprocessing
+import multiprocessing.pool
 from json import loads, dumps
 from sys import stdin
 from time import time
@@ -9,17 +10,8 @@ from sam_anomaly_detector import Detector
 
 
 def log(message):
-    # import logging
-    # from logging.handlers import SysLogHandler
-    # logger = logging.getLogger()
-    # logger.setLevel(logging.INFO)
-    # formatter = logging.Formatter("[%(levelname)s] %(message)s")
-    # file_handler = SysLogHandler('/dev/log')
-    # file_handler.setFormatter(formatter)
-    # logger.addHandler(file_handler)
-    # return logger
     import syslog
-    syslog.syslog(syslog.LOG_INFO, '[INFO] ' + message)
+    syslog.syslog(syslog.LOG_INFO, '[DEBUG] ' + message)
 
 
 def safediv(a, b):
@@ -106,6 +98,7 @@ def get_anomalies(df, metric, return_anomalies):
         anomalies = metric_anomalies[columns].to_dict(orient='records')[0]
     return_anomalies[metric] = anomalies
 
+
 def parallize(fn, args, iterator):
     result = multiprocessing.Manager().dict()
     jobs = []
@@ -115,10 +108,11 @@ def parallize(fn, args, iterator):
         p.start()
     for job in jobs:
         job.join()
-    return result.values()
+    return result.copy()
 
 
-def get_anomalies_per_country(country, metrics, countries_data, affiliates_data):
+def get_anomalies_per_country(args):
+    country, metrics, countries_data, affiliates_data = args
     log('processing [{}]...'.format(country))
     start_time = time()
     country_data = countries_data.loc[country]
@@ -137,14 +131,31 @@ def get_anomalies_per_country(country, metrics, countries_data, affiliates_data)
         'metrics': parallize(get_anomalies, (country_data,), metrics),
         'affiliates': anomalies_per_affiliate,
     }
-    anomalies.append(country_anomalies)
     log('finished processing [{}] in seconds [{:.2f}]'.format(country, time() - start_time))
+    return country_anomalies
+
+
+class DaemonLessProcess(multiprocessing.Process):
+    def _get_daemon(self):
+        return False
+
+    def _set_daemon(self, value):
+        pass
+
+    daemon = property(_get_daemon, _set_daemon)
+
+
+class DaemonLessPool(multiprocessing.pool.Pool):
+    Process = DaemonLessProcess
 
 
 if __name__ == '__main__':
-    countries, metrics, countries_data, affiliates_data = read_and_prepare_data(read_from_file=True)
-    anomalies = []
-    for country in countries:
-        get_anomalies_per_country(country, metrics, countries_data, affiliates_data)
-
+    countries, metrics, countries_data, affiliates_data = read_and_prepare_data(read_from_file=False)
+    pool = DaemonLessPool()
+    anomalies = pool.map(
+        get_anomalies_per_country,
+        [(country, metrics, countries_data, affiliates_data) for country in countries]
+    )
+    pool.close()
+    pool.join()
     print(dumps(anomalies))
