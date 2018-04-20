@@ -14,13 +14,14 @@ import d3Format = require('d3-format');
 const R = require('ramda');
 
 export default function (results: any, params: any, {affiliatesMap}) {
+    console.log('presenting...');
     // console.log(JSON.stringify(results));
-    const cqFormat = d3Format.format('0.0%');
-    const crFormat = d3Format.format('0.1%');
-    const intFormat = d3Format.format(',.0f');
-    const bigIntFormat = d3Format.format(',.2s');
-    const cpaFormat = d3Format.format(',.1f');
-    const rateFormat = R.pipe(d3Format.format(',.1f'), x => `${x}×`);
+    let cqFormat = d3Format.format('0.0%');
+    let crFormat = d3Format.format('0.1%');
+    let intFormat = d3Format.format(',.0f');
+    let bigIntFormat = d3Format.format(',.2s');
+    let cpaFormat = d3Format.format(',.1f');
+    let rateFormat = R.pipe(d3Format.format(',.1f'), x => `${x}×`);
 
     const metricsLabels = metric => ({
         'views': 'Views',
@@ -37,20 +38,17 @@ export default function (results: any, params: any, {affiliatesMap}) {
 
     const column = makeColumn(metricsLabels);
 
-    const {dateFrom, dateTo} = params;
+    let {dateFrom, dateTo} = params;
 
-    const isHourly = params.frequency == 'hourly';
+    let isHourly = params.frequency == 'hourly';
 
-    const {makeUrl, makeCountrySummaryUrl, makeAffiliateSummaryUrl} = newMakeUrl({dateFrom, dateTo});
-
-    const pagesPred = p =>
-        (p.metrics.sales.actual > 0 || p.metrics.sales.sum > 14);
+    let {makeUrl, makeCountrySummaryUrl, makeAffiliateSummaryUrl} = newMakeUrl({dateFrom, dateTo});
 
     const selectTopChangedCountries = p => {
         return R.pipe(
             R.toPairs,
             R.map(([metric, stats]) => {
-                return Math.abs(stats.change) > 5
+                return Math.abs(stats.change) > 10
             }),
             R.find(x => x == true)
         )(p.metrics) || false
@@ -88,47 +86,6 @@ export default function (results: any, params: any, {affiliatesMap}) {
         column('ecpa', negativeColorScale, cpaFormat)
     ];
 
-    const topAffiliatesTable = (r) =>
-        <TABLE>
-            <colgroup>
-                <col span="1" style={{width: '5%'}}/>
-                <col span="1" style={{width: '10%'}}/>
-            </colgroup>
-            {
-                columns.map(c => !!c.colgroup ? c.colgroup() : [])
-            }
-            <THEAD style={{backgroundColor: '#7f7f7f'}}>
-            {[<th style={{paddingLeft: '0.3em'}} colSpan="2">
-                <A style={{color: 'white'}} href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
-            </th>]
-                .concat(columns.map(c => c.th()))}</THEAD>
-            <tbody>
-            {r.affiliates.filter(selectTopAffiliates).map(s =>
-                <tr style={{borderBottom: 'solid 1px silver'}}>
-                    <td style={{paddingLeft: '0.3em'}}><A
-                        href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{r.country}</A>
-                    </td>
-                    <td>
-                        <A href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{affiliatesMap[s.affiliate] || 'Unknown'}</A>
-                    </td>
-                    {
-                        columns.map(c => c.td(s))
-                    }
-                </tr>
-            )}
-            </tbody>
-            <tfoot>
-            <tr style={{borderBottom: 'solid 2px silver', fontWeight: 'bold', height: '5ex'}}>
-                <td colSpan="2" style={{paddingLeft: '0.3em'}}>
-                    <A href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
-                </td>
-                {
-                    columns.map(c => c.td(r))
-                }
-            </tr>
-            </tfoot>
-        </TABLE>;
-
     let topChangedAffiliatesColumn = (isHourly ? [column('views', positiveColorScale, bigIntFormat)] : []).concat([
         column('sales', positiveColorScale, intFormat),
         column('cr', positiveColorScale, crFormat),
@@ -139,11 +96,11 @@ export default function (results: any, params: any, {affiliatesMap}) {
         column('pixels_ratio', neutralColorScale, cqFormat)
     ]).concat(!isHourly ? [column('ecpa', negativeColorScale, cpaFormat)] : []);
 
-    const topChangedCountriesColumn = [column('views', positiveColorScale, bigIntFormat)].concat(topChangedAffiliatesColumn).concat([
+    let topChangedCountriesColumn = [column('views', positiveColorScale, bigIntFormat)].concat(topChangedAffiliatesColumn).concat([
         column('total_optouts', negativeColorScale, intFormat)
     ]);
 
-    const changedCountries =
+    const changedCountries = () =>
         <TABLE>
             <colgroup>
                 <col span="1" style={{width: '5%'}}/>
@@ -166,12 +123,66 @@ export default function (results: any, params: any, {affiliatesMap}) {
             </tbody>
         </TABLE>;
 
-    let topAffiliates = () => results.filter(pagesPred).map((r, i) =>
+    let metrics = ['views', 'sales', 'cr', 'cq', 'resubs', 'releads', 'active24', 'pixels', 'ecpa'];
+    const filterTopAffiliates = (p) => {
+        let countries = [];
+        p.affiliates.forEach(function (a) {
+            R.filter(metric => {
+                if (Object.keys(a.metrics[metric]).length > 1) {
+                    countries.push(p.country);
+                    return
+                }
+            })(metrics)
+        });
+
+        // return true;
+        return !R.uniq(countries).indexOf(p.country)
+    };
+
+    const topAffiliates = () => results.filter(filterTopAffiliates).map((r, i) =>
         <div style={{marginTop: `${i > 0 ? 1 : 0}em`}}>
-            {topAffiliatesTable(r)}
+            <TABLE>
+                <colgroup>
+                    <col span="1" style={{width: '5%'}}/>
+                    <col span="1" style={{width: '10%'}}/>
+                </colgroup>
+                {
+                    columns.map(c => !!c.colgroup ? c.colgroup() : [])
+                }
+                <THEAD style={{backgroundColor: '#7f7f7f'}}>
+                {[<th style={{paddingLeft: '0.3em'}} colSpan="2">
+                    <A style={{color: 'white'}} href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
+                </th>]
+                    .concat(columns.map(c => c.th()))}</THEAD>
+                <tbody>
+                {r.affiliates.filter(selectTopAffiliates).map(s =>
+                    <tr style={{borderBottom: 'solid 1px silver'}}>
+                        <td style={{paddingLeft: '0.3em'}}><A
+                            href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{r.country}</A>
+                        </td>
+                        <td>
+                            <A href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{affiliatesMap[s.affiliate] || 'Unknown'}</A>
+                        </td>
+                        {
+                            columns.map(c => c.td(s))
+                        }
+                    </tr>
+                )}
+                </tbody>
+                <tfoot>
+                <tr style={{borderBottom: 'solid 2px silver', fontWeight: 'bold', height: '5ex'}}>
+                    <td colSpan="2" style={{paddingLeft: '0.3em'}}>
+                        <A href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
+                    </td>
+                    {
+                        columns.map(c => c.td(r))
+                    }
+                </tr>
+                </tfoot>
+            </TABLE>
         </div>);
 
-    let topChangedAffiliates = () =>
+    const topChangedAffiliates = () =>
         <TABLE>
             <colgroup>
                 <col span="1" style={{width: '5%'}}/>
@@ -184,13 +195,13 @@ export default function (results: any, params: any, {affiliatesMap}) {
                 <th>Affiliate</th>].concat(topChangedAffiliatesColumn.map(c => c.th()))}</THEAD>
             <tbody>
             {R.pipe(
-                R.chain(p => p.affiliates.filter(selectTopChangedAffiliatesAndTopAffiliates).map(s => R.merge(s, {country: p.country})))
-                , R.filter(pagesPred)
-                , R.reduce(({list, country}, a) => ({
+                R.chain(p => p.affiliates.filter(selectTopChangedAffiliatesAndTopAffiliates).map(s => R.merge(s, {country: p.country}))),
+                R.filter(p => p.metrics.sales.actual > 0),
+                R.reduce(({list, country}, a) => ({
                     list: list.concat([R.merge(a, {isNew: a.country != country})]),
                     country: a.country
-                }), {list: [], country: null})
-                , R.prop('list')
+                }), {list: [], country: null}),
+                R.prop('list')
             )(results).map(s =>
                 <tr style={R.merge({borderBottom: 'solid 1px silver'}, s.isNew ? {borderTop: 'solid 2px #7f7f7f'} : {})}>
                     <td style={{paddingLeft: '0.3em'}}>
@@ -215,7 +226,7 @@ export default function (results: any, params: any, {affiliatesMap}) {
     </div>;
 
     return {
-        changedCountries: MakeChange('Top Changed Countries', changedCountries),
+        changedCountries: MakeChange('Top Changed Countries', changedCountries()),
         changedAffiliates: MakeChange('Top Changed Affiliates', topChangedAffiliates()),
         topAffiliates: MakeChange('Top Affiliates', topAffiliates())
     }

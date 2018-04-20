@@ -38,12 +38,26 @@ export const newColumn = (value, cols) => ({
     </colgroup>
 });
 
-let title = (metric) => s => {
-    if (s.metrics[metric].change && s.metrics[metric].severity) {
-        return `
-Change: ${s.metrics[metric].change.toFixed(2)}%
-Severity: ${s.metrics[metric].severity}`;
+function ColorLuminance(lum) {
+    let hex = '11FF11';
+    if (lum < 0) {
+        hex = 'FF1111';
     }
+    lum = Math.abs(lum);
+    let rgb = "#", c, i;
+    for (i = 0; i < 3; i++) {
+        c = parseInt(hex.substr(i * 2, 2), 16);
+        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+        rgb += ("00" + c).substr(c.length);
+    }
+    return rgb;
+}
+
+let title = (metric, format) => s => {
+    if (s.metrics[metric].prediction != undefined && s.metrics[metric].change != undefined)
+        return `
+Prediction: ${format(s.metrics[metric].prediction)}
+σ: ${format(s.metrics[metric].change)}`;
 };
 
 export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
@@ -53,8 +67,8 @@ export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
             label: metricToLabel(metric), cols: [
                 {
                     style: {width: '10%'},
-                    title: title(metric),
-                    content: (s, options) => ChangeSymbol(scale)(
+                    title: title(metric, format),
+                    content: (s, options) => ChangeSymbol(
                         s.metrics[metric].change,
                         s.metrics[metric].severity,
                         format(s.metrics[metric].actual),
@@ -100,24 +114,26 @@ export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColor
         padding: '0.15em 0em'
     }, style)}>&nbsp;{children}&nbsp;</span>;
 
-    const ChangeSymbol =
-        (scale, format = v => Math.round(Math.abs(v)) + (v > 0 ? '+' : '-')) => (change, severity, content, options = {ignoreBgColor: false}) => {
-            let bgColor = options.ignoreBgColor ? '' : scale(severity * (change > 0 ? 1 : -1));
-            let textColor = 'black';
-            if (bgColor == '#54AE3D' || bgColor == '#77BD65' || bgColor == '#E22124' || bgColor == '#EE4B4C') {
-                textColor = 'white';
-            }
+    const ChangeSymbol = (change, severity, content, options = {ignoreBgColor: false}) => {
+        let bgColor = '';
+        if (!options.ignoreBgColor && severity != undefined) {
+            bgColor = ColorLuminance(severity);
+        }
+        let textColor = 'black';
+        if (bgColor == '#54AE3D' || bgColor == '#77BD65' || bgColor == '#E22124' || bgColor == '#EE4B4C') {
+            textColor = 'white';
+        }
 
-            if (Math.abs(change) < 0.075) {
-                return <ChangeSymbolSpan>{content}</ChangeSymbolSpan>;
-            } else {
-                return <ChangeSymbolSpan style={{
-                    backgroundColor: bgColor,
-                    color: textColor,
-                    borderRadius: '0.5em'
-                }}>{content}</ChangeSymbolSpan>;
-            }
-        };
+        if (Math.abs(change) < 0.075) {
+            return <ChangeSymbolSpan>{content}</ChangeSymbolSpan>;
+        } else {
+            return <ChangeSymbolSpan style={{
+                backgroundColor: bgColor,
+                color: textColor,
+                borderRadius: '0.5em'
+            }}>{content}</ChangeSymbolSpan>;
+        }
+    };
 
     return {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColorScale}
 })();

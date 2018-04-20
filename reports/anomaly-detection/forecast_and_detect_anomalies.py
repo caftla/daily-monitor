@@ -89,7 +89,7 @@ def get_anomalies(df, metric, return_anomalies):
     })
     metric_anomalies = Detector(min_time_points=5, ignore_empty_dataset=True).forecast_today(dataset=data)
     if not metric_anomalies.empty:
-        columns = ['ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'severity', 'change']
+        columns = ['ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'severity', 'change', 'prediction']
         metric_anomalies['ds'] = pd.to_datetime(
             metric_anomalies['ds'], unit='ms'
         ).apply(
@@ -151,7 +151,7 @@ class DaemonLessPool(multiprocessing.pool.Pool):
 
 if __name__ == '__main__':
     countries, metrics, countries_data, affiliates_data = read_and_prepare_data(read_from_file=False)
-    pool = DaemonLessPool()
+    pool = DaemonLessPool(4)
     anomalies = pool.map(
         get_anomalies_per_country,
         [(country, metrics, countries_data, affiliates_data) for country in countries]

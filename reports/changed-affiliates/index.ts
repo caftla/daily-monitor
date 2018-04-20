@@ -1,6 +1,7 @@
 import query from './../sql-api'
-import transform from './transformation_ml'
 import present from './presentation_ml'
+
+const detectAnomalies = require('../anomaly-detection/index');
 
 const fs = require('fs');
 const path = require('path');
@@ -11,5 +12,10 @@ const write = path => x => {
 };
 
 export default (params, {affiliatesMap}) => query(process.env.jewel_connection_string, fs.readFileSync(path.resolve(__dirname, './index.sql'), 'utf8'), params)
-    .then((x: { rows: [any] }) => transform(x.rows))
+    .then((x: { rows: [any] }) => {
+        console.log('detecting anomalies...');
+        let anomalies = require('../anomaly-detection/anomalies.json');
+        return anomalies;
+        // return detectAnomalies(x.rows);
+    })
     .then((x: any) => present(x, params, {affiliatesMap}))
