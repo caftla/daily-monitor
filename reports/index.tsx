@@ -18,7 +18,7 @@ const trace_ = x => trace(x, x);
 
 const timeZoneOffset = 0;
 
-let dateFrom = new Date(new Date().valueOf() - 14 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
+let dateFrom = new Date(new Date().valueOf() - 31 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
 let dateTo = new Date(new Date().setDate(new Date().getDate() + 1).valueOf() - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
 let yesterday = new Date(new Date().valueOf() - 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0];
 

@@ -54,10 +54,11 @@ function ColorLuminance(lum) {
 }
 
 let title = (metric, format) => s => {
-    if (s.metrics[metric].prediction != undefined && s.metrics[metric].change != undefined)
+    let metric_params = s.metrics[metric];
+    if (metric_params && metric_params.prediction && metric_params.change)
         return `
-Prediction: ${format(s.metrics[metric].prediction)}
-σ: ${format(s.metrics[metric].change)}`;
+Prediction: ${format(metric_params.prediction)}
+σ: ${format(metric_params.change)}`;
 };
 
 export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
@@ -69,9 +70,8 @@ export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
                     style: {width: '10%'},
                     title: title(metric, format),
                     content: (s, options) => ChangeSymbol(
-                        s.metrics[metric].change,
-                        s.metrics[metric].severity,
-                        format(s.metrics[metric].actual),
+                        s.metrics[metric],
+                        s.metrics[metric] ? format(s.metrics[metric].actual) : 0,
                         options
                     )
                 }
@@ -114,17 +114,17 @@ export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColor
         padding: '0.15em 0em'
     }, style)}>&nbsp;{children}&nbsp;</span>;
 
-    const ChangeSymbol = (change, severity, content, options = {ignoreBgColor: false}) => {
+    const ChangeSymbol = (params, content, options = {ignoreBgColor: false}) => {
         let bgColor = '';
-        if (!options.ignoreBgColor && severity != undefined) {
-            bgColor = ColorLuminance(severity);
+        if (!options.ignoreBgColor && params && params.severity != undefined) {
+            bgColor = ColorLuminance(params.severity);
         }
         let textColor = 'black';
         if (bgColor == '#54AE3D' || bgColor == '#77BD65' || bgColor == '#E22124' || bgColor == '#EE4B4C') {
             textColor = 'white';
         }
 
-        if (Math.abs(change) < 0.075) {
+        if (params && params.change && Math.abs(params.change) < 0.075) {
             return <ChangeSymbolSpan>{content}</ChangeSymbolSpan>;
         } else {
             return <ChangeSymbolSpan style={{

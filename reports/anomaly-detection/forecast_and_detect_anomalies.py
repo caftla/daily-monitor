@@ -8,6 +8,9 @@ import numpy as np
 import pandas as pd
 from sam_anomaly_detector import Detector
 
+COUNTRIES_SECTION = 'countries'
+AFFILIATES_SECTION = 'affiliates'
+
 
 def log(message):
     import syslog
@@ -23,10 +26,6 @@ def safediv(a, b):
 def aggregate_data(raw_data, group_by) -> pd.DataFrame:
     return (
         raw_data
-            .rename(columns={
-            'page': 'country',
-            'section': 'affiliate',
-        })
             .groupby(group_by)
             .agg({
             'views': 'sum',
@@ -57,25 +56,27 @@ def read_and_prepare_data(read_from_file=False):
     if read_from_file:
         import os
         raw_data = pd.read_json(os.path.dirname(os.path.realpath(__file__)) + '/data.json')
+        section = COUNTRIES_SECTION
+        # section = AFFILIATES_SECTION
     else:
         json_input = loads(stdin.readlines()[0])
         raw_data = pd.DataFrame(json_input['data'])
+        section = json_input['section']
 
     raw_data = raw_data.rename(columns={
         'row': 'day',
         'page': 'country',
-        'section': 'affiliate',
     })
     raw_data['day'] = pd.to_datetime(raw_data['day']).apply(lambda d: d.strftime('%Y-%m-%d'))
 
-    country_data = aggregate_data(raw_data, ['country', 'day'])
-    affiliate_data = aggregate_data(raw_data, ['country', 'affiliate', 'day'])
+    if section == COUNTRIES_SECTION:
+        data = aggregate_data(raw_data, ['country', 'day'])
+    else:
+        data = aggregate_data(raw_data, ['country', 'section', 'day'])
 
     countries = [c for c in raw_data['country'].unique() if c is not None]
-    metrics = ['views', 'leads', 'uniqueleads', 'sales', 'uniquesales', 'firstbillings', 'pixels', 'optout_24',
-               'total_optouts', 'cost', 'cr', 'cq', 'resubs', 'releads', 'pixels_ratio', 'ecpa', 'active24']
 
-    return countries, metrics, country_data, affiliate_data
+    return countries, data
 
 
 def get_anomalies(df, metric, return_anomalies):
@@ -112,27 +113,31 @@ def parallize(fn, args, iterator):
 
 
 def get_anomalies_per_country(args):
-    country, metrics, countries_data, affiliates_data = args
+    country, metrics, data = args
     log('processing [{}]...'.format(country))
     start_time = time()
-    country_data = countries_data.loc[country]
-    affiliate_data = affiliates_data.loc[country]
-    country_affiliates = [
-        a for a in affiliate_data.index.get_level_values('affiliate').unique() if a is not None
-    ]
-    anomalies_per_affiliate = []
-    for affiliate in country_affiliates:
-        anomalies_per_affiliate.append({
-            'affiliate': affiliate,
-            'metrics': parallize(get_anomalies, (affiliate_data.loc[affiliate],), metrics)
-        })
-    country_anomalies = {
-        'country': country,
-        'metrics': parallize(get_anomalies, (country_data,), metrics),
-        'affiliates': anomalies_per_affiliate,
-    }
+    if data.index.nlevels == 3:  # TODO: should check whether `section` exists instead
+        country_data = data.loc[country]
+        country_sections = [
+            a for a in country_data.index.get_level_values('section').unique() if a is not None
+        ]
+        anomalies_per_section = []
+        for section in country_sections:
+            anomalies_per_section.append({
+                'section': section,
+                'metrics': parallize(get_anomalies, (country_data.loc[section],), metrics)
+            })
+        anomalies = {
+            'country': country,
+            'sections': anomalies_per_section,
+        }
+    else:
+        anomalies = {
+            'country': country,
+            'metrics': parallize(get_anomalies, (data.loc[country],), metrics),
+        }
     log('finished processing [{}] in seconds [{:.2f}]'.format(country, time() - start_time))
-    return country_anomalies
+    return anomalies
 
 
 class DaemonLessProcess(multiprocessing.Process):
@@ -150,11 +155,13 @@ class DaemonLessPool(multiprocessing.pool.Pool):
 
 
 if __name__ == '__main__':
-    countries, metrics, countries_data, affiliates_data = read_and_prepare_data(read_from_file=False)
+    metrics = ['views', 'leads', 'uniqueleads', 'sales', 'uniquesales', 'firstbillings', 'pixels', 'optout_24',
+               'total_optouts', 'cost', 'cr', 'cq', 'resubs', 'releads', 'pixels_ratio', 'ecpa', 'active24']
+    countries, data = read_and_prepare_data(read_from_file=False)
     pool = DaemonLessPool(4)
     anomalies = pool.map(
         get_anomalies_per_country,
-        [(country, metrics, countries_data, affiliates_data) for country in countries]
+        [(country, metrics, data) for country in countries]
     )
     pool.close()
     pool.join()

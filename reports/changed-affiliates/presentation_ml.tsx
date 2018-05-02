@@ -15,7 +15,7 @@ const R = require('ramda');
 
 export default function (results: any, params: any, {affiliatesMap}) {
     console.log('presenting...');
-    // console.log(JSON.stringify(results));
+    console.log(JSON.stringify(results));
     let cqFormat = d3Format.format('0.0%');
     let crFormat = d3Format.format('0.1%');
     let intFormat = d3Format.format(',.0f');
@@ -86,7 +86,7 @@ export default function (results: any, params: any, {affiliatesMap}) {
         column('ecpa', negativeColorScale, cpaFormat)
     ];
 
-    let topChangedAffiliatesColumn = (isHourly ? [column('views', positiveColorScale, bigIntFormat)] : []).concat([
+    let topChangedAffiliatesColumn = [
         column('sales', positiveColorScale, intFormat),
         column('cr', positiveColorScale, crFormat),
         column('cq', positiveColorScale, cqFormat),
@@ -94,96 +94,58 @@ export default function (results: any, params: any, {affiliatesMap}) {
         column('releads', negativeColorScale, rateFormat),
         column('active24', positiveColorScale, cqFormat),
         column('pixels_ratio', neutralColorScale, cqFormat)
-    ]).concat(!isHourly ? [column('ecpa', negativeColorScale, cpaFormat)] : []);
+    ];
+    if (isHourly) {
+        topChangedAffiliatesColumn.concat([column('views', positiveColorScale, bigIntFormat)]);
+    } else {
+        topChangedAffiliatesColumn.concat([column('ecpa', negativeColorScale, cpaFormat)]);
+    }
 
-    let topChangedCountriesColumn = [column('views', positiveColorScale, bigIntFormat)].concat(topChangedAffiliatesColumn).concat([
-        column('total_optouts', negativeColorScale, intFormat)
-    ]);
+    const filterCountriesWithoutAnomalies = (d) => {
+        return R.pipe(
+            R.toPairs,
+            R.find(([m, v]) => {
+                return Object.keys(v).length > 1
+            })
+        )(d.metrics)
+    };
 
-    const changedCountries = () =>
-        <TABLE>
+    const anomalousCountriesHtml = (countriesAnomalies) => {
+        let countriesColumns = [
+            column('views', positiveColorScale, bigIntFormat),
+            column('total_optouts', negativeColorScale, intFormat)
+        ].concat(topChangedAffiliatesColumn);
+
+        return <TABLE>
             <colgroup>
                 <col span="1" style={{width: '5%'}}/>
             </colgroup>
             {
-                topChangedCountriesColumn.map(c => !!c.colgroup ? c.colgroup() : [])
+                countriesColumns.map(c => !!c.colgroup ? c.colgroup() : [])
             }
             <THEAD style={{backgroundColor: '#1f77b4'}}>
-            {[<th></th>].concat(topChangedCountriesColumn.map(c => c.th()))}
+            {[<th></th>].concat(countriesColumns.map(c => c.th()))}
             </THEAD>
             <tbody>
-            {results.filter(selectTopChangedCountries).map(s =>
-                <tr style={{borderBottom: 'solid 1px silver'}}>
-                    <td style={{paddingLeft: '0.3em'}}><A href={makeCountrySummaryUrl(s.country)}>{s.country}</A></td>
-                    {
-                        topChangedCountriesColumn.map(c => c.td(s))
-                    }
-                </tr>
-            )}
-            </tbody>
-        </TABLE>;
-
-    let metrics = ['views', 'sales', 'cr', 'cq', 'resubs', 'releads', 'active24', 'pixels', 'ecpa'];
-    const filterTopAffiliates = (p) => {
-        let countries = [];
-        p.affiliates.forEach(function (a) {
-            R.filter(metric => {
-                if (Object.keys(a.metrics[metric]).length > 1) {
-                    countries.push(p.country);
-                    return
-                }
-            })(metrics)
-        });
-
-        // return true;
-        return !R.uniq(countries).indexOf(p.country)
-    };
-
-    const topAffiliates = () => results.filter(filterTopAffiliates).map((r, i) =>
-        <div style={{marginTop: `${i > 0 ? 1 : 0}em`}}>
-            <TABLE>
-                <colgroup>
-                    <col span="1" style={{width: '5%'}}/>
-                    <col span="1" style={{width: '10%'}}/>
-                </colgroup>
-                {
-                    columns.map(c => !!c.colgroup ? c.colgroup() : [])
-                }
-                <THEAD style={{backgroundColor: '#7f7f7f'}}>
-                {[<th style={{paddingLeft: '0.3em'}} colSpan="2">
-                    <A style={{color: 'white'}} href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
-                </th>]
-                    .concat(columns.map(c => c.th()))}</THEAD>
-                <tbody>
-                {r.affiliates.filter(selectTopAffiliates).map(s =>
+            {
+                countriesAnomalies.filter(filterCountriesWithoutAnomalies).map(s =>
                     <tr style={{borderBottom: 'solid 1px silver'}}>
-                        <td style={{paddingLeft: '0.3em'}}><A
-                            href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{r.country}</A>
-                        </td>
-                        <td>
-                            <A href={makeAffiliateSummaryUrl(r.country, s.affiliate)}>{affiliatesMap[s.affiliate] || 'Unknown'}</A>
+                        <td style={{paddingLeft: '0.3em'}}><A href={makeCountrySummaryUrl(s.country)}>{s.country}</A>
                         </td>
                         {
-                            columns.map(c => c.td(s))
+                            countriesColumns.map(c => c.td(s))
                         }
                     </tr>
-                )}
-                </tbody>
-                <tfoot>
-                <tr style={{borderBottom: 'solid 2px silver', fontWeight: 'bold', height: '5ex'}}>
-                    <td colSpan="2" style={{paddingLeft: '0.3em'}}>
-                        <A href={makeCountrySummaryUrl(r.country)}>{r.country}</A>
-                    </td>
-                    {
-                        columns.map(c => c.td(r))
-                    }
-                </tr>
-                </tfoot>
-            </TABLE>
-        </div>);
+                )
+            }
+            </tbody>
+        </TABLE>;
+    };
 
-    const topChangedAffiliates = () =>
-        <TABLE>
+    const anomalousAffiliatesHtml = (anomalousCountries, affiliateAnomalies) => {
+        affiliateAnomalies = R.filter(d => anomalousCountries.lenght > 0 && d.country.indexOf(anomalousCountries) >= 0)(affiliateAnomalies);
+
+        return <TABLE>
             <colgroup>
                 <col span="1" style={{width: '5%'}}/>
                 <col span="1" style={{width: '10%'}}/>
@@ -195,30 +157,33 @@ export default function (results: any, params: any, {affiliatesMap}) {
                 <th>Affiliate</th>].concat(topChangedAffiliatesColumn.map(c => c.th()))}</THEAD>
             <tbody>
             {R.pipe(
-                R.chain(p => p.affiliates.filter(selectTopChangedAffiliatesAndTopAffiliates).map(s => R.merge(s, {country: p.country}))),
+                R.chain(p => p.sections.filter(selectTopChangedAffiliatesAndTopAffiliates).map(s => R.merge(s, {country: p.country}))),
                 R.filter(p => p.metrics.sales.actual > 0),
                 R.reduce(({list, country}, a) => ({
                     list: list.concat([R.merge(a, {isNew: a.country != country})]),
                     country: a.country
                 }), {list: [], country: null}),
                 R.prop('list')
-            )(results).map(s =>
+            )(affiliateAnomalies).map(s =>
                 <tr style={R.merge({borderBottom: 'solid 1px silver'}, s.isNew ? {borderTop: 'solid 2px #7f7f7f'} : {})}>
                     <td style={{paddingLeft: '0.3em'}}>
                         <A target="_blank" href={makeCountrySummaryUrl(s.country)}>{s.country}</A>
                     </td>
                     <td style={{paddingLeft: '0.3em'}}>
-                        <A target="_blank" href={makeAffiliateSummaryUrl(s.country, s.affiliate)}
-                           title={s.affiliate}>{affiliatesMap[s.affiliate] || s.affiliate}
+                        <A target="_blank" href={makeAffiliateSummaryUrl(s.country, s.section)}
+                           title={s.section}>{affiliatesMap[s.section] || s.section}
                         </A>
                     </td>
                     {
-                        topChangedAffiliatesColumn.map(c => c.td(s, {ignoreBgColor: !['sales', 'pixels_ratio', 'releads'].some(v => v == c.value)}))
+                        topChangedAffiliatesColumn.map(c => {
+                            return c.td(s, {ignoreBgColor: !['sales', 'pixels_ratio', 'releads'].some(v => v == c.value)});
+                        })
                     }
                 </tr>
             )}
             </tbody>
         </TABLE>;
+    };
 
     const MakeChange = (title, component) => <div>
         <h3>{title}</h3>
@@ -226,8 +191,14 @@ export default function (results: any, params: any, {affiliatesMap}) {
     </div>;
 
     return {
-        changedCountries: MakeChange('Top Changed Countries', changedCountries()),
-        changedAffiliates: MakeChange('Top Changed Affiliates', topChangedAffiliates()),
-        topAffiliates: MakeChange('Top Affiliates', topAffiliates())
+        changedCountries: MakeChange('Anomalous Countries', anomalousCountriesHtml(results.countriesAnomalies)),
+        changedAffiliates: MakeChange(
+            'Anomalous Affiliates',
+            anomalousAffiliatesHtml(
+                R.map(d => d.country)(results.countriesAnomalies.filter(filterCountriesWithoutAnomalies)),
+                results.affiliateAnomalies
+            )
+        ),
+        topAffiliates: ''
     }
 }
