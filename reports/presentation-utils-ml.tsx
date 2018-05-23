@@ -116,8 +116,8 @@ export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColor
 
     const ChangeSymbol = (params, content, options = {ignoreBgColor: false}) => {
         let bgColor = '';
-        if (!options.ignoreBgColor && params && params.severity != undefined) {
-            bgColor = ColorLuminance(params.severity);
+        if (!options.ignoreBgColor && params && params.change != undefined) {
+            bgColor = ColorLuminance(params.change);
         }
         let textColor = 'black';
         if (bgColor == '#54AE3D' || bgColor == '#77BD65' || bgColor == '#E22124' || bgColor == '#EE4B4C') {

@@ -101,7 +101,7 @@ def get_anomalies(df, context, metric, return_anomalies):
     metric_anomalies = Detector(
         min_time_points=10,
         ignore_empty_dataset=True,
-        min_dataset_size=(metric['min']),
+        min_dataset_size=metric['min'],
         context='{}-{}'.format(context, metric_name)
     ).forecast_today(dataset=data[:-1])
     if not metric_anomalies.empty:
@@ -270,7 +270,7 @@ def get_metrics():
 
 if __name__ == '__main__':
     metrics = get_metrics()
-    countries, data = read_and_prepare_data(read_from_file=True)
+    countries, data = read_and_prepare_data(read_from_file=False)
     pool = DaemonLessPool(4)
     anomalies = pool.map(
         get_anomalies_per_country,
