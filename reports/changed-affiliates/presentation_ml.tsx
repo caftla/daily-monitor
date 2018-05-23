@@ -54,14 +54,13 @@ export default function (results: any, params: any, {affiliatesMap}) {
         column('pixels_ratio', neutralColorScale, cqFormat)
     ];
     if (isHourly) {
-        topChangedAffiliatesColumn.concat([column('views', positiveColorScale, bigIntFormat)]);
+        topChangedAffiliatesColumn = [column('views', positiveColorScale, bigIntFormat)].concat(topChangedAffiliatesColumn);
     } else {
-        topChangedAffiliatesColumn.concat([column('ecpa', negativeColorScale, cpaFormat)]);
+        topChangedAffiliatesColumn = topChangedAffiliatesColumn.concat([column('ecpa', negativeColorScale, cpaFormat)]);
     }
-    let countriesColumns = [
-        column('views', positiveColorScale, bigIntFormat),
-        column('total_optouts', negativeColorScale, intFormat)
-    ].concat(topChangedAffiliatesColumn);
+    let countriesColumns = [column('views', positiveColorScale, bigIntFormat)]
+        .concat(topChangedAffiliatesColumn)
+        .concat([column('total_optouts', negativeColorScale, intFormat)]);
     let countryMetrics = R.map(c => c.value)(countriesColumns);
 
     const filterCountriesWithoutAnomalies = (d) => {

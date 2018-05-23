@@ -85,7 +85,7 @@ def read_and_prepare_data(read_from_file=False):
 
     log('start processing [{}] cases...'.format(total_cases))
 
-    return countries, data
+    return countries, data, total_cases
 
 
 def get_anomalies(df, context, metric, return_anomalies):
@@ -159,7 +159,7 @@ def get_anomalies_per_country(args):
                 metrics
             ),
         }
-    log('finished processing [{}] in seconds [{:.2f}]'.format(country, time() - start_time))
+    log('finished processing [{}] in [{:.2f}] seconds'.format(country, time() - start_time))
     return anomalies
 
 
@@ -269,8 +269,9 @@ def get_metrics():
 
 
 if __name__ == '__main__':
+    start_time = time()
     metrics = get_metrics()
-    countries, data = read_and_prepare_data(read_from_file=False)
+    countries, data, total_cases = read_and_prepare_data(read_from_file=False)
     pool = DaemonLessPool(4)
     anomalies = pool.map(
         get_anomalies_per_country,
@@ -278,4 +279,5 @@ if __name__ == '__main__':
     )
     pool.close()
     pool.join()
+    log('Processed [{}] cases in [{:.2f}] min'.format(total_cases, round(time() - start_time) / 60))
     print(dumps(anomalies))
