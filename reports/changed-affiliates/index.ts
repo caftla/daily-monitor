@@ -14,6 +14,7 @@ const write = path => x => {
 export default (params, {affiliatesMap}) => query(process.env.jewel_connection_string, fs.readFileSync(path.resolve(__dirname, './index.sql'), 'utf8'), params)
     .then(async (x: { rows: [any] }) => {
         console.log('detecting anomalies...');
+        // console.log(JSON.stringify(x.rows));
         // return require('../anomaly-detection/anomalies.json');
         return {
             countriesAnomalies: await detectAnomalies(x.rows, 'countries'),

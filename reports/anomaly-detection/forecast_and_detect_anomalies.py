@@ -14,12 +14,15 @@ AFFILIATES_SECTION = 'affiliates'
 
 def log(message):
     import syslog
-    syslog.syslog(syslog.LOG_INFO, '[DEBUG] ' + message)
+    syslog.syslog(syslog.LOG_INFO, '[INFO] ' + message)
 
 
 def safediv(a, b):
     r = a / b
-    r[r == np.inf] = 0
+    if isinstance(r, float):
+        r = 0 if r == np.inf else r
+    else:
+        r[r == np.inf] = 0
     return r
 
 
@@ -69,35 +72,47 @@ def read_and_prepare_data(read_from_file=False):
     })
     raw_data['day'] = pd.to_datetime(raw_data['day']).apply(lambda d: d.strftime('%Y-%m-%d'))
 
+    countries = [c for c in raw_data['country'].unique() if c is not None]
+
     if section == COUNTRIES_SECTION:
         data = aggregate_data(raw_data, ['country', 'day'])
+        total_cases = len(countries) * 17
     else:
         data = aggregate_data(raw_data, ['country', 'section', 'day'])
+        total_cases = 0
+        for c in countries:
+            total_cases += len(data.loc[c].index.get_level_values('section').unique()) * 17
 
-    countries = [c for c in raw_data['country'].unique() if c is not None]
+    log('start processing [{}] cases...'.format(total_cases))
 
     return countries, data
 
 
-def get_anomalies(df, metric, return_anomalies):
+def get_anomalies(df, context, metric, return_anomalies):
+    metric_name = metric['name']
     anomalies = {
-        'actual': float(df[metric][-1])
+        'actual': float(df[metric_name][-1])
     }
     df = df.reset_index(level=['day'])
-    data = df[['day', metric]].rename(columns={
+    data = df[['day', metric_name]].rename(columns={
         'day': 'time',
-        metric: 'value',
+        metric_name: 'value',
     })
-    metric_anomalies = Detector(min_time_points=5, ignore_empty_dataset=True).forecast_today(dataset=data)
+    metric_anomalies = Detector(
+        min_time_points=10,
+        ignore_empty_dataset=True,
+        min_dataset_size=(metric['min']),
+        context='{}-{}'.format(context, metric_name)
+    ).forecast_today(dataset=data[:-1])
     if not metric_anomalies.empty:
-        columns = ['ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'severity', 'change', 'prediction']
+        columns = ['ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'change', 'prediction', 'image_path']
         metric_anomalies['ds'] = pd.to_datetime(
             metric_anomalies['ds'], unit='ms'
         ).apply(
             lambda ds: ds.strftime('%Y-%m-%d')
         )
         anomalies = metric_anomalies[columns].to_dict(orient='records')[0]
-    return_anomalies[metric] = anomalies
+    return_anomalies[metric_name] = anomalies
 
 
 def parallize(fn, args, iterator):
@@ -125,7 +140,11 @@ def get_anomalies_per_country(args):
         for section in country_sections:
             anomalies_per_section.append({
                 'section': section,
-                'metrics': parallize(get_anomalies, (country_data.loc[section],), metrics)
+                'metrics': parallize(
+                    get_anomalies,
+                    (country_data.loc[section], '{}-{}'.format(country, section),),
+                    metrics
+                )
             })
         anomalies = {
             'country': country,
@@ -134,7 +153,11 @@ def get_anomalies_per_country(args):
     else:
         anomalies = {
             'country': country,
-            'metrics': parallize(get_anomalies, (data.loc[country],), metrics),
+            'metrics': parallize(
+                get_anomalies,
+                (data.loc[country], country,),
+                metrics
+            ),
         }
     log('finished processing [{}] in seconds [{:.2f}]'.format(country, time() - start_time))
     return anomalies
@@ -154,10 +177,100 @@ class DaemonLessPool(multiprocessing.pool.Pool):
     Process = DaemonLessProcess
 
 
+def get_metrics():
+    views = 100000
+    leads = 10000
+    unique_leads = 8000
+    sales = 1000
+    unique_sales = 800
+    first_billings = 100
+    pixels = 0
+    optout_24 = 0
+    total_optouts = 0
+    cost = 0
+    cr = safediv(sales, views),
+    cq = safediv(first_billings, sales),
+    resubs = safediv(sales, unique_sales),
+    releads = safediv(leads, unique_leads),
+    active24 = safediv(sales - optout_24, sales),
+    ecpa = safediv(cost, sales),
+    pixels_ratio = safediv(pixels, sales)
+
+    return [
+        {
+            'name': 'views',
+            'min': views,
+        },
+        {
+            'name': 'leads',
+            'min': leads,
+        },
+        {
+            'name': 'uniqueleads',
+            'min': unique_leads,
+        },
+        {
+            'name': 'sales',
+            'min': sales,
+        },
+        {
+            'name': 'uniquesales',
+            'min': unique_sales,
+        },
+        {
+            'name': 'firstbillings',
+            'min': first_billings,
+        },
+        {
+            'name': 'pixels',
+            'min': pixels,
+        },
+        {
+            'name': 'optout_24',
+            'min': optout_24,
+        },
+        {
+            'name': 'total_optouts',
+            'min': total_optouts,
+        },
+        {
+            'name': 'cost',
+            'min': cost,
+        },
+        {
+            'name': 'cr',
+            'min': cr,
+        },
+        {
+            'name': 'cq',
+            'min': cq,
+        },
+        {
+            'name': 'resubs',
+            'min': resubs,
+        },
+        {
+            'name': 'releads',
+            'min': releads,
+        },
+        {
+            'name': 'pixels_ratio',
+            'min': pixels_ratio,
+        },
+        {
+            'name': 'ecpa',
+            'min': ecpa,
+        },
+        {
+            'name': 'active24',
+            'min': active24,
+        },
+    ]
+
+
 if __name__ == '__main__':
-    metrics = ['views', 'leads', 'uniqueleads', 'sales', 'uniquesales', 'firstbillings', 'pixels', 'optout_24',
-               'total_optouts', 'cost', 'cr', 'cq', 'resubs', 'releads', 'pixels_ratio', 'ecpa', 'active24']
-    countries, data = read_and_prepare_data(read_from_file=False)
+    metrics = get_metrics()
+    countries, data = read_and_prepare_data(read_from_file=True)
     pool = DaemonLessPool(4)
     anomalies = pool.map(
         get_anomalies_per_country,

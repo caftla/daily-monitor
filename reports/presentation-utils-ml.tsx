@@ -58,7 +58,7 @@ let title = (metric, format) => s => {
     if (metric_params && metric_params.prediction && metric_params.change)
         return `
 Prediction: ${format(metric_params.prediction)}
-σ: ${format(metric_params.change)}`;
+std: ${format(metric_params.change)}`;
 };
 
 export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
@@ -71,7 +71,7 @@ export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
                     title: title(metric, format),
                     content: (s, options) => ChangeSymbol(
                         s.metrics[metric],
-                        s.metrics[metric] ? format(s.metrics[metric].actual) : 0,
+                        format(s.metrics[metric].actual),
                         options
                     )
                 }

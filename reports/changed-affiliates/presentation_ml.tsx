@@ -44,48 +44,6 @@ export default function (results: any, params: any, {affiliatesMap}) {
 
     let {makeUrl, makeCountrySummaryUrl, makeAffiliateSummaryUrl} = newMakeUrl({dateFrom, dateTo});
 
-    const selectTopChangedCountries = p => {
-        return R.pipe(
-            R.toPairs,
-            R.map(([metric, stats]) => {
-                return Math.abs(stats.change) > 10
-            }),
-            R.find(x => x == true)
-        )(p.metrics) || false
-    };
-
-    const selectTopChangedAffiliatesAndTopAffiliates = s => {
-        return (
-                (s.share_of_sales_today > 0.05 || s.share_of_sales_base > 0.1) &&
-                (s.metrics.sales.actual > 5) &&
-                (
-                    ((s.metrics.sales.actual > 10)) ||
-                    (s.metrics.sales.actual > 10) ||
-                    ((s.metrics.views.actual > 1000 || s.metrics.sales.actual > 20))
-                )
-            ) ||
-            (s.metrics.resubs.actual > 1.5 && s.metrics.sales.actual > 20) ||
-            (s.metrics.releads.actual > 2 && s.metrics.leads.actual > 20);
-    };
-
-    const selectTopAffiliates = s => {
-        return (s.share_of_sales_today > 0.05 || s.share_of_sales_base > 0.1) ||
-            (s.metrics.resubs.actual > 1.5 && s.metrics.sales.actual > 20) ||
-            (s.metrics.releads.actual > 2 && s.metrics.leads.actual > 20);
-    };
-
-    let columns = [
-        column('views', positiveColorScale, bigIntFormat),
-        column('sales', positiveColorScale, intFormat),
-        column('cr', positiveColorScale, crFormat),
-        column('cq', positiveColorScale, cqFormat),
-        column('resubs', negativeColorScale, rateFormat),
-        column('releads', negativeColorScale, rateFormat),
-        column('active24', positiveColorScale, cqFormat),
-        column('pixels_ratio', neutralColorScale, cqFormat),
-        column('ecpa', negativeColorScale, cpaFormat)
-    ];
-
     let topChangedAffiliatesColumn = [
         column('sales', positiveColorScale, intFormat),
         column('cr', positiveColorScale, crFormat),
@@ -100,22 +58,22 @@ export default function (results: any, params: any, {affiliatesMap}) {
     } else {
         topChangedAffiliatesColumn.concat([column('ecpa', negativeColorScale, cpaFormat)]);
     }
+    let countriesColumns = [
+        column('views', positiveColorScale, bigIntFormat),
+        column('total_optouts', negativeColorScale, intFormat)
+    ].concat(topChangedAffiliatesColumn);
+    let countryMetrics = R.map(c => c.value)(countriesColumns);
 
     const filterCountriesWithoutAnomalies = (d) => {
         return R.pipe(
             R.toPairs,
             R.find(([m, v]) => {
-                return Object.keys(v).length > 1
+                return countryMetrics.includes(m) && Object.keys(v).length > 1
             })
         )(d.metrics)
     };
 
     const anomalousCountriesHtml = (countriesAnomalies) => {
-        let countriesColumns = [
-            column('views', positiveColorScale, bigIntFormat),
-            column('total_optouts', negativeColorScale, intFormat)
-        ].concat(topChangedAffiliatesColumn);
-
         return <TABLE>
             <colgroup>
                 <col span="1" style={{width: '5%'}}/>
@@ -143,7 +101,7 @@ export default function (results: any, params: any, {affiliatesMap}) {
     };
 
     const anomalousAffiliatesHtml = (anomalousCountries, affiliateAnomalies) => {
-        affiliateAnomalies = R.filter(d => anomalousCountries.lenght > 0 && d.country.indexOf(anomalousCountries) >= 0)(affiliateAnomalies);
+        affiliateAnomalies = R.filter(d => d.country.indexOf(anomalousCountries))(affiliateAnomalies);
 
         return <TABLE>
             <colgroup>
@@ -157,8 +115,8 @@ export default function (results: any, params: any, {affiliatesMap}) {
                 <th>Affiliate</th>].concat(topChangedAffiliatesColumn.map(c => c.th()))}</THEAD>
             <tbody>
             {R.pipe(
-                R.chain(p => p.sections.filter(selectTopChangedAffiliatesAndTopAffiliates).map(s => R.merge(s, {country: p.country}))),
-                R.filter(p => p.metrics.sales.actual > 0),
+                R.chain(p => p.sections.map(s => R.merge(s, {country: p.country}))),
+                R.filter(p => p.metrics.sales.prediction && p.metrics.sales.prediction > 0),
                 R.reduce(({list, country}, a) => ({
                     list: list.concat([R.merge(a, {isNew: a.country != country})]),
                     country: a.country
@@ -191,9 +149,9 @@ export default function (results: any, params: any, {affiliatesMap}) {
     </div>;
 
     return {
-        changedCountries: MakeChange('Anomalous Countries', anomalousCountriesHtml(results.countriesAnomalies)),
+        changedCountries: MakeChange('Anomalies in Countries', anomalousCountriesHtml(results.countriesAnomalies)),
         changedAffiliates: MakeChange(
-            'Anomalous Affiliates',
+            'Anomalies in Affiliates',
             anomalousAffiliatesHtml(
                 R.map(d => d.country)(results.countriesAnomalies.filter(filterCountriesWithoutAnomalies)),
                 results.affiliateAnomalies
