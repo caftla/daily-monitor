@@ -3,6 +3,8 @@ import multiprocessing.pool
 from json import loads, dumps
 from sys import stdin
 from time import time
+from os import path, makedirs
+from datetime import datetime, timedelta
 
 import numpy as np
 import pandas as pd
@@ -98,14 +100,21 @@ def get_anomalies(df, context, metric, return_anomalies):
         'day': 'time',
         metric_name: 'value',
     })
+
+    yesterday = (datetime.today() - timedelta(1)).strftime('%Y-%m-%d')
+    dirname = path.dirname(path.realpath(__file__))
+    image_path = '{}/../../images/{}/{}-{}.png'.format(dirname, yesterday, context, metric_name)
+    makedirs(path.dirname(image_path), exist_ok=True)
     metric_anomalies = Detector(
         min_time_points=10,
-        ignore_empty_dataset=True,
+        none_zero_ratio=0.4,
         min_dataset_size=metric['min'],
-        context='{}-{}'.format(context, metric_name)
+        image_path=image_path
     ).forecast_today(dataset=data[:-1])
     if not metric_anomalies.empty:
-        columns = ['ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'change', 'prediction', 'image_path']
+        columns = [
+            'ds', 'actual', 'yhat_lower', 'yhat', 'yhat_upper', 'change', 'std_change', 'prediction', 'image_path'
+        ]
         metric_anomalies['ds'] = pd.to_datetime(
             metric_anomalies['ds'], unit='ms'
         ).apply(

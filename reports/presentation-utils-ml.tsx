@@ -2,6 +2,7 @@ import * as React from 'react';
 
 const d3Scale = require('d3-scale');
 const R = require('ramda');
+import d3Format = require('d3-format')
 
 export const A = ({href, children, style}) => <a style={R.merge({color: 'black'}, style)} href={href}>{children}</a>;
 
@@ -27,7 +28,7 @@ export const newColumn = (value, cols) => ({
         R.chain(c => c.cols),
         R.map(c => <td style={{height: '4ex'}} title={c.title(s)}>{c.content(s, options)}</td>)
     )(cols),
-    th: () => cols.map(c => <th colSpan={c.cols.length}>{c.label}</th>),
+    th: () => cols.map(c => <th>{c.label}</th>),
     colgroup: () => <colgroup>
         {
             R.pipe(
@@ -58,7 +59,8 @@ let title = (metric, format) => s => {
     if (metric_params && metric_params.prediction && metric_params.change)
         return `
 Prediction: ${format(metric_params.prediction)}
-std: ${format(metric_params.change)}`;
+Change: ${d3Format.format('0.1f')(metric_params.std_change)} σ
+Change: ${d3Format.format('0.0%')(metric_params.change)}`;
 };
 
 export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
@@ -127,11 +129,27 @@ export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColor
         if (params && params.change && Math.abs(params.change) < 0.075) {
             return <ChangeSymbolSpan>{content}</ChangeSymbolSpan>;
         } else {
-            return <ChangeSymbolSpan style={{
-                backgroundColor: bgColor,
-                color: textColor,
-                borderRadius: '0.5em'
-            }}>{content}</ChangeSymbolSpan>;
+            if (params.image_path) {
+                let base_url = 'http://localhost:63342/';
+                return <ChangeSymbolSpan style={{
+                    backgroundColor: bgColor,
+                    color: textColor,
+                    borderRadius: '0.5em'
+                }}>
+                    <a href={base_url + params.image_path.replace(params.image_path.substring(0, params.image_path.lastIndexOf('/images/')), 'monitoring')}
+                       target="_blank">
+                        {content}
+                    </a>
+                </ChangeSymbolSpan>;
+            } else {
+                return <ChangeSymbolSpan style={{
+                    backgroundColor: bgColor,
+                    color: textColor,
+                    borderRadius: '0.5em'
+                }}>
+                    {content}
+                </ChangeSymbolSpan>;
+            }
         }
     };
 

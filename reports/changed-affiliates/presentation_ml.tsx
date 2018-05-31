@@ -15,7 +15,7 @@ const R = require('ramda');
 
 export default function (results: any, params: any, {affiliatesMap}) {
     console.log('presenting...');
-    console.log(JSON.stringify(results));
+    // console.log(JSON.stringify(results));
     let cqFormat = d3Format.format('0.0%');
     let crFormat = d3Format.format('0.1%');
     let intFormat = d3Format.format(',.0f');
@@ -74,26 +74,23 @@ export default function (results: any, params: any, {affiliatesMap}) {
 
     const anomalousCountriesHtml = (countriesAnomalies) => {
         return <TABLE>
-            <colgroup>
-                <col span="1" style={{width: '5%'}}/>
-            </colgroup>
-            {
-                countriesColumns.map(c => !!c.colgroup ? c.colgroup() : [])
-            }
             <THEAD style={{backgroundColor: '#1f77b4'}}>
             {[<th></th>].concat(countriesColumns.map(c => c.th()))}
             </THEAD>
             <tbody>
             {
-                countriesAnomalies.filter(filterCountriesWithoutAnomalies).map(s =>
-                    <tr style={{borderBottom: 'solid 1px silver'}}>
-                        <td style={{paddingLeft: '0.3em'}}><A href={makeCountrySummaryUrl(s.country)}>{s.country}</A>
-                        </td>
-                        {
-                            countriesColumns.map(c => c.td(s))
-                        }
+                countriesAnomalies.filter(filterCountriesWithoutAnomalies).length !== 0 ?
+                    countriesAnomalies.filter(filterCountriesWithoutAnomalies).map(s =>
+                        <tr style={{borderBottom: 'solid 1px silver'}}>
+                            <td style={{paddingLeft: '0.3em'}}>
+                                <A href={makeCountrySummaryUrl(s.country)}>{s.country}</A>
+                            </td>
+                            {countriesColumns.map(c => c.td(s))}
+                        </tr>
+                    ) :
+                    <tr>
+                        <td colspan={countriesColumns.length}>-</td>
                     </tr>
-                )
             }
             </tbody>
         </TABLE>;
@@ -113,31 +110,33 @@ export default function (results: any, params: any, {affiliatesMap}) {
             <THEAD style={{backgroundColor: '#8c564b'}}>{[<th></th>,
                 <th>Affiliate</th>].concat(topChangedAffiliatesColumn.map(c => c.th()))}</THEAD>
             <tbody>
-            {R.pipe(
-                R.chain(p => p.sections.map(s => R.merge(s, {country: p.country}))),
-                R.filter(p => p.metrics.sales.prediction && p.metrics.sales.prediction > 0),
-                R.reduce(({list, country}, a) => ({
-                    list: list.concat([R.merge(a, {isNew: a.country != country})]),
-                    country: a.country
-                }), {list: [], country: null}),
-                R.prop('list')
-            )(affiliateAnomalies).map(s =>
-                <tr style={R.merge({borderBottom: 'solid 1px silver'}, s.isNew ? {borderTop: 'solid 2px #7f7f7f'} : {})}>
-                    <td style={{paddingLeft: '0.3em'}}>
-                        <A target="_blank" href={makeCountrySummaryUrl(s.country)}>{s.country}</A>
-                    </td>
-                    <td style={{paddingLeft: '0.3em'}}>
-                        <A target="_blank" href={makeAffiliateSummaryUrl(s.country, s.section)}
-                           title={s.section}>{affiliatesMap[s.section] || s.section}
-                        </A>
-                    </td>
-                    {
-                        topChangedAffiliatesColumn.map(c => {
-                            return c.td(s, {ignoreBgColor: !['sales', 'pixels_ratio', 'releads'].some(v => v == c.value)});
-                        })
-                    }
-                </tr>
-            )}
+            {
+                R.pipe(
+                    R.chain(p => p.sections.map(s => R.merge(s, {country: p.country}))),
+                    R.filter(p => p.metrics.sales.prediction && p.metrics.sales.prediction > 0),
+                    R.reduce(({list, country}, a) => ({
+                        list: list.concat([R.merge(a, {isNew: a.country != country})]),
+                        country: a.country
+                    }), {list: [], country: null}),
+                    R.prop('list')
+                )(affiliateAnomalies).map(s =>
+                    <tr style={R.merge({borderBottom: 'solid 1px silver'}, s.isNew ? {borderTop: 'solid 2px #7f7f7f'} : {})}>
+                        <td style={{paddingLeft: '0.3em'}}>
+                            <A target="_blank" href={makeCountrySummaryUrl(s.country)}>{s.country}</A>
+                        </td>
+                        <td style={{paddingLeft: '0.3em'}}>
+                            <A target="_blank" href={makeAffiliateSummaryUrl(s.country, s.section)}
+                               title={s.section}>{affiliatesMap[s.section] || s.section}
+                            </A>
+                        </td>
+                        {
+                            topChangedAffiliatesColumn.map(c => {
+                                return c.td(s, {ignoreBgColor: !['sales', 'pixels_ratio', 'releads'].some(v => v == c.value)});
+                            })
+                        }
+                    </tr>
+                )
+            }
             </tbody>
         </TABLE>;
     };
