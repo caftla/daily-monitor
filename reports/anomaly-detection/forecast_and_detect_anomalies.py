@@ -280,7 +280,8 @@ def get_metrics():
 if __name__ == '__main__':
     start_time = time()
     metrics = get_metrics()
-    countries, data, total_cases = read_and_prepare_data(read_from_file=False)
+    countries, data, total_number_ofcases = read_and_prepare_data(read_from_file=False)
+    # countries = ['ZA', 'TR']
     pool = DaemonLessPool(4)
     anomalies = pool.map(
         get_anomalies_per_country,
@@ -288,5 +289,5 @@ if __name__ == '__main__':
     )
     pool.close()
     pool.join()
-    log('Processed [{}] cases in [{:.2f}] min'.format(total_cases, round(time() - start_time) / 60))
+    log('Processed [{}] cases in [{:.2f}] min'.format(total_number_ofcases, round(time() - start_time) / 60))
     print(dumps(anomalies))

@@ -74,6 +74,7 @@ export const makeColumn = metricToLabel => (metric, scale, format) => newColumn(
                     content: (s, options) => ChangeSymbol(
                         s.metrics[metric],
                         format(s.metrics[metric].actual),
+                        scale,
                         options
                     )
                 }
@@ -98,6 +99,24 @@ export const newMakeUrl = ({dateFrom, dateTo}) => {
     }
 };
 
+const getSevirityLevel = (function () {
+    const t = y => Math.log(y + 1) / Math.log(2);
+
+    const levelf = (a, b) => (s, r) => Math.pow((s - 1) / (a - 1), 2) + Math.pow(t(r / b), 2) > 1;
+
+    const as = [0, 2.3, 3, 4, 5, 6];
+    const bs = [0, 2.8, 3.2, 4.0, 5.0, 6.0];
+    const severity = [1, 2, 3, 4, 5, 6];
+
+    const levels = R.pipe(R.map(([a, b, severity]) => ({
+        severity,
+        f: levelf(a, b)
+    })), R.reverse)(R.zipWith((xs, x) => xs.concat([x]), R.zip(as, bs), severity));
+
+    return (s, r) =>
+        Math.abs(s) <= 1 ? 0 : levels.find(lev => lev.f(Math.abs(s), r == -1 ? 1000 : r < 0 ? 1 / (1 - Math.abs(r)) : r)).severity
+})();
+
 export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColorScale} = (function () {
     const colorScale = (domain, colors) => v => v == 0 ? 'white' : d3Scale.scaleQuantize().domain(domain).range(colors)(Math.abs(v));
 
@@ -116,40 +135,38 @@ export const {ChangeSymbol, positiveColorScale, negativeColorScale, neutralColor
         padding: '0.15em 0em'
     }, style)}>&nbsp;{children}&nbsp;</span>;
 
-    const ChangeSymbol = (params, content, options = {ignoreBgColor: false}) => {
+    const ChangeSymbol = (params, content, scale, options = {ignoreBgColor: false}) => {
         let bgColor = '';
-        if (!options.ignoreBgColor && params && params.change != undefined) {
-            bgColor = ColorLuminance(params.change);
+        if (!options.ignoreBgColor && params && params.change != undefined && params.std_change != undefined) {
+            let severity = getSevirityLevel(params.std_change, params.change);
+            bgColor = scale(severity * (params.std_change > 0 ? 1 : -1));
         }
         let textColor = 'black';
         if (bgColor == '#54AE3D' || bgColor == '#77BD65' || bgColor == '#E22124' || bgColor == '#EE4B4C') {
             textColor = 'white';
         }
 
-        if (params && params.change && Math.abs(params.change) < 0.075) {
-            return <ChangeSymbolSpan>{content}</ChangeSymbolSpan>;
-        } else {
-            if (params.image_path) {
-                let base_url = 'http://localhost:63342/';
-                return <ChangeSymbolSpan style={{
-                    backgroundColor: bgColor,
-                    color: textColor,
-                    borderRadius: '0.5em'
-                }}>
-                    <a href={base_url + params.image_path.replace(params.image_path.substring(0, params.image_path.lastIndexOf('/images/')), 'monitoring')}
-                       target="_blank">
-                        {content}
-                    </a>
-                </ChangeSymbolSpan>;
-            } else {
-                return <ChangeSymbolSpan style={{
-                    backgroundColor: bgColor,
-                    color: textColor,
-                    borderRadius: '0.5em'
-                }}>
+        if (params.image_path) {
+            let base_url = 'http://localhost:63342/';
+            let image_path = params.image_path.replace(params.image_path.substring(0, params.image_path.lastIndexOf('/images/')), 'monitoring');
+            return <ChangeSymbolSpan style={{
+                backgroundColor: bgColor,
+                color: textColor,
+                borderRadius: '0.5em'
+            }}>
+                <a href={base_url + image_path}
+                   target="_blank">
                     {content}
-                </ChangeSymbolSpan>;
-            }
+                </a>
+            </ChangeSymbolSpan>;
+        } else {
+            return <ChangeSymbolSpan style={{
+                backgroundColor: bgColor,
+                color: textColor,
+                borderRadius: '0.5em'
+            }}>
+                {content}
+            </ChangeSymbolSpan>;
         }
     };
 

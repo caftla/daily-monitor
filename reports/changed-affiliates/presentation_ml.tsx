@@ -14,8 +14,8 @@ import d3Format = require('d3-format');
 const R = require('ramda');
 
 export default function (results: any, params: any, {affiliatesMap}) {
-    console.log('presenting...');
-    // console.log(JSON.stringify(results));
+    console.log('presenting countries & affiliates ...');
+    console.log(JSON.stringify(results));
     let cqFormat = d3Format.format('0.0%');
     let crFormat = d3Format.format('0.1%');
     let intFormat = d3Format.format(',.0f');
@@ -107,8 +107,12 @@ export default function (results: any, params: any, {affiliatesMap}) {
             {
                 topChangedAffiliatesColumn.map(c => !!c.colgroup ? c.colgroup() : [])
             }
-            <THEAD style={{backgroundColor: '#8c564b'}}>{[<th></th>,
-                <th>Affiliate</th>].concat(topChangedAffiliatesColumn.map(c => c.th()))}</THEAD>
+            <THEAD style={{backgroundColor: '#8c564b'}}>
+            {
+                [<th></th>,
+                    <th>Affiliate</th>].concat(topChangedAffiliatesColumn.map(c => c.th()))
+            }
+            </THEAD>
             <tbody>
             {
                 R.pipe(
@@ -147,7 +151,10 @@ export default function (results: any, params: any, {affiliatesMap}) {
     </div>;
 
     return {
-        changedCountries: MakeChange('Anomalies in Countries', anomalousCountriesHtml(results.countriesAnomalies)),
+        changedCountries: MakeChange(
+            'Anomalies in Countries',
+            anomalousCountriesHtml(results.countriesAnomalies)
+        ),
         changedAffiliates: MakeChange(
             'Anomalies in Affiliates',
             anomalousAffiliatesHtml(
@@ -155,6 +162,5 @@ export default function (results: any, params: any, {affiliatesMap}) {
                 results.affiliateAnomalies
             )
         ),
-        topAffiliates: ''
     }
 }
