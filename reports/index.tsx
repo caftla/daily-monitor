@@ -9,7 +9,7 @@ import changedTransactions from './changed-transactions'
 import makeChangedAffiliates from './changed-affiliates'
 import makeChangedHandles from './changed-handles'
 
-import signature from './hash'
+// import signature from './hash'
 
 const send = require('../send-api.js')
 
@@ -23,7 +23,7 @@ const dateTo    = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600).
 const yesterday = new Date(new Date().valueOf() - 1 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
 
 // configuration of the magic link lifetime, here set to 7 days
-const expiry_ts = new Date().valueOf() + 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600
+// const expiry_ts = new Date().valueOf() + 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600
 
 const dateFromHourly = new Date(new Date().valueOf() - 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600)
 const dateToHourly    = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600)
@@ -49,6 +49,7 @@ const dateParamsHourly = {
   timeZoneOffset,
   frequency: 'hourly'
 }
+console.log(dateParamsHourly)
 
 const changedAffiliatesParams = {
   ...dateParams,
@@ -132,19 +133,17 @@ async function goDaily() {
   const { topAffiliates, changedCountries, changedAffiliates } = await makeChangedAffiliates(changedAffiliatesParams, {affiliatesMap})
   const { topHandles, changedHandles } = await makeChangedHandles(changedHandlesParams, {affiliatesMap, getHandleUrl})
 
-  const subject = `Daily Campaign Monitor - ${yesterday}`
-
-  const Daily = username => <div style={ {
+  const Daily = <div style={ {
         backgroundColor: 'white', color: 'black'
       , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
       , fontSize: '14px'
       , maxWidth: '1200px'
       , margin: `1em 1em`} }>
-      <h3>{ subject }
+      <h3>Daily Campaign Monitor - { yesterday }
           <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-            <a style={ { color: 'black' } }
-              href={ `http://sigma.sam-media.com/daily_reports_archive/${yesterday}/?username=${username}&exp_ts=${expiry_ts}&hash=${signature(username,expiry_ts)(process.env.secret)}` }>
-              view the full report online</a>)
+            <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/daily_reports_archive/${yesterday}/?username=sam-media&hash=37b90bce2765c2072c` }>
+                view the full report online
+            </a>)
           </span>
       </h3>
       {
@@ -156,20 +155,7 @@ async function goDaily() {
         , topHandles].map(c => <div style={ { marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver' } }>{ c }</div>)
       }
     </div>
-
-    R.pipe(
-      R.split(',')
-      , R.map(entry => entry.trim())
-      , R.map(username => ({content: ReactDOMServer.renderToStaticMarkup(Daily(username)), username, yesterday }))
-      , R.map(({content, username, yesterday}) => async () => {
-          await write(`./../test_daily_emails/${yesterday}_${username}.html`)(content) //for testing
-          // return sendMock(subject, content, username) //<- this function mocks "send" function
-          return send(subject, content, username) // <- the actual send function
-        })
-      , sequenceP
-    )(fs.readFileSync('emails.txt', 'utf8'))
-
-    return { content: ReactDOMServer.renderToStaticMarkup(Daily('homam@sam-media.com')), yesterday}
+    return ReactDOMServer.renderToStaticMarkup(Daily)
 }
 
 
@@ -180,7 +166,7 @@ async function goHourly() {
 
   const subject = `Hourly Monitor - ${ dateParamsHourly.dateTo.replace('T', ' ') } UTC${ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) }`
 
-  const Hourly = username => <div style={ {
+  const Hourly = <div style={ {
      backgroundColor: 'white', color: 'black'
     , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
     , fontSize: '14px'
@@ -189,9 +175,9 @@ async function goHourly() {
 
     <h3>{ subject }
         <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-          <a style={ { color: 'black' } }
-            href={ `http://sigma.sam-media.com/hourly_reports_archive/${fileName}/?username=${username}&exp_ts=${expiry_ts}&hash=${signature(username,expiry_ts)(process.env.secret)}` }>
-            view the full report online</a>)
+          <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/hourly_reports_archive/${fileName}/?username=sam-media&hash=37b90bce2765c2072c` }>
+              view the full report online
+          </a>)
         </span>
     </h3>
 
@@ -202,33 +188,22 @@ async function goHourly() {
 
   </div>
 
-  R.pipe(
-    R.split(',')
-    , R.map(entry => entry.trim())
-    , R.map(username => ({content: ReactDOMServer.renderToStaticMarkup(Hourly(username)), username, yesterday }))
-    , R.map(({content, username, yesterday}) => async () => {
-        await write(`./../test_hourly_emails/${fileName}_${username}.html`)(content) //for testing
-        // return sendMock(subject, content, username) //<- this function mocks "send" function
-        return send(subject, content, username) // <- the actual send function
-      })
-    , sequenceP
-  )(fs.readFileSync('hourly-emails.txt', 'utf8'))
-
-
-  return { content: ReactDOMServer.renderToStaticMarkup(Hourly('homam@sam-media.com')), fileName}
-
+  return { subject, content: ReactDOMServer.renderToStaticMarkup(Hourly), fileName }
 }
-
 
 if(process.env.daily ==="true"){
   goDaily()
 // .then(trace_)
-  .then(({content}) => write('./../../gh-pages/archive/test.html')(content))
+  .then(write('./../test.html'))
   .catch(console.error)
 } else {
+    const emails = R.pipe(
+    R.split(',')
+  , R.map(x => x.trim())
+  )(fs.readFileSync('hourly-emails.txt', 'utf8'))
   goHourly()
-  .then(({content, fileName}) => write(`./../../gh-pages/hourly-archive/${fileName}.html`)(content))
-  .then(_ =>  console.log("done"))
+  .then(({content, fileName, subject}) => write(`./../../gh-pages/hourly-archive/${fileName}.html`)(content).then(_ => ({content, subject})) )
+  .then(({content, subject}) =>  send(subject, content, emails))
+  .then(_ => console.log("done"))
   .catch(console.error)
 }
-
