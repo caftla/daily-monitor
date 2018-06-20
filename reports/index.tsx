@@ -54,37 +54,37 @@ const changedAffiliatesParams = {
   ...dateParams,
   page: 'country_code',
   section: 'affiliate_id',
-  filter: '' 
+  filter: ''
 }
 
 const changedHandlesParams = {
   ...dateParams,
   page: 'country_code',
   section: 'handle_name',
-  filter: '' 
+  filter: ''
 }
 
 const changedTransactionsParams = {
   ...dateParams,
   page: 'country_code',
   section: 'gateway',
-  filter: '' 
+  filter: ''
 }
 
 const changedAffiliatesParamsHourly = {
   ...dateParamsHourly,
   page: 'country_code',
   section: 'affiliate_id',
-  filter: '' 
+  filter: ''
 }
 
-const write = fileName => x => new Promise((resolve, reject) => 
+const write = fileName => x => new Promise((resolve, reject) =>
   { fs.writeFileSync(path.resolve(__dirname, fileName), x, 'utf8'); resolve(x); })
 
 const getAffiliatesMap = () => query(process.env.jewel_connection_string, `select * from affiliate_mapping`, {})
   .then((x: {rows: [any]}) => x.rows)
   .then(R.pipe(
-    R.map(x => [x.affiliate_id, x.affiliate_name])  
+    R.map(x => [x.affiliate_id, x.affiliate_name])
   , R.fromPairs
   , x => { x['null'] = 'Unknown'; return x }
   ))
@@ -133,21 +133,21 @@ async function goDaily() {
   const { topHandles, changedHandles } = await makeChangedHandles(changedHandlesParams, {affiliatesMap, getHandleUrl})
 
   const subject = `Daily Campaign Monitor - ${yesterday}`
-  
-  const Daily = username => <div style={ { 
+
+  const Daily = username => <div style={ {
         backgroundColor: 'white', color: 'black'
       , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
       , fontSize: '14px'
       , maxWidth: '1200px'
       , margin: `1em 1em`} }>
-      <h3>{ subject } 
+      <h3>{ subject }
           <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-            <a style={ { color: 'black' } } 
+            <a style={ { color: 'black' } }
               href={ `http://sigma.sam-media.com/daily_reports_archive/${yesterday}/?username=${username}&exp_ts=${expiry_ts}&hash=${signature(username,expiry_ts)(process.env.secret)}` }>
               view the full report online</a>)
           </span>
       </h3>
-      { 
+      {
         [ changedCountries
         // , ChangedTransactions
         , changedAffiliates
@@ -156,7 +156,7 @@ async function goDaily() {
         , topHandles].map(c => <div style={ { marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver' } }>{ c }</div>)
       }
     </div>
-    
+
     R.pipe(
       R.split(',')
       , R.map(entry => entry.trim())
@@ -178,9 +178,9 @@ async function goHourly() {
   const { topAffiliates, changedCountries, changedAffiliates } = await makeChangedAffiliates(changedAffiliatesParamsHourly, {affiliatesMap})
   const fileName = dateParamsHourly.dateTo + (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset)
 
-  const subject = `Hourly Monitor - ${ dateParamsHourly.dateTo.replace('T', ' ') } UTC${ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) }` 
+  const subject = `Hourly Monitor - ${ dateParamsHourly.dateTo.replace('T', ' ') } UTC${ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) }`
 
-  const Hourly = username => <div style={ { 
+  const Hourly = username => <div style={ {
      backgroundColor: 'white', color: 'black'
     , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
     , fontSize: '14px'
@@ -189,19 +189,19 @@ async function goHourly() {
 
     <h3>{ subject }
         <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-          <a style={ { color: 'black' } } 
+          <a style={ { color: 'black' } }
             href={ `http://sigma.sam-media.com/hourly_reports_archive/${fileName}/?username=${username}&exp_ts=${expiry_ts}&hash=${signature(username,expiry_ts)(process.env.secret)}` }>
             view the full report online</a>)
         </span>
     </h3>
 
-    { 
+    {
       [changedCountries, changedAffiliates, topAffiliates]
       .map(c => <div style={ { marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver' } }>{ c }</div>)
     }
 
   </div>
-  
+
   R.pipe(
     R.split(',')
     , R.map(entry => entry.trim())
@@ -218,7 +218,7 @@ async function goHourly() {
   return { content: ReactDOMServer.renderToStaticMarkup(Hourly('homam@sam-media.com')), fileName}
 
 }
-  
+
 
 if(process.env.daily ==="true"){
   goDaily()
