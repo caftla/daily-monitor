@@ -7,7 +7,7 @@ with Views as (
      date_trunc('day', timestamp '$dateTo$' + interval '1439 minutes') - timestamp '$dateTo$'
     )/3600
   )) :: timestamp AT TIME ZONE '$timeZoneOffset$' as row
-  , sum(case when e.view then 1 else 0 end) :: int as views
+--   , sum(case when e.view then 1 else 0 end) :: int as views
   , sum(case when e.lead then 1 else 0 end) :: int as leads
   , sum(case when e.sale then 1 else 0 end) :: int as sales
   , sum(case when e.sale_pixel_direct or e.sale_pixel_delayed then 1 else 0 end) :: int as pixels
@@ -16,6 +16,22 @@ with Views as (
   from public.events e 
   where e.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
     and e.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
+  group by page, section, row
+  order by page, section, row
+),
+Impressions as (
+  select
+    us.$page$ as page
+  , us.$section$ as section
+  , date_trunc('day', CONVERT_TIMEZONE('UTC', '$timeZoneOffset$', us.timestamp) + interval '1 hour' * (
+    extract(epoch from
+     date_trunc('day', timestamp '$dateTo$' + interval '1439 minutes') - timestamp '$dateTo$'
+    )/3600
+  )) :: timestamp AT TIME ZONE '$timeZoneOffset$' as row
+  , sum(us.impression) :: int as impressions
+  from public.user_sessions us
+  where us.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
+    and us.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
   group by page, section, row
   order by page, section, row
 )
@@ -188,10 +204,12 @@ with Views as (
 , Daily as (
 
   select v.*
+  , nvl(i.impressions, 0) as views
   , nvl(f.firstbillings, 0) as firstbillings
   , nvl(r.uniquesales, 0) as uniquesales
   , nvl(l.uniqueleads, 0) as uniqueleads
   , o.optout_24, p.total_optouts, c.cost, c.home_cpa from Views v
+  left join Impressions i on v.page = i.page and v.section = i.section and v.row = i.row
   left join Optout24 o on v.page = o.page and v.section = o.section and v.row = o.row
   left join Cost2 c on v.page = c.page and v.section = c.section and v.row = c.row
   left join Optouts p on v.page = p.page and v.section = p.section and v.row = p.row

@@ -14,4 +14,12 @@ temp/
 client_secret_.apps.googleusercontent.com.json
 gmail-nodejs-quickstart.json
 dist/
-
+.idea
+.vscode
+vex
+test_daily_emails/*
+!test_daily_emails/.gitkeep
+test_hourly_emails/*
+!test_hourly_emails/.gitkeep
+images/*
+!images/.gitkeep

@@ -9,6 +9,8 @@ import changedTransactions from './changed-transactions'
 import makeChangedAffiliates from './changed-affiliates'
 import makeChangedHandles from './changed-handles'
 
+// import signature from './hash'
+
 const send = require('../send-api.js')
 
 const trace = (x, y) => { console.log(x); return y }
@@ -19,6 +21,9 @@ const timeZoneOffset = -2
 const dateFrom = new Date(new Date().valueOf() - 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
 const dateTo    = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
 const yesterday = new Date(new Date().valueOf() - 1 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600).toISOString().split('T')[0]
+
+// configuration of the magic link lifetime, here set to 7 days
+// const expiry_ts = new Date().valueOf() + 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600
 
 const dateFromHourly = new Date(new Date().valueOf() - 7 * 1000 * 3600 * 24 - timeZoneOffset * 1000 * 3600)
 const dateToHourly    = new Date(new Date().valueOf() - timeZoneOffset * 1000 * 3600)
@@ -50,40 +55,53 @@ const changedAffiliatesParams = {
   ...dateParams,
   page: 'country_code',
   section: 'affiliate_id',
-  filter: '' 
+  filter: ''
 }
 
 const changedHandlesParams = {
   ...dateParams,
   page: 'country_code',
   section: 'handle_name',
-  filter: '' 
+  filter: ''
 }
 
 const changedTransactionsParams = {
   ...dateParams,
   page: 'country_code',
   section: 'gateway',
-  filter: '' 
+  filter: ''
 }
 
 const changedAffiliatesParamsHourly = {
   ...dateParamsHourly,
   page: 'country_code',
   section: 'affiliate_id',
-  filter: '' 
+  filter: ''
 }
 
-const write = fileName => x => new Promise((resolve, reject) => 
+const write = fileName => x => new Promise((resolve, reject) =>
   { fs.writeFileSync(path.resolve(__dirname, fileName), x, 'utf8'); resolve(x); })
 
 const getAffiliatesMap = () => query(process.env.jewel_connection_string, `select * from affiliate_mapping`, {})
   .then((x: {rows: [any]}) => x.rows)
   .then(R.pipe(
-    R.map(x => [x.affiliate_id, x.affiliate_name])  
+    R.map(x => [x.affiliate_id, x.affiliate_name])
   , R.fromPairs
   , x => { x['null'] = 'Unknown'; return x }
   ))
+
+const sendMock = (x , y, z) => {
+  console.info('sendMock: ', 'Subject:', x, 'To:',z)
+}
+
+const sequenceP = xs => {
+  if (xs.length == 0) {
+    return Promise.resolve([])
+  } else {
+    const p1 = R.head(xs)()
+    return p1.then(y1 => sequenceP(R.tail(xs)).then(ys => [y1].concat(ys)) )
+  }
+}
 
 const getGetHandleUrl = () => query(process.env.jewel_connection_string, `SELECT
       substring(p.landing_page_url, 0, charindex('?', p.landing_page_url)) as handle_url
@@ -108,7 +126,6 @@ const getGetHandleUrl = () => query(process.env.jewel_connection_string, `SELECT
   }
   ))
 
-
 async function goDaily() {
   const affiliatesMap = await getAffiliatesMap()
   const getHandleUrl = await getGetHandleUrl()
@@ -116,18 +133,20 @@ async function goDaily() {
   const { topAffiliates, changedCountries, changedAffiliates } = await makeChangedAffiliates(changedAffiliatesParams, {affiliatesMap})
   const { topHandles, changedHandles } = await makeChangedHandles(changedHandlesParams, {affiliatesMap, getHandleUrl})
 
-  const Daily = <div style={ { 
+  const Daily = <div style={ {
         backgroundColor: 'white', color: 'black'
       , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
       , fontSize: '14px'
       , maxWidth: '1200px'
       , margin: `1em 1em`} }>
-      <h3>Daily Campaign Monitor - { yesterday } 
+      <h3>Daily Campaign Monitor - { yesterday }
           <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-            <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/daily_reports_archive/${yesterday}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
-            </span>
+            <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/daily_reports_archive/${yesterday}/?username=sam-media&hash=37b90bce2765c2072c` }>
+                view the full report online
+            </a>)
+          </span>
       </h3>
-      { 
+      {
         [ changedCountries
         // , ChangedTransactions
         , changedAffiliates
@@ -136,37 +155,41 @@ async function goDaily() {
         , topHandles].map(c => <div style={ { marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver' } }>{ c }</div>)
       }
     </div>
-      return ReactDOMServer.renderToStaticMarkup(Daily)
-  // return ReactDOMServer.renderToString(Main)
+    return ReactDOMServer.renderToStaticMarkup(Daily)
 }
+
 
 async function goHourly() {
   const affiliatesMap = await getAffiliatesMap()
   const { topAffiliates, changedCountries, changedAffiliates } = await makeChangedAffiliates(changedAffiliatesParamsHourly, {affiliatesMap})
   const fileName = dateParamsHourly.dateTo + (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset)
-  
-  const subject = `Hourly Monitor - ${ dateParamsHourly.dateTo.replace('T', ' ') } UTC${ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) }` 
 
-  const Hourly = <div style={ { 
+  const subject = `Hourly Monitor - ${ dateParamsHourly.dateTo.replace('T', ' ') } UTC${ (timeZoneOffset > 0 ? '-' : '+') + Math.abs(timeZoneOffset) }`
+
+  const Hourly = <div style={ {
      backgroundColor: 'white', color: 'black'
     , fontFamily: 'Osaka, CONSOLAS, Monaco, Courier, monospace, sans-serif'
     , fontSize: '14px'
     , maxWidth: '1200px'
     , margin: `1em 1em`} }>
+
     <h3>{ subject }
         <span style={ { fontSize: '80%', paddingLeft: '2em' }}> (
-          <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/hourly_reports_archive/${fileName}/?username=sam-media&hash=37b90bce2765c2072c` }>view the full report online</a>)
-          </span>
+          <a style={ { color: 'black' } } href={ `http://sigma.sam-media.com/hourly_reports_archive/${fileName}/?username=sam-media&hash=37b90bce2765c2072c` }>
+              view the full report online
+          </a>)
+        </span>
     </h3>
-    { 
+
+    {
       [changedCountries, changedAffiliates, topAffiliates]
       .map(c => <div style={ { marginBottom: '3em', paddingBottom: '0.1em', borderBottom: 'solid 1px silver' } }>{ c }</div>)
     }
+
   </div>
 
   return { subject, content: ReactDOMServer.renderToStaticMarkup(Hourly), fileName }
 }
-
 
 if(process.env.daily ==="true"){
   goDaily()
@@ -174,7 +197,7 @@ if(process.env.daily ==="true"){
   .then(write('./../test.html'))
   .catch(console.error)
 } else {
-  const emails = R.pipe(
+    const emails = R.pipe(
     R.split(',')
   , R.map(x => x.trim())
   )(fs.readFileSync('hourly-emails.txt', 'utf8'))
@@ -184,4 +207,3 @@ if(process.env.daily ==="true"){
   .then(_ => console.log("done"))
   .catch(console.error)
 }
-
