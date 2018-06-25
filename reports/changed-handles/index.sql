@@ -28,7 +28,7 @@ Impressions as (
      date_trunc('day', timestamp '$dateTo$' + interval '1439 minutes') - timestamp '$dateTo$'
     )/3600
   )) :: timestamp AT TIME ZONE '$timeZoneOffset$' as row
-  , sum(us.impression) :: int as impressions
+  , sum(case when us.impression > 0 then 1 else 0 end) :: int as impressions
   from public.user_sessions us
   where us.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
     and us.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
