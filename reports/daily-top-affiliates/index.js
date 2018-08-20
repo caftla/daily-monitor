@@ -38,8 +38,8 @@ const Country = ({date, data}) => {
     </thead>
     <tbody>{
       data.data.map((x, i) => <tr key={i}>
-        <TD width={60}  value={x.country_code} link={ `http://sigma.sam-media.com/filter_page_section_row/${date_from}/${date_to}/country_code=${x.country_code}/country_code/country_code/day?username=sam-media&hash=37b90bce2765c2072c` } style={{ paddingLeft: '0.7em' }}  />
-        <TD width={150} value={x.affiliate_name} link={ `http://sigma.sam-media.com/filter_page_section_row/${date_from}/${date_to}/country_code=${x.country_code},affiliate_name=${x.affiliate_name}/country_code/affiliate_id/day?username=sam-media&hash=37b90bce2765c2072c` } />
+        <TD width={60}  value={x.country_code} link={ `http://sigma.sam-media.com/user_sessions/${date_from}/${date_to}/+0.0/country_code=${x.country_code}/country_code/country_code/day?username=sam-media&hash=37b90bce2765c2072c` } style={{ paddingLeft: '0.7em' }}  />
+        <TD width={150} value={x.affiliate_name} link={ `http://sigma.sam-media.com/user_sessions/${date_from}/${date_to}/+0.0/country_code=${x.country_code},affiliate_name=${x.affiliate_name}/country_code/affiliate_id/day?username=sam-media&hash=37b90bce2765c2072c` } />
         <TD width='90'  value={d3.format(',')(+x.views) + change_sign(+x.views_change)} />
         <TD width={90}  value={d3.format('0.0f')(100 * +x.country_sales_ratio)} />
         <TD width={90}  value={d3.format(',')(+x.sales) + change_sign(+x.sales_change)} />

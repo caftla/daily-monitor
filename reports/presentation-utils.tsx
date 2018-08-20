@@ -45,7 +45,7 @@ export const makeColumn = valueToLabel => (value, scale, format, coptions?) => n
 
 
 export const newMakeUrl = ({dateFrom, dateTo}) => {
-  const makeUrl = (filter, breakdown) => `http://sigma.sam-media.com/filter_page_section_row/${dateFrom}/${dateTo}/${filter}/${breakdown}?username=sam-media&hash=37b90bce2765c2072c`;
+  const makeUrl = (filter, breakdown) => `http://sigma.sam-media.com/user_sessions/+0.0/${dateFrom}/${dateTo}/${filter}/${breakdown}?username=sam-media&hash=37b90bce2765c2072c`;
   return {
       makeUrl
     , makeCountrySummaryUrl: (country_code) => makeUrl(`country_code=${country_code}`, `-/-/day`)

@@ -90,7 +90,7 @@ export const newMakeUrl = ({dateFrom, dateTo}) => {
      the signature function can be imported from ./hash.ts
      username can be passed as props (best case scenario)
     */
-    const makeUrl = (filter, breakdown) => `http://sigma.sam-media.com/filter_page_section_row/${dateFrom}/${dateTo}/${filter}/${breakdown}/`;
+  const makeUrl = (filter, breakdown) => `http://sigma.sam-media.com/user_sessions/+0.0/${dateFrom}/${dateTo}/${filter}/${breakdown}/`;
     return {
         makeUrl,
         makeCountrySummaryUrl: (country_code) => makeUrl(`country_code=${country_code}`, `-/-/day`),
