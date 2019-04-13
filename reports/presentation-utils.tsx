@@ -68,7 +68,7 @@ const getSevirityLevel = (function() {
   const abs = Math.abs
 
   return (s, r) =>
-    abs(s) <= 1 ? 0 : levels.find(lev => lev.f(abs(s), r == -1 ? 1000 : r < 0 ? 1 / (1 - abs(r)) : r)).severity
+    abs(s) <= 1 ? 0 : (levels.find(lev => lev.f(abs(s), r == -1 ? 1000 : r < 0 ? 1 / (1 - abs(r)) : r)) || {severity: 1}).severity
 })()
 
 

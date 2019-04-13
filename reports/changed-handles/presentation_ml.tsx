@@ -45,7 +45,7 @@ export default function (results: any, params: any, {affiliatesMap, getHandleUrl
         column('cr', positiveColorScale, crFormat),
         column('cq', positiveColorScale, cqFormat),
         column('resubs', negativeColorScale, rateFormat),
-        column('releads', negativeColorScale, rateFormat),
+        // column('releads', negativeColorScale, rateFormat),
         column('active24', positiveColorScale, cqFormat),
         column('pixels_ratio', neutralColorScale, cqFormat),
         column('ecpa', negativeColorScale, cpaFormat)

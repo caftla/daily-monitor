@@ -79,7 +79,7 @@ export default function(results: any, params: any, {affiliatesMap}) {
   , column('cr', positiveColorScale, crFormat)
   , column('cq', positiveColorScale, cqFormat, { col0: '10%' })
   , column('resubs', negativeColorScale, rateFormat)
-  , column('releads', negativeColorScale, rateFormat)
+  // , column('releads', negativeColorScale, rateFormat)
   , column('active24', positiveColorScale, cqFormat)
   , column('pixels_ratio', neutralColorScale, cqFormat)
   , column('ecpa', negativeColorScale, cpaFormat)
