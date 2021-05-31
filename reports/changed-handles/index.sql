@@ -18,10 +18,10 @@ with Views as (
   , sum(case when e.resubscribe > 0 then 1 else 0 end) :: int as resubscribes
   , sum(case when e.optout_timestamp is not null and e.sale_timestamp - e.optout_timestamp < '24 hour' :: interval then 1 else 0 end) :: int as optout_24 
   , sum(case when e.optout > 0 then 1 else 0 end) :: int as tototal_optouts
-  , sum(nvl(c.home_cpa, 0)) :: float as cost
+  , sum(coalesce(ub.home_cpa, 0)) :: float as cost
   
   from user_sessions e 
-  left join cpa c on c.cpa_id = e.cpa_id
+  left outer join user_subscriptions as ub on ub.rockman_id = e.rockman_id
   where e.timestamp >= CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateFrom$')
     and e.timestamp < CONVERT_TIMEZONE('$timeZoneOffset$', '0', '$dateTo$')
   group by page, section, row
