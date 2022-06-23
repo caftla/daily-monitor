@@ -26,7 +26,7 @@
     "flow-static-land": "^0.2.6",
     "isomorphic-fetch": "^2.2.1",
     "js-dom": "^0.0.1",
-    "jsdom": "^9.12.0",
+    "jsdom": "^16.5.0",
     "node-fetch": "^1.6.3",
     "pg": "^6.1.5",
     "prelude-ls": "^1.1.2",
